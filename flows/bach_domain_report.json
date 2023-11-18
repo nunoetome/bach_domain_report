@@ -20,8 +20,8 @@
       "name": "Read From File",
       "type": "n8n-nodes-base.readBinaryFile",
       "position": [
-        200,
-        440
+        720,
+        140
       ],
       "typeVersion": 1
     },
@@ -36,8 +36,8 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        400,
-        440
+        920,
+        140
       ],
       "typeVersion": 1
     },
@@ -55,7 +55,10 @@
             },
             {
               "name": "domain_list_file",
-              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\resources\\test_domais1.csv"
+              "value": "report_folder"
+            },
+            {
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports"
             }
           ]
         },
@@ -73,7 +76,7 @@
     {
       "parameters": {
         "content": "## Settings",
-        "height": 240,
+        "height": 285,
         "width": 461
       },
       "id": "77021e51-bbde-4ab3-a8bd-04e30c24e8fd",
@@ -96,9 +99,65 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        160,
-        340
+        660,
+        60
       ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "31880994-41d3-4cd1-b4b1-f0c1b99bc731",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        220,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "eb224394-ba94-4e9f-9183-b27f77be3bcf",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        560,
+        620
+      ],
+      "webhookId": "2be86541-1298-4c13-b456-920509c1f386"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=#Domain name {{ $json[\".pt\"] }}:\n\n##report date: \n\n##whois:\n\n##site report:"
+            }
+          ]
+        }
+      },
+      "id": "dfd43ed8-9cd3-4c4e-9228-06da355349d6",
+      "name": "Google Docs",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        560,
+        420
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -125,11 +184,6 @@
         ]
       ]
     },
-    "Convert To Spreadsheet": {
-      "main": [
-        []
-      ]
-    },
     "Settings": {
       "main": [
         [
@@ -140,11 +194,40 @@
           }
         ]
       ]
+    },
+    "Convert To Spreadsheet": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {},
-  "versionId": "e6bad6b5-fe54-4bbb-95e0-05f24d65f155",
+  "versionId": "16b7296f-27ca-4133-9dee-3b3f00c7e6ca",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
