@@ -8,7 +8,7 @@
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
         200,
-        240
+        140
       ],
       "typeVersion": 1
     },
@@ -20,8 +20,8 @@
       "name": "Read From File",
       "type": "n8n-nodes-base.readBinaryFile",
       "position": [
-        580,
-        240
+        200,
+        440
       ],
       "typeVersion": 1
     },
@@ -36,8 +36,8 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        780,
-        240
+        400,
+        440
       ],
       "typeVersion": 1
     },
@@ -67,7 +67,37 @@
       "typeVersion": 2,
       "position": [
         400,
-        240
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Settings",
+        "height": 240,
+        "width": 461
+      },
+      "id": "77021e51-bbde-4ab3-a8bd-04e30c24e8fd",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Domain list reading",
+        "height": 286,
+        "width": 458
+      },
+      "id": "7e50dc49-88ce-4ad2-9cb5-3077b28935ee",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        340
       ]
     }
   ],
@@ -114,7 +144,7 @@
   },
   "active": false,
   "settings": {},
-  "versionId": "fd328fac-2fd4-484d-9038-88bd77fd69e4",
+  "versionId": "e6bad6b5-fe54-4bbb-95e0-05f24d65f155",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
