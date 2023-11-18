@@ -1,0 +1,31 @@
+{
+  "name": "bach_domain_report",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "3e203c33-1939-4423-b4bc-a07fee802a33",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {},
+  "active": false,
+  "settings": {
+    "timezone": "Europe/Lisbon",
+    "saveManualExecutions": false,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionTimeout": -1
+  },
+  "versionId": "9fefc9f4-59c3-4832-a958-d7b8e3ae9a13",
+  "id": "15",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": []
+}
