@@ -24,8 +24,8 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        1300,
-        140
+        920,
+        500
       ],
       "typeVersion": 1
     },
@@ -78,9 +78,9 @@
     },
     {
       "parameters": {
-        "content": "## Domain list reading",
+        "content": "## report setup",
         "height": 286,
-        "width": 791.0760581620584
+        "width": 441.93359310581286
       },
       "id": "7e50dc49-88ce-4ad2-9cb5-3077b28935ee",
       "name": "Sticky Note1",
@@ -103,8 +103,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        1500,
-        140
+        1180,
+        500
       ]
     },
     {
@@ -114,8 +114,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        1740,
-        160
+        1520,
+        100
       ],
       "webhookId": "2be86541-1298-4c13-b456-920509c1f386"
     },
@@ -129,8 +129,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        660,
-        560
+        900,
+        740
       ]
     },
     {
@@ -142,8 +142,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        860,
-        560
+        1100,
+        740
       ]
     },
     {
@@ -164,7 +164,7 @@
       "typeVersion": 2,
       "position": [
         240,
-        560
+        740
       ]
     },
     {
@@ -200,8 +200,8 @@
       "name": "Read list of domains From File",
       "type": "n8n-nodes-base.readBinaryFile",
       "position": [
-        1120,
-        140
+        620,
+        500
       ],
       "typeVersion": 1
     },
@@ -213,7 +213,7 @@
           "actionFields": [
             {
               "action": "insert",
-              "text": "=\n----\n----\n\n# **Start testing for {{ $node.Debug1.json.debug_name_to_test }}**\n\n###### **report date:** {{ new Date()}}\n"
+              "text": "=\n----\n----\n\n# **Start domain testing for {{ $node.Debug1.json.debug_name_to_test }}**\n\n###### **report date:** {{ new Date()}}\n"
             }
           ]
         }
@@ -252,7 +252,7 @@
       "typeVersion": 2,
       "position": [
         460,
-        560
+        740
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -263,8 +263,9 @@
     },
     {
       "parameters": {
-        "height": 475.47958716481855,
-        "width": 1486.3965918072763
+        "content": "## Domain list reading\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
+        "height": 690.6300165989935,
+        "width": 1929.5065473893223
       },
       "id": "9972c52a-023f-4d67-8b8c-ddc1e108b6d2",
       "name": "Sticky Note2",
@@ -272,7 +273,7 @@
       "typeVersion": 1,
       "position": [
         160,
-        400
+        415.10368547015776
       ]
     },
     {
@@ -291,8 +292,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1060,
-        560
+        1360,
+        740
       ]
     },
     {
@@ -313,8 +314,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1300,
-        460
+        1660,
+        640
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -331,7 +332,7 @@
           "actionFields": [
             {
               "action": "insert",
-              "text": "=> ** autit date: ** {{ $json.WhoisRecord.audit.updatedDate }}\n> ** error: ** {{ $json.WhoisRecord.dataError }}\n> ** created date: ** {{ $json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $json.WhoisRecord.expiresDate }}\n> ** registrant name ** {{ $json.WhoisRecord.registrant.name }}\n> ** registrant country ** {{ $json.WhoisRecord.registrant.country }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n {{ $json.WhoisRecord }}\n\n"
+              "text": "=> ** autit date: ** {{ $json.WhoisRecord.audit.updatedDate }}\n> ** error: ** {{ $json.WhoisRecord.dataError }}\n> ** created date: ** {{ $json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $json.WhoisRecord.expiresDate }}\n> ** registrant name ** {{ $json.WhoisRecord.registrant.name }}\n> ** registrant country ** {{ $json.WhoisRecord.registrant.country }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n\n\n\n"
             }
           ]
         }
@@ -341,8 +342,120 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1300,
-        660
+        1660,
+        860
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=---\n\n## **Domain name  {{ $node.Set.json.domain_name_to_test }} :**\n"
+            }
+          ]
+        }
+      },
+      "id": "1ac17108-c55f-4ded-84c0-2aa3d889c2e8",
+      "name": "Write dimain header1",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        680,
+        740
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=\n----\n----\n\n# **Start domain testing for {{ $node.Debug1.json.debug_name_to_test }}**\n\n###### **report date:** {{ new Date()}}\n"
+            }
+          ]
+        }
+      },
+      "id": "ea190e3c-f523-4c0a-a7f3-a6d9662088ba",
+      "name": "Write global header summary",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        140
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": " ### MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "4aa78ba8-009a-414c-bf2b-27347f9a2384",
+      "name": "No domain summary",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        640
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=> ** created date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.expiresDate }}\n"
+            }
+          ]
+        }
+      },
+      "id": "bbbf738f-6e20-43d6-a79f-f93f975d041c",
+      "name": "whois data summary",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1840,
+        860
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -464,7 +577,7 @@
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "Write global header summary",
             "type": "main",
             "index": 0
           }
@@ -475,7 +588,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Write dimain header1",
             "type": "main",
             "index": 0
           }
@@ -504,7 +617,7 @@
       "main": [
         [
           {
-            "node": "Split In Batches",
+            "node": "No domain summary",
             "type": "main",
             "index": 0
           }
@@ -512,6 +625,50 @@
       ]
     },
     "whois data": {
+      "main": [
+        [
+          {
+            "node": "whois data summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write dimain header1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write global header summary": {
+      "main": [
+        [
+          {
+            "node": "Read list of domains From File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No domain summary": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "whois data summary": {
       "main": [
         [
           {
@@ -525,7 +682,7 @@
   },
   "active": false,
   "settings": {},
-  "versionId": "ba241f7e-c97b-4b89-bc98-31947707e95f",
+  "versionId": "6f6f317b-6e21-4004-bbfe-f0bfe441f562",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
