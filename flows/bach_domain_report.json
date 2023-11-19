@@ -14,19 +14,6 @@
     },
     {
       "parameters": {
-        "filePath": "={{ $json.domain_list_file_folder }}{{ $json.domain_list_file_fille }}"
-      },
-      "id": "66822f20-83a9-4272-920c-5d8c9140f912",
-      "name": "Read From File",
-      "type": "n8n-nodes-base.readBinaryFile",
-      "position": [
-        720,
-        140
-      ],
-      "typeVersion": 1
-    },
-    {
-      "parameters": {
         "options": {
           "headerRow": true,
           "rawData": true,
@@ -37,7 +24,7 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        920,
+        1300,
         140
       ],
       "typeVersion": 1
@@ -70,7 +57,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        400,
+        600,
         140
       ]
     },
@@ -78,7 +65,7 @@
       "parameters": {
         "content": "## Settings",
         "height": 285,
-        "width": 461
+        "width": 628.9988889852492
       },
       "id": "77021e51-bbde-4ab3-a8bd-04e30c24e8fd",
       "name": "Sticky Note",
@@ -93,14 +80,14 @@
       "parameters": {
         "content": "## Domain list reading",
         "height": 286,
-        "width": 458
+        "width": 791.0760581620584
       },
       "id": "7e50dc49-88ce-4ad2-9cb5-3077b28935ee",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        660,
+        860,
         60
       ]
     },
@@ -116,8 +103,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        220,
-        440
+        1500,
+        140
       ]
     },
     {
@@ -127,8 +114,8 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        560,
-        620
+        1460,
+        500
       ],
       "webhookId": "2be86541-1298-4c13-b456-920509c1f386"
     },
@@ -140,7 +127,7 @@
           "actionFields": [
             {
               "action": "insert",
-              "text": "=#Domain name {{ $json[\".pt\"] }}:\n\n##report date: \n\n##whois:\n\n##site report:"
+              "text": "=> create date: {{ $json.WhoisRecord.audit.createdDate }}\n> update date: {{ $json.WhoisRecord.audit.updatedDate }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n"
             }
           ]
         }
@@ -150,8 +137,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1080,
-        420
+        1000,
+        480
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -170,8 +157,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        480,
-        420
+        620,
+        480
       ]
     },
     {
@@ -183,29 +170,147 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        700,
-        420
+        820,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_name_to_test",
+              "value": "={{ $node.Debug1.json.debug_name_to_test }}{{ $json.domain }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "45f5fd95-86b1-4cdc-ac78-7f13185493f6",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        200,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "debug_name_to_test",
+              "value": "myotis"
+            },
+            {
+              "name": "debug_full_name_to_test",
+              "value": "myotis.store"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "4c2bcf2c-2c5e-406b-8d94-bb7b643c5c47",
+      "name": "Debug1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        380,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $node.Settings.json.domain_list_file_folder }}{{ $node.Settings.json.domain_list_file_fille }}"
+      },
+      "id": "66822f20-83a9-4272-920c-5d8c9140f912",
+      "name": "Read list of domains From File",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1120,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=\n----\n----\n\n# **Start testing for {{ $node.Debug1.json.debug_name_to_test }}**\n\n###### **report date:** {{ new Date()}}\n"
+            }
+          ]
+        }
+      },
+      "id": "81db9669-cb55-4985-a649-a72d69f6b148",
+      "name": "Write global header",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        920,
+        140
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=---\n\n## **Domain name {{ $json.domain_name_to_test }}:**\n"
+            }
+          ]
+        }
+      },
+      "id": "b590f832-c341-44b2-a567-f5f32b789ee9",
+      "name": "Write dimain header",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        420,
+        480
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "height": 281.91840619516864,
+        "width": 1010.4740515220478
+      },
+      "id": "9972c52a-023f-4d67-8b8c-ddc1e108b6d2",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        400
       ]
     }
   ],
   "pinData": {},
   "connections": {
-    "Read From File": {
-      "main": [
-        [
-          {
-            "node": "Convert To Spreadsheet",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "On clicking 'execute'": {
       "main": [
         [
           {
-            "node": "Settings",
+            "node": "Debug1",
             "type": "main",
             "index": 0
           }
@@ -216,7 +321,7 @@
       "main": [
         [
           {
-            "node": "Read From File",
+            "node": "Write global header",
             "type": "main",
             "index": 0
           }
@@ -238,7 +343,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Set",
             "type": "main",
             "index": 0
           }
@@ -273,11 +378,77 @@
           }
         ]
       ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Write dimain header",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Debug1": {
+      "main": [
+        [
+          {
+            "node": "Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read list of domains From File": {
+      "main": [
+        [
+          {
+            "node": "Convert To Spreadsheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write global header": {
+      "main": [
+        [
+          {
+            "node": "Read list of domains From File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write dimain header": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Docs": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {},
-  "versionId": "f7fb8ee3-518d-4c63-8b27-0f0b8490ae46",
+  "versionId": "5fdd35ac-b4e2-458f-bae2-185b740eec90",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
