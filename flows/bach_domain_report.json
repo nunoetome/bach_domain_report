@@ -28,6 +28,7 @@
     {
       "parameters": {
         "options": {
+          "headerRow": true,
           "rawData": true,
           "readAsString": true
         }
@@ -149,7 +150,7 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        560,
+        1080,
         420
       ],
       "credentials": {
@@ -158,6 +159,33 @@
           "name": "Google Docs account"
         }
       }
+    },
+    {
+      "parameters": {
+        "url": "https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_G9aJkBkW8lzUUkJ3H3wPcKFIJwHtI&domainName=myoptis.store",
+        "options": {}
+      },
+      "id": "d706ae3e-7e33-4798-b160-77b9b0da60ff",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        480,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "1ad617a0-ca0f-412c-aab5-96c59f75be77",
+      "name": "XML",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        700,
+        420
+      ]
     }
   ],
   "pinData": {},
@@ -210,7 +238,7 @@
       "main": [
         [
           {
-            "node": "Google Docs",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -223,11 +251,33 @@
           }
         ]
       ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML": {
+      "main": [
+        [
+          {
+            "node": "Google Docs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {},
-  "versionId": "16b7296f-27ca-4133-9dee-3b3f00c7e6ca",
+  "versionId": "f7fb8ee3-518d-4c63-8b27-0f0b8490ae46",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
