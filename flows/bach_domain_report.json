@@ -114,42 +114,14 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1,
       "position": [
-        1460,
-        500
+        1740,
+        160
       ],
       "webhookId": "2be86541-1298-4c13-b456-920509c1f386"
     },
     {
       "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "=> create date: {{ $json.WhoisRecord.audit.createdDate }}\n> update date: {{ $json.WhoisRecord.audit.updatedDate }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n"
-            }
-          ]
-        }
-      },
-      "id": "dfd43ed8-9cd3-4c4e-9228-06da355349d6",
-      "name": "Google Docs",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        1000,
-        480
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "url": "https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_G9aJkBkW8lzUUkJ3H3wPcKFIJwHtI&domainName=myoptis.store",
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_G9aJkBkW8lzUUkJ3H3wPcKFIJwHtI&domainName={{ $node.Set.json.domain_name_to_test }}",
         "options": {}
       },
       "id": "d706ae3e-7e33-4798-b160-77b9b0da60ff",
@@ -157,8 +129,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        620,
-        480
+        660,
+        560
       ]
     },
     {
@@ -170,8 +142,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        820,
-        480
+        860,
+        560
       ]
     },
     {
@@ -191,8 +163,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        200,
-        480
+        240,
+        560
       ]
     },
     {
@@ -269,7 +241,7 @@
           "actionFields": [
             {
               "action": "insert",
-              "text": "=---\n\n## **Domain name {{ $json.domain_name_to_test }}:**\n"
+              "text": "=---\n\n## **Domain name {{ $json.domain_name_to_test }} :**\n"
             }
           ]
         }
@@ -279,8 +251,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        420,
-        480
+        460,
+        560
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -291,8 +263,8 @@
     },
     {
       "parameters": {
-        "height": 281.91840619516864,
-        "width": 1010.4740515220478
+        "height": 475.47958716481855,
+        "width": 1486.3965918072763
       },
       "id": "9972c52a-023f-4d67-8b8c-ddc1e108b6d2",
       "name": "Sticky Note2",
@@ -302,6 +274,82 @@
         160,
         400
       ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "5e6ab70d-6848-4081-8b11-f565567b8a78",
+      "name": "IF MISSING_WHOIS_DATA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=\n### MISSING_WHOIS_DATA\n\nwhoisServer: {{ $json.WhoisRecord.registryData.whoisServer }}\naudit date:  {{ $json.WhoisRecord.audit.createdDate }}\n"
+            }
+          ]
+        }
+      },
+      "id": "f6772805-573c-49e7-ad91-c5f223a0176b",
+      "name": "No domain",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        460
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=> ** autit date: ** {{ $json.WhoisRecord.audit.updatedDate }}\n> ** error: ** {{ $json.WhoisRecord.dataError }}\n> ** created date: ** {{ $json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $json.WhoisRecord.expiresDate }}\n> ** registrant name ** {{ $json.WhoisRecord.registrant.name }}\n> ** registrant country ** {{ $json.WhoisRecord.registrant.country }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n {{ $json.WhoisRecord }}\n\n"
+            }
+          ]
+        }
+      },
+      "id": "dfd43ed8-9cd3-4c4e-9228-06da355349d6",
+      "name": "whois data",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        660
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -372,7 +420,7 @@
       "main": [
         [
           {
-            "node": "Google Docs",
+            "node": "IF MISSING_WHOIS_DATA",
             "type": "main",
             "index": 0
           }
@@ -434,7 +482,36 @@
         ]
       ]
     },
-    "Google Docs": {
+    "IF MISSING_WHOIS_DATA": {
+      "main": [
+        [
+          {
+            "node": "No domain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "whois data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No domain": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "whois data": {
       "main": [
         [
           {
@@ -448,7 +525,7 @@
   },
   "active": false,
   "settings": {},
-  "versionId": "5fdd35ac-b4e2-458f-bae2-185b740eec90",
+  "versionId": "ba241f7e-c97b-4b89-bc98-31947707e95f",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
