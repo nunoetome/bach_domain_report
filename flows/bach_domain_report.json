@@ -24,42 +24,10 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        920,
+        380,
         500
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "domain_list_file_folder",
-              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\resources\\"
-            },
-            {
-              "name": "domain_list_file_fille",
-              "value": "test_domais1.csv"
-            },
-            {
-              "name": "domain_list_file",
-              "value": "report_folder"
-            },
-            {
-              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "9f578898-67fc-4f20-8fda-5fb54264db71",
-      "name": "Settings",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
-      "position": [
-        600,
-        140
-      ]
     },
     {
       "parameters": {
@@ -103,21 +71,9 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        1180,
+        580,
         500
       ]
-    },
-    {
-      "parameters": {},
-      "id": "eb224394-ba94-4e9f-9183-b27f77be3bcf",
-      "name": "Wait1",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        1520,
-        100
-      ],
-      "webhookId": "2be86541-1298-4c13-b456-920509c1f386"
     },
     {
       "parameters": {
@@ -129,8 +85,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        900,
-        740
+        880,
+        800
       ]
     },
     {
@@ -142,8 +98,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        1100,
-        740
+        1060,
+        800
       ]
     },
     {
@@ -163,8 +119,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        240,
-        740
+        220,
+        800
       ]
     },
     {
@@ -194,13 +150,13 @@
     },
     {
       "parameters": {
-        "filePath": "={{ $node.Settings.json.domain_list_file_folder }}{{ $node.Settings.json.domain_list_file_fille }}"
+        "filePath": "={{ $node[\"Global Settings\"].json.domain_list_file_folder }}{{ $node[\"Global Settings\"].json.domain_list_file_fille }}"
       },
       "id": "66822f20-83a9-4272-920c-5d8c9140f912",
       "name": "Read list of domains From File",
       "type": "n8n-nodes-base.readBinaryFile",
       "position": [
-        620,
+        200,
         500
       ],
       "typeVersion": 1
@@ -251,8 +207,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        460,
-        740
+        440,
+        800
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -260,21 +216,6 @@
           "name": "Google Docs account"
         }
       }
-    },
-    {
-      "parameters": {
-        "content": "## Domain list reading\n**Double click** to edit me. [Guide](https://docs.n8n.io/workflows/sticky-notes/)",
-        "height": 690.6300165989935,
-        "width": 1929.5065473893223
-      },
-      "id": "9972c52a-023f-4d67-8b8c-ddc1e108b6d2",
-      "name": "Sticky Note2",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        160,
-        415.10368547015776
-      ]
     },
     {
       "parameters": {
@@ -292,8 +233,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1360,
-        740
+        260,
+        1020
       ]
     },
     {
@@ -314,8 +255,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1660,
-        640
+        560,
+        1000
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -342,8 +283,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1660,
-        860
+        560,
+        1180
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -370,8 +311,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        680,
-        740
+        660,
+        800
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -398,7 +339,7 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1120,
+        1100,
         140
       ],
       "credentials": {
@@ -426,8 +367,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1840,
-        640
+        760,
+        1000
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -454,8 +395,8 @@
       "type": "n8n-nodes-base.googleDocs",
       "typeVersion": 2,
       "position": [
-        1840,
-        860
+        780,
+        1180
       ],
       "credentials": {
         "googleDocsOAuth2Api": {
@@ -463,6 +404,120 @@
           "name": "Google Docs account"
         }
       }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_list_file_folder",
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\resources\\"
+            },
+            {
+              "name": "domain_list_file_fille",
+              "value": "all_domais.csv"
+            },
+            {
+              "name": "domain_list_file",
+              "value": "report_folder"
+            },
+            {
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9f578898-67fc-4f20-8fda-5fb54264db71",
+      "name": "Global Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        600,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$runIndex}}",
+              "operation": "larger",
+              "value2": -1
+            }
+          ]
+        }
+      },
+      "id": "58e68a46-3176-4c3f-ba62-eb2c92dd368b",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        820,
+        480
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2e5d1991-31a0-4147-8a64-b7713b66cd59",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$runIndex % 20 }}",
+              "operation": "equal"
+            }
+          ]
+        }
+      },
+      "id": "6b34240f-538d-4c81-83f5-6010009762d9",
+      "name": "IF1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "aa0bf28b-e630-486d-afc5-5a84e174a2d6",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        540
+      ],
+      "webhookId": "b8f02c55-7295-4e49-8174-e3406b703ffa"
+    },
+    {
+      "parameters": {
+        "content": "## Create domain name report\n** you can define variables",
+        "height": 996.3314127922374,
+        "width": 1513.2734937276432
+      },
+      "id": "cc8fb2f2-ca19-454a-8feb-c54e09336fa8",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        94.20071509401168,
+        400
+      ]
     }
   ],
   "pinData": {},
@@ -472,17 +527,6 @@
         [
           {
             "node": "Debug1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Settings": {
-      "main": [
-        [
-          {
-            "node": "Write global header",
             "type": "main",
             "index": 0
           }
@@ -504,14 +548,7 @@
       "main": [
         [
           {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Wait1",
+            "node": "IF",
             "type": "main",
             "index": 0
           }
@@ -555,7 +592,7 @@
       "main": [
         [
           {
-            "node": "Settings",
+            "node": "Global Settings",
             "type": "main",
             "index": 0
           }
@@ -657,11 +694,11 @@
         ]
       ]
     },
-    "No domain summary": {
+    "Global Settings": {
       "main": [
         [
           {
-            "node": "Split In Batches",
+            "node": "Write global header",
             "type": "main",
             "index": 0
           }
@@ -678,14 +715,85 @@
           }
         ]
       ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "IF1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No domain summary": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {},
-  "versionId": "6f6f317b-6e21-4004-bbfe-f0bfe441f562",
+  "versionId": "a6d6bb63-07b6-461f-b8ff-792e43b82ee7",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
   },
-  "tags": []
+  "tags": [
+    {
+      "createdAt": "2023-03-01T22:26:53.466Z",
+      "updatedAt": "2023-03-01T22:26:53.466Z",
+      "id": "1",
+      "name": "gitHub"
+    },
+    {
+      "createdAt": "2023-03-01T22:28:57.857Z",
+      "updatedAt": "2023-03-01T22:28:57.857Z",
+      "id": "2",
+      "name": "colchões_a_pontapé"
+    }
+  ]
 }
