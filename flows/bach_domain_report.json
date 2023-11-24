@@ -24,8 +24,8 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        400,
-        860
+        980,
+        140
       ],
       "typeVersion": 1
     },
@@ -33,7 +33,7 @@
       "parameters": {
         "content": "## Settings",
         "height": 285,
-        "width": 594.9154268190025
+        "width": 1051.2560257030998
       },
       "id": "77021e51-bbde-4ab3-a8bd-04e30c24e8fd",
       "name": "Sticky Note",
@@ -56,13 +56,13 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        600,
-        860
+        140,
+        540
       ]
     },
     {
       "parameters": {
-        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_G9aJkBkW8lzUUkJ3H3wPcKFIJwHtI&domainName={{ $node.Set.json.domain_name_to_test }}",
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_VPpFAzA4TeqpelJWKByi4JnAgVrlq&domainName={{ $node[\"Complete Domain\"].json.domain_name_to_test }}",
         "options": {}
       },
       "id": "d706ae3e-7e33-4798-b160-77b9b0da60ff",
@@ -70,8 +70,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        900,
-        1160
+        640,
+        520
       ]
     },
     {
@@ -83,29 +83,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        1080,
-        1160
-      ]
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "domain_name_to_test",
-              "value": "={{ $node.Debug1.json.debug_name_to_test }}{{ $json.domain }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "45f5fd95-86b1-4cdc-ac78-7f13185493f6",
-      "name": "Set",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
-      "position": [
-        180,
-        1160
+        920,
+        520
       ]
     },
     {
@@ -116,38 +95,10 @@
       "name": "Read list of domains From File",
       "type": "n8n-nodes-base.readBinaryFile",
       "position": [
-        1860,
+        780,
         140
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "=---\n\n## **Domain name {{ $json.domain_name_to_test }} :**\n"
-            }
-          ]
-        }
-      },
-      "id": "b590f832-c341-44b2-a567-f5f32b789ee9",
-      "name": "Write dimain header",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        460,
-        1160
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
     },
     {
       "parameters": {
@@ -165,230 +116,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        280,
-        1380
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "=\n### MISSING_WHOIS_DATA\n\nwhoisServer: {{ $json.WhoisRecord.registryData.whoisServer }}\naudit date:  {{ $json.WhoisRecord.audit.createdDate }}\n"
-            }
-          ]
-        }
-      },
-      "id": "f6772805-573c-49e7-ad91-c5f223a0176b",
-      "name": "No domain",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        580,
-        1360
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "=> ** autit date: ** {{ $json.WhoisRecord.audit.updatedDate }}\n> ** error: ** {{ $json.WhoisRecord.dataError }}\n> ** created date: ** {{ $json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $json.WhoisRecord.expiresDate }}\n> ** registrant name ** {{ $json.WhoisRecord.registrant.name }}\n> ** registrant country ** {{ $json.WhoisRecord.registrant.country }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n\n\n\n"
-            }
-          ]
-        }
-      },
-      "id": "dfd43ed8-9cd3-4c4e-9228-06da355349d6",
-      "name": "whois data",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        580,
-        1540
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "=---\n\n## **Domain name  {{ $node.Set.json.domain_name_to_test }} :**\n"
-            }
-          ]
-        }
-      },
-      "id": "1ac17108-c55f-4ded-84c0-2aa3d889c2e8",
-      "name": "Write dimain header1",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        680,
-        1160
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": " ### MISSING_WHOIS_DATA"
-            }
-          ]
-        }
-      },
-      "id": "4aa78ba8-009a-414c-bf2b-27347f9a2384",
-      "name": "No domain summary",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        780,
-        1360
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "update",
-        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
-        "actionsUi": {
-          "actionFields": [
-            {
-              "action": "insert",
-              "text": "=> ** created date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.expiresDate }}\n"
-            }
-          ]
-        }
-      },
-      "id": "bbbf738f-6e20-43d6-a79f-f93f975d041c",
-      "name": "whois data summary",
-      "type": "n8n-nodes-base.googleDocs",
-      "typeVersion": 2,
-      "position": [
-        800,
-        1540
-      ],
-      "credentials": {
-        "googleDocsOAuth2Api": {
-          "id": "13",
-          "name": "Google Docs account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "number": [
-            {
-              "value1": "={{$runIndex}}",
-              "operation": "larger",
-              "value2": -1
-            }
-          ]
-        }
-      },
-      "id": "58e68a46-3176-4c3f-ba62-eb2c92dd368b",
-      "name": "IF",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        840,
-        840
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "2e5d1991-31a0-4147-8a64-b7713b66cd59",
-      "name": "No Operation, do nothing",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        1320,
-        1180
-      ]
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "number": [
-            {
-              "value1": "={{$runIndex % 20 }}",
-              "operation": "equal"
-            }
-          ]
-        }
-      },
-      "id": "6b34240f-538d-4c81-83f5-6010009762d9",
-      "name": "IF1",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1100,
-        860
-      ]
-    },
-    {
-      "parameters": {
-        "amount": 5,
-        "unit": "seconds"
-      },
-      "id": "aa0bf28b-e630-486d-afc5-5a84e174a2d6",
-      "name": "Wait",
-      "type": "n8n-nodes-base.wait",
-      "typeVersion": 1,
-      "position": [
-        1340,
-        900
-      ],
-      "webhookId": "b8f02c55-7295-4e49-8174-e3406b703ffa"
-    },
-    {
-      "parameters": {
-        "content": "## Create domain name report\n** you can define variables",
-        "height": 996.3314127922374,
-        "width": 1513.2734937276432
-      },
-      "id": "cc8fb2f2-ca19-454a-8feb-c54e09336fa8",
-      "name": "Sticky Note2",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        120,
-        760
+        1200,
+        520
       ]
     },
     {
@@ -401,7 +130,7 @@
             },
             {
               "name": "domain_list_file_fille",
-              "value": "all_domais.csv"
+              "value": "test_domais1.csv"
             },
             {
               "name": "report_folder",
@@ -418,114 +147,6 @@
       "position": [
         520,
         140
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "_html_report_layer_1.1_topping.html.layer",
-              "stringValue": "=<!DOCTYPE html>\n<html>"
-            },
-            {
-              "name": "_html_report_layer_1.2_bottom.html.layer",
-              "stringValue": "=</html>"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "008fd2a3-86cb-45f7-85be-c873a65e83b3",
-      "name": "HTML Report Layers 1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        960,
-        -100
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "_html_report_layer_2.1_head_top.html.layer",
-              "stringValue": "=<head> <meta charset=\"utf-8\"> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\"> <title> "
-            },
-            {
-              "name": "_html_report_layer_2.2_head_text.html.layer",
-              "stringValue": "={{ $json.debug_name_to_test }}"
-            },
-            {
-              "name": "_html_report_layer_2.3_head_bottom.layer",
-              "stringValue": "=</title> <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\"> <link rel=\"stylesheet\"     href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\"> <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\"> <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\"> </head>"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "efce8cba-0c33-469d-a019-d49dc2407754",
-      "name": "HTML Report Layers 2",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        960,
-        60
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "_html_report_layer_3.2_body_header_top..layer",
-              "stringValue": "=<body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1>"
-            },
-            {
-              "name": "_html_report_layer_3.3_body_header_text.layer",
-              "stringValue": "={{ $json.debug_name_to_test }}"
-            },
-            {
-              "name": "_html_report_layer_3.4_body_header_bottom.layer",
-              "stringValue": "=</h1><span class=\"subheading\">Brand Report</span>                     </div>                 </div>             </div>         </div>     </header>"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "f3e934e4-8dd1-4824-87e0-91f7e413aaa6",
-      "name": "HTML Report Layers 3",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        960,
-        220
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "_html_report_layer_4.1_body_list_top.layer",
-              "stringValue": "=    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n"
-            },
-            {
-              "name": "_html_report_layer_4.2_body_list_bottom.layer",
-              "stringValue": "=\n</div>\n</div>\n\n<script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n<script src=\"assets/js/script.min.js\"></script>\n</body>"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "e31fc1d3-9d5c-4df5-a935-04771fa03b08",
-      "name": "HTML Report Layers 4",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        960,
-        380
       ]
     },
     {
@@ -551,92 +172,228 @@
     },
     {
       "parameters": {
-        "height": 818.0465502166259,
-        "width": 776.0351266110068
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
       },
-      "id": "9c75a2a1-8c01-4f3d-bc78-724c45130e40",
+      "id": "e57d589e-9708-438a-bb02-e44b90715555",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1500,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "9e5542e6-2361-485c-a03d-a9d5b5e3e4c6",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "f37a0ec7-ec3e-4323-b3af-9a2341569288",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        2060,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "INVALID_TLD"
+            }
+          ]
+        }
+      },
+      "id": "61f47e3d-07ef-4788-a3b7-36bb508b6588",
+      "name": "IF MISSING_WHOIS_DATA1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "09fdbe85-c959-4a07-ae7b-be13c945b022",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_name_to_test",
+              "value": "={{ $node.Debug1.json.debug_name_to_test }}{{ $json.domain }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "45f5fd95-86b1-4cdc-ac78-7f13185493f6",
+      "name": "Complete Domain",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        400,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "height": 632.6384774156721,
+        "width": 2175.37307562452
+      },
+      "id": "4c8ea5a9-a83e-4baa-81a7-edea16760c54",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        840,
-        -240
+        100,
+        420
       ]
     },
     {
       "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "_html_report_layer_6.0_debug",
-              "stringValue": "=            <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">Monthly</a>\n            </li>\n            <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">Monthly</a>\n            </li>\n"
-            }
-          ]
-        },
-        "options": {}
+        "html": "<!DOCTYPE html>\n<html>\n\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title>Domain report</title>\n    <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\">\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\">\n    <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\">\n</head>\n\n  <body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1>Clean name</h1><span class=\"subheading\">Brande Report</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n            \n                <hr>\n                <hr>\n\n            </div>\n        </div>\n        <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n        <script src=\"assets/js/script.min.js\"></script>\n        \n    </div>\n\n\n</body>\n\n</html>"
       },
-      "id": "b81d5920-3ba9-4b39-b484-63361a860b41",
-      "name": "HTML Report Layers 6",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
+      "id": "8d18755f-aedc-477f-9a09-39da669b2931",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
       "position": [
-        1240,
-        300
+        660,
+        1320
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c0e68f82-4bcc-49d7-88c0-0b43208d94be",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        1320
       ]
     },
     {
       "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "_html_report_layer_5.1_top",
-              "stringValue": "=   <li class=\"mb-1\">\n    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0\" data-bs-toggle=\"collapse\" data-bs-target=\"#"
-            },
-            {
-              "name": "_html_report_layer_5.2_domain_name",
-              "stringValue": "=ERROR; LOCAL VARIABLE, Domain name"
-            },
-            {
-              "name": "_html_report_layer_5.3_close_begin",
-              "stringValue": "=    -collapse\" aria-expanded=\"true\">\n        <h3 class=\"post-title\"> "
-            },
-            {
-              "name": "_html_report_layer_5.4",
-              "stringValue": "ERROR; LOCAL VARIABLE, Domain name"
-            },
-            {
-              "name": "_html_report_layer_5.5",
-              "stringValue": "        </h3>     </button>     <div class=\"collapse show\" id=\""
-            },
-            {
-              "name": "_html_report_layer_5.6",
-              "stringValue": "ERROR; LOCAL VARIABLE, Domain name"
-            },
-            {
-              "name": "_html_report_layer_5.7",
-              "stringValue": "=    -collapse\" style=\"\">\n        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">"
-            },
-            {
-              "name": "_html_report_layer_5.8",
-              "stringValue": "THE LIST HERE"
-            },
-            {
-              "name": "_html_report_layer_5.9- end",
-              "stringValue": "=        </ul>\n    </div>\n</li>"
-            }
-          ]
-        },
+        "operation": "toFile",
+        "fileFormat": "csv",
         "options": {}
       },
-      "id": "271445ed-6548-42e3-bb6e-27a3d8f02487",
-      "name": "HTML Report Layers 5_list",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
+      "id": "791e105f-2589-400e-84d5-6978b77d6d82",
+      "name": "Spreadsheet File",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 2,
       "position": [
-        1240,
-        -40
-      ],
-      "notes": "<li class=\"mb-1\">\n    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0\" data-bs-toggle=\"collapse\" data-bs-target=\"#\n    \n    \n    dashboard\n    \n    \n    -collapse\" aria-expanded=\"true\">\n        <h3 class=\"post-title\"> \n            \n            \n            myotis.store\n        \n        \n        </h3>\n    </button>\n    <div class=\"collapse show\" id=\"\n    \n    dashboard\n    \n    -collapse\" style=\"\">\n        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n\n\n\n\n            <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">Monthly</a>\n            </li>\n\n            <li class=\"mb-1\">\n                <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\" data-bs-toggle=\"collapse\" data-bs-target=\"#teste-collapse\" aria-expanded=\"false\">\n                    Home\n                </button>\n                <div class=\"collapse\" id=\"teste-collapse\" style=\"\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">Overview</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">Updates</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">Reports</a>\n                        </li>\n                    </ul>\n                </div>\n            </li>\n\n\n\n            \n        </ul>\n    </div>\n</li>"
+        900,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "fileName": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports\\po3.html",
+        "options": {}
+      },
+      "id": "e5fd7d16-703c-42ca-b74f-8f305bf3bd32",
+      "name": "Write Binary File1",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        1320
+      ]
     }
   ],
   "pinData": {},
@@ -667,7 +424,14 @@
       "main": [
         [
           {
-            "node": "IF",
+            "node": "Complete Domain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTML",
             "type": "main",
             "index": 0
           }
@@ -692,15 +456,9 @@
             "node": "IF MISSING_WHOIS_DATA",
             "type": "main",
             "index": 0
-          }
-        ]
-      ]
-    },
-    "Set": {
-      "main": [
-        [
+          },
           {
-            "node": "Write dimain header",
+            "node": "Merge",
             "type": "main",
             "index": 0
           }
@@ -718,131 +476,18 @@
         ]
       ]
     },
-    "Write dimain header": {
-      "main": [
-        [
-          {
-            "node": "Write dimain header1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "IF MISSING_WHOIS_DATA": {
       "main": [
         [
           {
-            "node": "No domain",
+            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "whois data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "No domain": {
-      "main": [
-        [
-          {
-            "node": "No domain summary",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "whois data": {
-      "main": [
-        [
-          {
-            "node": "whois data summary",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Write dimain header1": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "whois data summary": {
-      "main": [
-        [
-          {
-            "node": "Split In Batches",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF": {
-      "main": [
-        [
-          {
-            "node": "IF1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF1": {
-      "main": [
-        [
-          {
-            "node": "Wait",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Wait": {
-      "main": [
-        [
-          {
-            "node": "Set",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "No domain summary": {
-      "main": [
-        [
-          {
-            "node": "Split In Batches",
+            "node": "IF MISSING_WHOIS_DATA1",
             "type": "main",
             "index": 0
           }
@@ -853,32 +498,7 @@
       "main": [
         [
           {
-            "node": "HTML Report Layers 1",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTML Report Layers 2",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTML Report Layers 3",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTML Report Layers 4",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTML Report Layers 5_list",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTML Report Layers 6",
+            "node": "Read list of domains From File",
             "type": "main",
             "index": 0
           }
@@ -896,66 +516,106 @@
         ]
       ]
     },
-    "HTML Report Layers 1": {
+    "Edit Fields": {
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTML Report Layers 2": {
+    "IF MISSING_WHOIS_DATA1": {
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTML Report Layers 4": {
+    "Edit Fields2": {
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Complete Domain": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTML Report Layers 3": {
+    "HTML": {
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "Spreadsheet File",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTML Report Layers 6": {
+    "Spreadsheet File": {
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "Write Binary File1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTML Report Layers 5_list": {
+    "Write Binary File1": {
       "main": [
         [
           {
-            "node": "Read list of domains From File",
+            "node": "No Operation, do nothing",
             "type": "main",
             "index": 0
           }
@@ -965,7 +625,7 @@
   },
   "active": false,
   "settings": {},
-  "versionId": "9709ee49-9800-405d-ac54-f5ea8cb1d1f0",
+  "versionId": "33b62527-5e7b-4c42-bc60-da558f8b94a4",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
