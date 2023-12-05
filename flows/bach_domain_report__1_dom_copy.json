@@ -1,0 +1,526 @@
+{
+  "name": "bach_domain_report: 1 dom copy",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Data extraction\n",
+        "height": 224.3730814105624,
+        "width": 1626.2510790844776
+      },
+      "id": "d5dce561-fb53-4887-8bc8-4f32e940841c",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        76.80334153315752
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.name_to_test }}&da=2&ip=1",
+        "options": {}
+      },
+      "id": "67809dff-dbb4-4fdb-9d74-647c5fcf7c85",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        900,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "2570961a-eec9-4ec6-a4d6-e7d520d0b3b7",
+      "name": "IF MISSING_WHOIS_DATA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        160,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "269bd6fb-a556-4db1-9040-a76efa099be3",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1220,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "INVALID_TLD"
+            }
+          ]
+        }
+      },
+      "id": "14239352-06ad-4e9f-bb2f-30d2fa9e152e",
+      "name": "IF MISSING_WHOIS_DATA1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        480,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## ETL",
+        "height": 650.0319859546548,
+        "width": 1626.4123349762326
+      },
+      "id": "7f13149a-9b2c-44e9-b18f-eafae47c3342",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        320
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "1b8df513-ff5d-4261-a5cd-078a5335fc03",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "28edd0cf-1073-4938-9037-d3c7fec437af",
+      "name": "input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "name_to_test",
+              "stringValue": "={{ $('input').item.json.output_domain_name }} "
+            },
+            {
+              "name": "whoisxmlapi_api_key",
+              "stringValue": "at_VPpFAzA4TeqpelJWKByi4JnAgVrlq"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c6bcd29d-592e-46cf-a86b-8d8a9c8d0564",
+      "name": "flow_data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        480,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Domain whois extraction and ETL (not an executable flow)\n\n## input:\n- debug_name_to_test\n\n## parameters:\n- whoisxmlapi_api_key\n\n## output:\n- whois data",
+        "height": 341.6946081485854,
+        "width": 1626.2510790844776
+      },
+      "id": "0872aeba-f481-4a6e-9f8f-51002609dfbb",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        -280
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0f97832d-fb06-4c8e-992e-4ab2906d7c84",
+      "name": "convert to XML",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        180,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "4bf3d2ca-8430-4f2a-86b9-164effb23f01",
+      "name": "ETL1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        480,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "f0544112-d7a9-414a-a63a-51857118aca3",
+      "name": "ETL2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        780,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "7775cd90-c065-47d5-aeef-048a58701d49",
+      "name": "ETL3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        780,
+        760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0332e3d5-6622-4f70-be45-7a1afccf57ad",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        700,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c86c0e48-9074-46be-bed9-166f8ffb3731",
+      "name": "HTML1",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        560
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
+      "name": "HTML2",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        760
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "5d57eb54-56ee-4f8e-9967-e552bcf24404",
+      "name": "HTML3",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        860,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "convert to XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA": {
+      "main": [
+        [
+          {
+            "node": "ETL1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA1": {
+      "main": [
+        [
+          {
+            "node": "ETL2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ETL3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "flow_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "flow_data": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert to XML": {
+      "main": [
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTML3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL1": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL2": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL3": {
+      "main": [
+        [
+          {
+            "node": "HTML2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTML1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTML2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTML3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v1"
+  },
+  "versionId": "6b850d53-9f2b-4276-b46c-038d8293671f",
+  "id": "veMKY5TqrHuS7LYj",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "createdAt": "2023-11-28T12:56:16.260Z",
+      "updatedAt": "2023-11-28T12:56:16.260Z",
+      "id": "WM0kFv1cYkbt3zJb",
+      "name": "under_construction"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:54:10.425Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "Project_branding"
+    }
+  ]
+}

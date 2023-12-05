@@ -1,0 +1,438 @@
+{
+  "name": "bach_domain_report: 1 dom",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Data extraction\n",
+        "height": 224.3730814105624,
+        "width": 1626.2510790844776
+      },
+      "id": "6282bb37-5cea-4fbd-8a9d-64ab3717b2fe",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        76.80334153315752
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.name_to_test }}&da=2&ip=1",
+        "options": {}
+      },
+      "id": "2fbaeea4-63d6-4fce-a4fc-6d7548c3f417",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        900,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "270fb844-2e3d-4b38-a82f-38494620b9f1",
+      "name": "IF MISSING_WHOIS_DATA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        160,
+        580
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "51623e56-feb4-4b68-a69a-3fe52530135c",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1220,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "INVALID_TLD"
+            }
+          ]
+        }
+      },
+      "id": "6d1b9c99-4628-444e-95ab-a4be485fd086",
+      "name": "IF MISSING_WHOIS_DATA1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        480,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## ETL",
+        "height": 650.0319859546548,
+        "width": 1626.4123349762326
+      },
+      "id": "30c69678-9795-4220-9d8e-eedbee82fe39",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        320
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "732abc9b-5fec-41f3-ac0e-6523a3521de9",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c914f414-ff0d-4ee4-a6b6-c8cb7fb4df35",
+      "name": "input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "name_to_test",
+              "stringValue": "={{ $('input').item.json.output_domain_name }} "
+            },
+            {
+              "name": "whoisxmlapi_api_key",
+              "stringValue": "at_VPpFAzA4TeqpelJWKByi4JnAgVrlq"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "058798df-796b-4dc7-b182-19049f633841",
+      "name": "flow_data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        480,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Domain whois extraction and ETL (not an executable flow)\n\n## input:\n- debug_name_to_test\n\n## parameters:\n- whoisxmlapi_api_key\n\n## output:\n- whois data",
+        "height": 341.6946081485854,
+        "width": 1626.2510790844776
+      },
+      "id": "9124fe30-e543-4a02-a6c8-e6ee0706e842",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        -280
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6154950b-7883-4b30-9a1c-bf81f24ccbf6",
+      "name": "convert to XML",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        180,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "76f429f2-6770-49f8-a5c1-e97bcd33500e",
+      "name": "ETL1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        480,
+        460
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "1ebfaa3a-b0b2-4464-b2e9-409586ecdc98",
+      "name": "ETL2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        780,
+        560
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "6f55f28c-801c-4fee-bdc4-efe1c199c488",
+      "name": "ETL3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        780,
+        760
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "convert to XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA": {
+      "main": [
+        [
+          {
+            "node": "ETL1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA1": {
+      "main": [
+        [
+          {
+            "node": "ETL2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ETL3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "flow_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "flow_data": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert to XML": {
+      "main": [
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "ETL2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "ETL3": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v1"
+  },
+  "versionId": "e869b58f-797f-42ab-948c-ee9c71e7e07b",
+  "id": "TR0waCtZqnEhOeq0",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "createdAt": "2023-11-28T12:56:16.260Z",
+      "updatedAt": "2023-11-28T12:56:16.260Z",
+      "id": "WM0kFv1cYkbt3zJb",
+      "name": "under_construction"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:54:10.425Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "Project_branding"
+    }
+  ]
+}

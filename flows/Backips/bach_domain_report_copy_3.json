@@ -1,0 +1,1029 @@
+{
+  "name": "bach_domain_report copy 3",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e10794c2-9b44-4832-bbfc-2ade2ad7fc8f",
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        140,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {
+          "headerRow": true,
+          "rawData": true,
+          "readAsString": true
+        }
+      },
+      "id": "8e559336-077a-4753-ae49-198611644cfd",
+      "name": "Convert To Spreadsheet",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "position": [
+        400,
+        860
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Settings",
+        "height": 285,
+        "width": 876.4066222551671
+      },
+      "id": "daebb16d-0ece-4d30-b1d6-574c1da72534",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        100,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## report setup",
+        "height": 286,
+        "width": 441.93359310581286
+      },
+      "id": "c8690185-63c4-4ccb-a09d-16edb000c6a4",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "058324b6-d3ca-4a77-8e95-f4934e40b78e",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        600,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_G9aJkBkW8lzUUkJ3H3wPcKFIJwHtI&domainName={{ $node.Set.json.domain_name_to_test }}",
+        "options": {}
+      },
+      "id": "d5ba0976-35e8-4c8b-988d-af58d5a4039d",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        900,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2067a8f0-f198-4dfb-be62-05c2d428563b",
+      "name": "XML",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        1080,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_name_to_test",
+              "value": "={{ $node.Debug1.json.debug_name_to_test }}{{ $json.domain }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d4e8aedb-ba94-4694-a00b-e80f8acf6988",
+      "name": "Set",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        180,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $node[\"Domain Settings\"].json.domain_list_file_folder }}{{ $node[\"Domain Settings\"].json.domain_list_file_fille }}"
+      },
+      "id": "b20218d5-3f88-4605-8f04-f09d0338f002",
+      "name": "Read list of domains From File",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        220,
+        860
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=\n----\n----\n\n# **Start domain testing for {{ $node.Debug1.json.debug_name_to_test }}**\n\n###### **report date:** {{ new Date()}}\n"
+            }
+          ]
+        }
+      },
+      "id": "6e96ec9c-b2f3-401c-9319-9222586f9ef2",
+      "name": "Write global header",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        140
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=---\n\n## **Domain name {{ $json.domain_name_to_test }} :**\n"
+            }
+          ]
+        }
+      },
+      "id": "7f6132d9-d294-4eee-9061-9047e90dd320",
+      "name": "Write dimain header",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        460,
+        1160
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "fc4e4e6d-f060-4862-9fd2-e38eb5e3cc0f",
+      "name": "IF MISSING_WHOIS_DATA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        280,
+        1380
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=\n### MISSING_WHOIS_DATA\n\nwhoisServer: {{ $json.WhoisRecord.registryData.whoisServer }}\naudit date:  {{ $json.WhoisRecord.audit.createdDate }}\n"
+            }
+          ]
+        }
+      },
+      "id": "f26d5831-ebb8-4ac4-afa4-4960afa1377c",
+      "name": "No domain",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        580,
+        1360
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/17nD3e06Yrf-T79nZCWbDHD1cf0EVeLZakze2qChdPlE/",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=> ** autit date: ** {{ $json.WhoisRecord.audit.updatedDate }}\n> ** error: ** {{ $json.WhoisRecord.dataError }}\n> ** created date: ** {{ $json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $json.WhoisRecord.expiresDate }}\n> ** registrant name ** {{ $json.WhoisRecord.registrant.name }}\n> ** registrant country ** {{ $json.WhoisRecord.registrant.country }}\n\n\n```sh\n {{ $node[\"HTTP Request\"].json.data }}\n\n```\n\n\n\n"
+            }
+          ]
+        }
+      },
+      "id": "96d8cd5c-6e4c-4fcf-974c-77645bfafffa",
+      "name": "whois data",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        580,
+        1540
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=---\n\n## **Domain name  {{ $node.Set.json.domain_name_to_test }} :**\n"
+            }
+          ]
+        }
+      },
+      "id": "3061f99a-f88d-4cad-94f4-1d239637a5af",
+      "name": "Write dimain header1",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        680,
+        1160
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=\n----\n----\n\n# **Start domain testing for {{ $node.Debug1.json.debug_name_to_test }}**\n\n###### **report date:** {{ new Date()}}\n"
+            }
+          ]
+        }
+      },
+      "id": "ef367fa4-4efb-45c7-a12a-aefd2709b4e7",
+      "name": "Write global header summary",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        1300,
+        140
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": " ### MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "e6935eae-03c0-458b-9e81-435892b375e6",
+      "name": "No domain summary",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        780,
+        1360
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "https://docs.google.com/document/d/1YlUzAvsdXWB1soHtJLoDoNnwEjfU4QGHlz2autm8N7k/edit",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "=> ** created date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.createdDate }}\n> ** update date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.updatedDate }}\n> ** expires date: ** {{ $node[\"IF MISSING_WHOIS_DATA\"].json.WhoisRecord.expiresDate }}\n"
+            }
+          ]
+        }
+      },
+      "id": "0fb56161-98dd-4ac2-8a8e-640c2168f24b",
+      "name": "whois data summary",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        800,
+        1540
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "13",
+          "name": "Google Docs account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$runIndex}}",
+              "operation": "larger",
+              "value2": -1
+            }
+          ]
+        }
+      },
+      "id": "f8dd0ff6-233b-4caf-b3a5-90f93f8569b3",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        840,
+        840
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "f5d6fe09-c3da-41d5-ab0b-c87f52b417ca",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        1180
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$runIndex % 20 }}",
+              "operation": "equal"
+            }
+          ]
+        }
+      },
+      "id": "9de91d1b-22d4-43ea-a337-0426e55b3ad6",
+      "name": "IF1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "id": "6d3685dc-5484-42f3-87f8-0e1abc0aedd3",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        900
+      ],
+      "webhookId": "2fc70687-f218-40c6-9f93-585571bac649"
+    },
+    {
+      "parameters": {
+        "content": "## Create domain name report\n** you can define variables",
+        "height": 996.3314127922374,
+        "width": 1513.2734937276432
+      },
+      "id": "b291932f-76f3-4c24-a648-8a871d0e8572",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        120,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "html_report_template_list_file_folder",
+              "stringValue": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\settings\\html\\"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7f49fe7d-18f4-4861-86a8-7d7436dbd1a8",
+      "name": "HTML Report Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        440,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_list_file_folder",
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\resources\\"
+            },
+            {
+              "name": "domain_list_file_fille",
+              "value": "all_domais.csv"
+            },
+            {
+              "name": "report_folder",
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports\\"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3d6efb69-3348-4c94-96d9-1a79513eaf36",
+      "name": "Domain Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        300,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "type": "objectValue"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "36e56ed1-c750-48af-b585-c2b1452a2a10",
+      "name": "HTML Report Layers",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1480,
+        -1360
+      ]
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_1.1_topping.html.layer"
+      },
+      "id": "867c966c-b7a8-46ad-9669-52008389b7e4",
+      "name": "_html_report_layer_1.1_topping.html.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -2100
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_1.2_bottom.html.layer"
+      },
+      "id": "5ec8818b-a74a-431b-98de-b77c656eeb35",
+      "name": "_html_report_layer_1.2_bottom.html.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -1920
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_2.1_head_top.html.layer"
+      },
+      "id": "69fa1342-421f-4fc5-a3d9-14a378084da9",
+      "name": "_html_report_layer_2.1_head_top.html.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -1740
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_2.3_head_bottom.layer"
+      },
+      "id": "75fb6ea1-0db8-4870-a2ea-543281ee4915",
+      "name": "_html_report_layer_2.3_head_bottom.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -1540
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_3.2_body_header_top..layer"
+      },
+      "id": "74481f7c-b4f3-4c62-a229-aad3a5936843",
+      "name": "_html_report_layer_3.2_body_header_top..layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -1360
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_3.4_body_header_bottom.layer"
+      },
+      "id": "cbd58d2f-3ec2-4d4a-aff5-41375498e3d5",
+      "name": "_html_report_layer_3.4_body_header_bottom.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -1160
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_4.1_body_list_top.layer"
+      },
+      "id": "b6c815aa-a42c-43d2-b1e3-f9ef66d4789f",
+      "name": "_html_report_layer_4.1_body_list_top.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -980
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $json.html_report_template_list_file_folder }}_html_report_layer_4.2_body_list_bottom.layer"
+      },
+      "id": "dc665eda-fc69-4f2f-a78c-4d065c9a0569",
+      "name": "_html_report_layer_4.2_body_list_bottom.layer",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        1000,
+        -800
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "Domain Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert To Spreadsheet": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML": {
+      "main": [
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set": {
+      "main": [
+        [
+          {
+            "node": "Write dimain header",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read list of domains From File": {
+      "main": [
+        [
+          {
+            "node": "Convert To Spreadsheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write global header": {
+      "main": [
+        [
+          {
+            "node": "Write global header summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write dimain header": {
+      "main": [
+        [
+          {
+            "node": "Write dimain header1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA": {
+      "main": [
+        [
+          {
+            "node": "No domain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "whois data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No domain": {
+      "main": [
+        [
+          {
+            "node": "No domain summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "whois data": {
+      "main": [
+        [
+          {
+            "node": "whois data summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write dimain header1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write global header summary": {
+      "main": [
+        [
+          {
+            "node": "Read list of domains From File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "whois data summary": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "IF1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Set",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No domain summary": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML Report Settings": {
+      "main": [
+        [
+          {
+            "node": "_html_report_layer_1.1_topping.html.layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_1.2_bottom.html.layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_2.1_head_top.html.layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_2.3_head_bottom.layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_3.2_body_header_top..layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_3.4_body_header_bottom.layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_4.1_body_list_top.layer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "_html_report_layer_4.2_body_list_bottom.layer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Domain Settings": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_1.1_topping.html.layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_1.2_bottom.html.layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_2.1_head_top.html.layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_2.3_head_bottom.layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_3.2_body_header_top..layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_3.4_body_header_bottom.layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "_html_report_layer_4.1_body_list_top.layer": {
+      "main": [
+        [
+          {
+            "node": "HTML Report Layers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "4c5d8cfc-1cda-4799-9e3d-10140f1ea701",
+  "id": "qzAXGXmZgGNdFpZE",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "name": "backup_flow",
+      "id": "aGfnIqfYB9oQ3vpN",
+      "createdAt": "2023-11-28T12:50:39.774Z",
+      "updatedAt": "2023-11-28T12:50:39.774Z"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:49:13.352Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "branding"
+    }
+  ]
+}

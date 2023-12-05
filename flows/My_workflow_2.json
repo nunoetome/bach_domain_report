@@ -1,0 +1,113 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7cb04ffc-16f6-4532-97ee-23883c42c856",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "TR0waCtZqnEhOeq0"
+      },
+      "id": "d3d34a01-0f8f-4f9c-ad82-d37820405191",
+      "name": "Execute Workflow",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        900,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "output_domain_name",
+              "stringValue": "myotis.store"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f637407-a8a5-4d02-b700-120dccf212d9",
+      "name": "atributos",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        700,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "veMKY5TqrHuS7LYj"
+      },
+      "id": "898efcc4-1e3d-4998-9b1e-b36889910402",
+      "name": "Execute Workflow1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        900,
+        340
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "atributos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atributos": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Execute Workflow1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Lisbon",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "b192d06f-48a3-4081-8668-0daca6531f29",
+  "id": "7vP6V21Mw1W3w6r0",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:54:10.425Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "Project_branding"
+    }
+  ]
+}

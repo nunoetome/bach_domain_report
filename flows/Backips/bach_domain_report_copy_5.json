@@ -1,0 +1,648 @@
+{
+  "name": "bach_domain_report copy 5",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "bf123666-96de-4bd7-9fd3-8b263dce8a9c",
+      "name": "On clicking 'execute'",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        140,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {
+          "headerRow": true,
+          "rawData": true,
+          "readAsString": true
+        }
+      },
+      "id": "71d582f4-b903-4d16-8ff9-bfb45e07b655",
+      "name": "Convert To Spreadsheet",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "position": [
+        980,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Settings",
+        "height": 285,
+        "width": 1051.2560257030998
+      },
+      "id": "0fb6e029-74ac-44c3-aad5-b49fde1922b2",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        100,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {
+          "reset": false
+        }
+      },
+      "id": "f85ebb8c-4cb9-4984-8d38-327ec57225ee",
+      "name": "Split In Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        140,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_VPpFAzA4TeqpelJWKByi4JnAgVrlq&domainName={{ $node[\"Complete Domain\"].json.domain_name_to_test }}",
+        "options": {}
+      },
+      "id": "e881cd97-af48-4eab-bcf4-9aa1bdd6eb07",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        640,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "df65ef16-abf6-4673-b338-5c9251f6dc54",
+      "name": "XML",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        900,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "filePath": "={{ $node[\"Domain Settings\"].json.domain_list_file_folder }}{{ $node[\"Domain Settings\"].json.domain_list_file_fille }}"
+      },
+      "id": "f5c160f8-e165-41c8-8516-ddb16bbaff0c",
+      "name": "Read list of domains From File",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "position": [
+        780,
+        140
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "5a8a5b36-20d4-46b2-a849-f8dcba0a1a71",
+      "name": "IF MISSING_WHOIS_DATA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1160,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_list_file_folder",
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\resources\\"
+            },
+            {
+              "name": "domain_list_file_fille",
+              "value": "test_domais1.csv"
+            },
+            {
+              "name": "report_folder",
+              "value": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports\\"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9d6aafc8-de8b-4fdc-a00e-621cef2c8020",
+      "name": "Domain Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        520,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "debug_name_to_test",
+              "stringValue": "myotis"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ea4693ef-3493-4cab-9299-7e545cdf543f",
+      "name": "Debug1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        340,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "3572cbed-06be-44bd-b7e9-60225a402cc2",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1500,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "904be8d1-c005-43cf-b46b-8653711a8157",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "61efd642-660f-4b42-bf1f-62ed4fff910f",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        2060,
+        660
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "INVALID_TLD"
+            }
+          ]
+        }
+      },
+      "id": "7ffb3097-e113-4357-ab65-acaf5595c788",
+      "name": "IF MISSING_WHOIS_DATA1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1500,
+        700
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "bd7e9c17-8bf4-4825-936b-825e8c30d862",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1760,
+        680
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "domain_name_to_test",
+              "value": "={{ $node.Debug1.json.debug_name_to_test }}{{ $json.domain }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5f412394-9814-427a-900f-38133816b4af",
+      "name": "Complete Domain",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        400,
+        520
+      ]
+    },
+    {
+      "parameters": {
+        "height": 794.7044808422552,
+        "width": 2360.1283195308247
+      },
+      "id": "7fe2405a-1567-4566-9ce8-b282ebce60bf",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html>\n\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title>Domain report</title>\n    <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\">\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\">\n    <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\">\n</head>\n\n  <body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1> {{ $('Debug1').item.json.debug_name_to_test }} </h1><span class=\"subheading\">Brande Report</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n            \n                <hr>\n                <hr>\n\n            </div>\n        </div>\n        <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n        <script src=\"assets/js/script.min.js\"></script>\n        \n    </div>\n\n\n</body>\n\n</html>"
+      },
+      "id": "40000e4c-d908-43c9-b65b-f02274807202",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        500,
+        1260
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "dd0c42eb-1014-4fa1-9502-a8c778ec7edf",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2080,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "toFile",
+        "fileFormat": "rtf",
+        "binaryPropertyName": "={{ $json.html }}",
+        "options": {}
+      },
+      "id": "954514c2-b04d-43df-a642-eb7724692e18",
+      "name": "Spreadsheet File",
+      "type": "n8n-nodes-base.spreadsheetFile",
+      "typeVersion": 2,
+      "position": [
+        1620,
+        1320
+      ]
+    },
+    {
+      "parameters": {
+        "fileName": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports\\po3.html",
+        "options": {}
+      },
+      "id": "cb279772-a752-4c41-af56-80fe977485d5",
+      "name": "Write Binary File1",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        1320
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On clicking 'execute'": {
+      "main": [
+        [
+          {
+            "node": "Debug1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert To Spreadsheet": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split In Batches": {
+      "main": [
+        [
+          {
+            "node": "Complete Domain",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "XML": {
+      "main": [
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read list of domains From File": {
+      "main": [
+        [
+          {
+            "node": "Convert To Spreadsheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Domain Settings": {
+      "main": [
+        [
+          {
+            "node": "Read list of domains From File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Debug1": {
+      "main": [
+        [
+          {
+            "node": "Domain Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Split In Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF MISSING_WHOIS_DATA1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Complete Domain": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Spreadsheet File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Spreadsheet File": {
+      "main": [
+        [
+          {
+            "node": "Write Binary File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Write Binary File1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "0693cc07-0989-4149-af64-3c566aa938ca",
+  "id": "7x5OCRI7CtDvHtCg",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "name": "backup_flow",
+      "id": "aGfnIqfYB9oQ3vpN",
+      "createdAt": "2023-11-28T12:50:39.774Z",
+      "updatedAt": "2023-11-28T12:50:39.774Z"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:49:13.352Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "branding"
+    }
+  ]
+}
