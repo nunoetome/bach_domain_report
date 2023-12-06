@@ -55,9 +55,42 @@
       "type": "n8n-nodes-base.executeWorkflow",
       "typeVersion": 1,
       "position": [
-        900,
-        340
+        940,
+        400
       ]
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $json[\"html\"] }}",
+        "name": "escreve.html",
+        "driveId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1j8hbZeaGtYtHUBjxtNOfvpR3ipciIJth",
+          "mode": "url"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "d3e367b6-5fee-4a06-896a-843d040f0def",
+      "name": "Google Drive1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1220,
+        400
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "a6IoqM95SdaKs4M3",
+          "name": "Google Drive account 2"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -88,6 +121,17 @@
           }
         ]
       ]
+    },
+    "Execute Workflow1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -97,7 +141,7 @@
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "b192d06f-48a3-4081-8668-0daca6531f29",
+  "versionId": "d1cc0639-554a-4588-897d-337e11ef0450",
   "id": "7vP6V21Mw1W3w6r0",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
