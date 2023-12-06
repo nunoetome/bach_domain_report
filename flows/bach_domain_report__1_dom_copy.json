@@ -18,20 +18,6 @@
     },
     {
       "parameters": {
-        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_name_to_test }}&da=2&ip=1",
-        "options": {}
-      },
-      "id": "67809dff-dbb4-4fdb-9d74-647c5fcf7c85",
-      "name": "HTTP Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        900,
-        140
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "string": [
             {
@@ -115,19 +101,6 @@
       "position": [
         60,
         -280
-      ]
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "id": "0f97832d-fb06-4c8e-992e-4ab2906d7c84",
-      "name": "convert to XML",
-      "type": "n8n-nodes-base.xml",
-      "typeVersion": 1,
-      "position": [
-        180,
-        380
       ]
     },
     {
@@ -229,6 +202,10 @@
             {
               "name": "html_button_type",
               "stringValue": "danger"
+            },
+            {
+              "name": "whois_xml_response",
+              "stringValue": "={{ $('HTTP_Request').item }}"
             }
           ]
         },
@@ -246,7 +223,7 @@
     },
     {
       "parameters": {
-        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n\n\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#dashboard1-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n\n                        myotis.pt is free\n\n                    </h5>\n\n                </button>\n\n                <div class=\"collapse\" id=\"dashboard1-collapse\">\n\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">...</a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#teste2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"teste2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li><a href=\"#\"\n                                            class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">\n\n                                            [\n                                            {\n                                            \"WhoisRecord\":\n                                            {\n                                            \"domainName\":\n                                            \"myotis.pt\",\n                                            \"parseCode\":\n                                            \"0\",\n                                            \"audit\":\n                                            {\n                                            \"createdDate\":\n                                            \"2023-11-26 13:29:30 UTC\",\n                                            \"updatedDate\":\n                                            \"2023-11-26 13:29:30 UTC\"\n                                            },\n                                            \"dataError\":\n                                            \"INCOMPLETE_DATA\",\n                                            \"registryData\":\n                                            {\n                                            \"domainName\":\n                                            \"myotis.pt\",\n                                            \"parseCode\":\n                                            \"64\",\n                                            \"audit\":\n                                            {\n                                            \"createdDate\":\n                                            \"2023-11-26 13:29:30 UTC\",\n                                            \"updatedDate\":\n                                            \"2023-11-26 13:29:30 UTC\"\n                                            },\n                                            \"dataError\":\n                                            \"INCOMPLETE_DATA\",\n                                            \"whoisServer\":\n                                            \"whois.dns.pt\"\n                                            },\n                                            \"domainNameExt\":\n                                            \".pt\"\n                                            }\n                                            }\n                                            ]\n                                        </a>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
+        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n                        {{ $json.domainName }} is registerd\n                    </h5>\n                </button>\n                <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.createdDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.updatedDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.expiresDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li> \n                                      <code>\n                                        {{ $json.whois_xml_response}}\n                                      </code>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
       },
       "id": "0332e3d5-6622-4f70-be45-7a1afccf57ad",
       "name": "HTML",
@@ -259,7 +236,7 @@
     },
     {
       "parameters": {
-        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n\n\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#dashboard1-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n\n                        myotis.pt is free\n\n                    </h5>\n\n                </button>\n\n                <div class=\"collapse\" id=\"dashboard1-collapse\">\n\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">...</a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#teste2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"teste2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li><a href=\"#\"\n                                            class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">\n\n                                            [\n                                            {\n                                            \"WhoisRecord\":\n                                            {\n                                            \"domainName\":\n                                            \"myotis.pt\",\n                                            \"parseCode\":\n                                            \"0\",\n                                            \"audit\":\n                                            {\n                                            \"createdDate\":\n                                            \"2023-11-26 13:29:30 UTC\",\n                                            \"updatedDate\":\n                                            \"2023-11-26 13:29:30 UTC\"\n                                            },\n                                            \"dataError\":\n                                            \"INCOMPLETE_DATA\",\n                                            \"registryData\":\n                                            {\n                                            \"domainName\":\n                                            \"myotis.pt\",\n                                            \"parseCode\":\n                                            \"64\",\n                                            \"audit\":\n                                            {\n                                            \"createdDate\":\n                                            \"2023-11-26 13:29:30 UTC\",\n                                            \"updatedDate\":\n                                            \"2023-11-26 13:29:30 UTC\"\n                                            },\n                                            \"dataError\":\n                                            \"INCOMPLETE_DATA\",\n                                            \"whoisServer\":\n                                            \"whois.dns.pt\"\n                                            },\n                                            \"domainNameExt\":\n                                            \".pt\"\n                                            }\n                                            }\n                                            ]\n                                        </a>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
+        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n                        {{ $json.domainName }} is registerd\n                    </h5>\n                </button>\n                <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.createdDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.updatedDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.expiresDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li> \n                                      <code>\n                                        {{ $json.whois_xml_response}}\n                                      </code>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
       },
       "id": "c86c0e48-9074-46be-bed9-166f8ffb3731",
       "name": "HTML1",
@@ -272,7 +249,7 @@
     },
     {
       "parameters": {
-        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n\n\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#dashboard1-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n\n                        myotis.pt is free\n\n                    </h5>\n\n                </button>\n\n                <div class=\"collapse\" id=\"dashboard1-collapse\">\n\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: 12-02-2019</a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">...</a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#teste2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"teste2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li><a href=\"#\"\n                                            class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">\n\n                                            [\n                                            {\n                                            \"WhoisRecord\":\n                                            {\n                                            \"domainName\":\n                                            \"myotis.pt\",\n                                            \"parseCode\":\n                                            \"0\",\n                                            \"audit\":\n                                            {\n                                            \"createdDate\":\n                                            \"2023-11-26 13:29:30 UTC\",\n                                            \"updatedDate\":\n                                            \"2023-11-26 13:29:30 UTC\"\n                                            },\n                                            \"dataError\":\n                                            \"INCOMPLETE_DATA\",\n                                            \"registryData\":\n                                            {\n                                            \"domainName\":\n                                            \"myotis.pt\",\n                                            \"parseCode\":\n                                            \"64\",\n                                            \"audit\":\n                                            {\n                                            \"createdDate\":\n                                            \"2023-11-26 13:29:30 UTC\",\n                                            \"updatedDate\":\n                                            \"2023-11-26 13:29:30 UTC\"\n                                            },\n                                            \"dataError\":\n                                            \"INCOMPLETE_DATA\",\n                                            \"whoisServer\":\n                                            \"whois.dns.pt\"\n                                            },\n                                            \"domainNameExt\":\n                                            \".pt\"\n                                            }\n                                            }\n                                            ]\n                                        </a>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
+        "html": "<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.createdDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.updatedDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.expiresDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                            <li><code>\n\n                                    asdasdasdas\n\n\n                                </code>\n                            </li>\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
       "name": "HTML2",
@@ -281,17 +258,6 @@
       "position": [
         1000,
         760
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "5d57eb54-56ee-4f8e-9967-e552bcf24404",
-      "name": "HTML3",
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1,
-      "position": [
-        860,
-        360
       ]
     },
     {
@@ -374,21 +340,51 @@
         -380,
         220
       ]
+    },
+    {
+      "parameters": {
+        "height": 394.48328240994056,
+        "width": 426.7181693264341
+      },
+      "id": "f86bf7e4-cc4e-4998-ba12-a591ffb17e4d",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -447.76511308350655,
+        60
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0f97832d-fb06-4c8e-992e-4ab2906d7c84",
+      "name": "convert to Json",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        180,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_name_to_test }}&da=2&ip=1",
+        "options": {}
+      },
+      "id": "67809dff-dbb4-4fdb-9d74-647c5fcf7c85",
+      "name": "HTTP_Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        900,
+        140
+      ]
     }
   ],
   "pinData": {},
   "connections": {
-    "HTTP Request": {
-      "main": [
-        [
-          {
-            "node": "convert to XML",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "IF MISSING_WHOIS_DATA": {
       "main": [
         [
@@ -423,22 +419,6 @@
         [
           {
             "node": "flow_data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "convert to XML": {
-      "main": [
-        [
-          {
-            "node": "IF MISSING_WHOIS_DATA",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "HTML3",
             "type": "main",
             "index": 0
           }
@@ -504,18 +484,7 @@
       "main": [
         [
           {
-            "node": "Merge",
-            "type": "main",
-            "index": 1
-          }
-        ]
-      ]
-    },
-    "HTML3": {
-      "main": [
-        [
-          {
-            "node": "Merge",
+            "node": "No Operation, do nothing",
             "type": "main",
             "index": 0
           }
@@ -544,7 +513,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "HTTP_Request",
             "type": "main",
             "index": 0
           }
@@ -555,7 +524,7 @@
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "HTTP_Request",
             "type": "main",
             "index": 0
           }
@@ -572,6 +541,28 @@
           }
         ]
       ]
+    },
+    "convert to Json": {
+      "main": [
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Request": {
+      "main": [
+        [
+          {
+            "node": "convert to Json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -580,7 +571,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "156e2f2b-35bf-4a3c-a347-890bb011762e",
+  "versionId": "67ea8c78-8ac1-4d7f-96e8-98dfdb392acd",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
