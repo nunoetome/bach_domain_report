@@ -197,7 +197,7 @@
             },
             {
               "name": "domain_name_to_test_transformation_no_dot",
-              "stringValue": "{{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
+              "stringValue": "={{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
             }
           ]
         },
@@ -277,7 +277,7 @@
           "values": [
             {
               "name": "domain_name_to_test",
-              "stringValue": "={{ $('input').item.json.output_domain_name }} \n"
+              "stringValue": "={{ $('input').item.json.output_domain_name }}"
             },
             {
               "name": "whoisxmlapi_api_key",
@@ -285,7 +285,7 @@
             },
             {
               "name": "domain_name_to_test_transformation_no_dot",
-              "stringValue": "="
+              "stringValue": "={{ $json.domain_name_to_test.replace('.','_') }}"
             }
           ]
         },
@@ -614,7 +614,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "af53983b-7f40-44a6-a556-05cdabccba8d",
+  "versionId": "ee45ac1a-f4a4-4675-8e67-bc8d46657492",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"

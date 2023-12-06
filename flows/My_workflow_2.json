@@ -14,19 +14,6 @@
     },
     {
       "parameters": {
-        "workflowId": "TR0waCtZqnEhOeq0"
-      },
-      "id": "d3d34a01-0f8f-4f9c-ad82-d37820405191",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        900,
-        200
-      ]
-    },
-    {
-      "parameters": {
         "fields": {
           "values": [
             {
@@ -35,6 +22,7 @@
             }
           ]
         },
+        "include": "none",
         "options": {}
       },
       "id": "5f637407-a8a5-4d02-b700-120dccf212d9",
@@ -110,11 +98,6 @@
       "main": [
         [
           {
-            "node": "Execute Workflow",
-            "type": "main",
-            "index": 0
-          },
-          {
             "node": "Execute Workflow1",
             "type": "main",
             "index": 0
@@ -141,7 +124,7 @@
     "saveManualExecutions": true,
     "callerPolicy": "workflowsFromSameOwner"
   },
-  "versionId": "d1cc0639-554a-4588-897d-337e11ef0450",
+  "versionId": "15c253a0-0886-4499-9fd1-5c25362fb1e7",
   "id": "7vP6V21Mw1W3w6r0",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
