@@ -83,7 +83,7 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        920,
+        900,
         520
       ]
     },
@@ -116,8 +116,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1200,
-        520
+        1160,
+        620
       ]
     },
     {
@@ -197,7 +197,7 @@
       "typeVersion": 3.2,
       "position": [
         1500,
-        500
+        480
       ]
     },
     {
@@ -245,7 +245,7 @@
     {
       "parameters": {
         "mode": "combine",
-        "combinationMode": "multiplex",
+        "combinationMode": "mergeByPosition",
         "options": {}
       },
       "id": "f37a0ec7-ec3e-4323-b3af-9a2341569288",
@@ -254,7 +254,7 @@
       "typeVersion": 2.1,
       "position": [
         2060,
-        600
+        660
       ]
     },
     {
@@ -338,7 +338,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        100,
+        60,
         420
       ]
     },
@@ -351,7 +351,7 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        660,
+        640,
         1320
       ]
     },
@@ -362,14 +362,15 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1300,
+        1640,
         1320
       ]
     },
     {
       "parameters": {
         "operation": "toFile",
-        "fileFormat": "csv",
+        "fileFormat": "rtf",
+        "binaryPropertyName": "={{ $json.html }}",
         "options": {}
       },
       "id": "791e105f-2589-400e-84d5-6978b77d6d82",
@@ -377,7 +378,7 @@
       "type": "n8n-nodes-base.spreadsheetFile",
       "typeVersion": 2,
       "position": [
-        900,
+        1200,
         1320
       ]
     },
@@ -391,7 +392,7 @@
       "type": "n8n-nodes-base.writeBinaryFile",
       "typeVersion": 1,
       "position": [
-        1120,
+        1380,
         1320
       ]
     }
@@ -625,7 +626,7 @@
   },
   "active": false,
   "settings": {},
-  "versionId": "33b62527-5e7b-4c42-bc60-da558f8b94a4",
+  "versionId": "af80ca93-2c3e-418f-aee9-9e73c4a9dd7e",
   "id": "16",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"

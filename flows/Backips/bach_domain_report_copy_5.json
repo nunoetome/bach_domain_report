@@ -1,9 +1,9 @@
 {
-  "name": "bach_domain_report",
+  "name": "bach_domain_report copy 5",
   "nodes": [
     {
       "parameters": {},
-      "id": "aecce7a8-24f6-48c0-a7f0-f48a421d1d8c",
+      "id": "bf123666-96de-4bd7-9fd3-8b263dce8a9c",
       "name": "On clicking 'execute'",
       "type": "n8n-nodes-base.manualTrigger",
       "position": [
@@ -20,7 +20,7 @@
           "readAsString": true
         }
       },
-      "id": "9b469774-7c1d-41a3-9bfe-18fc3527f96e",
+      "id": "71d582f4-b903-4d16-8ff9-bfb45e07b655",
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
@@ -35,7 +35,7 @@
         "height": 285,
         "width": 1051.2560257030998
       },
-      "id": "77021e51-bbde-4ab3-a8bd-04e30c24e8fd",
+      "id": "0fb6e029-74ac-44c3-aad5-b49fde1922b2",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -51,7 +51,7 @@
           "reset": false
         }
       },
-      "id": "31880994-41d3-4cd1-b4b1-f0c1b99bc731",
+      "id": "f85ebb8c-4cb9-4984-8d38-327ec57225ee",
       "name": "Split In Batches",
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
@@ -65,7 +65,7 @@
         "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=at_VPpFAzA4TeqpelJWKByi4JnAgVrlq&domainName={{ $node[\"Complete Domain\"].json.domain_name_to_test }}",
         "options": {}
       },
-      "id": "d706ae3e-7e33-4798-b160-77b9b0da60ff",
+      "id": "e881cd97-af48-4eab-bcf4-9aa1bdd6eb07",
       "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
@@ -78,12 +78,12 @@
       "parameters": {
         "options": {}
       },
-      "id": "1ad617a0-ca0f-412c-aab5-96c59f75be77",
+      "id": "df65ef16-abf6-4673-b338-5c9251f6dc54",
       "name": "XML",
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        920,
+        900,
         520
       ]
     },
@@ -91,7 +91,7 @@
       "parameters": {
         "filePath": "={{ $node[\"Domain Settings\"].json.domain_list_file_folder }}{{ $node[\"Domain Settings\"].json.domain_list_file_fille }}"
       },
-      "id": "66822f20-83a9-4272-920c-5d8c9140f912",
+      "id": "f5c160f8-e165-41c8-8516-ddb16bbaff0c",
       "name": "Read list of domains From File",
       "type": "n8n-nodes-base.readBinaryFile",
       "position": [
@@ -111,13 +111,13 @@
           ]
         }
       },
-      "id": "5e6ab70d-6848-4081-8b11-f565567b8a78",
+      "id": "5a8a5b36-20d4-46b2-a849-f8dcba0a1a71",
       "name": "IF MISSING_WHOIS_DATA",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1200,
-        520
+        1160,
+        620
       ]
     },
     {
@@ -140,7 +140,7 @@
         },
         "options": {}
       },
-      "id": "9f578898-67fc-4f20-8fda-5fb54264db71",
+      "id": "9d6aafc8-de8b-4fdc-a00e-621cef2c8020",
       "name": "Domain Settings",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
@@ -161,7 +161,7 @@
         },
         "options": {}
       },
-      "id": "f3a94bdd-8b98-4c42-a256-9213c8165fbc",
+      "id": "ea4693ef-3493-4cab-9299-7e545cdf543f",
       "name": "Debug1",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
@@ -191,13 +191,13 @@
         "include": "none",
         "options": {}
       },
-      "id": "e57d589e-9708-438a-bb02-e44b90715555",
+      "id": "3572cbed-06be-44bd-b7e9-60225a402cc2",
       "name": "Edit Fields",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
         1500,
-        500
+        480
       ]
     },
     {
@@ -233,7 +233,7 @@
         "include": "none",
         "options": {}
       },
-      "id": "9e5542e6-2361-485c-a03d-a9d5b5e3e4c6",
+      "id": "904be8d1-c005-43cf-b46b-8653711a8157",
       "name": "Edit Fields1",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
@@ -245,16 +245,16 @@
     {
       "parameters": {
         "mode": "combine",
-        "combinationMode": "multiplex",
+        "combinationMode": "mergeByPosition",
         "options": {}
       },
-      "id": "f37a0ec7-ec3e-4323-b3af-9a2341569288",
+      "id": "61efd642-660f-4b42-bf1f-62ed4fff910f",
       "name": "Merge",
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
         2060,
-        600
+        660
       ]
     },
     {
@@ -268,7 +268,7 @@
           ]
         }
       },
-      "id": "61f47e3d-07ef-4788-a3b7-36bb508b6588",
+      "id": "7ffb3097-e113-4357-ab65-acaf5595c788",
       "name": "IF MISSING_WHOIS_DATA1",
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
@@ -298,7 +298,7 @@
         "include": "none",
         "options": {}
       },
-      "id": "09fdbe85-c959-4a07-ae7b-be13c945b022",
+      "id": "bd7e9c17-8bf4-4825-936b-825e8c30d862",
       "name": "Edit Fields2",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
@@ -319,7 +319,7 @@
         },
         "options": {}
       },
-      "id": "45f5fd95-86b1-4cdc-ac78-7f13185493f6",
+      "id": "5f412394-9814-427a-900f-38133816b4af",
       "name": "Complete Domain",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
@@ -330,54 +330,55 @@
     },
     {
       "parameters": {
-        "height": 632.6384774156721,
-        "width": 2175.37307562452
+        "height": 794.7044808422552,
+        "width": 2360.1283195308247
       },
-      "id": "4c8ea5a9-a83e-4baa-81a7-edea16760c54",
+      "id": "7fe2405a-1567-4566-9ce8-b282ebce60bf",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        100,
+        60,
         420
       ]
     },
     {
       "parameters": {
-        "html": "<!DOCTYPE html>\n<html>\n\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title>Domain report</title>\n    <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\">\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\">\n    <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\">\n</head>\n\n  <body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1>Clean name</h1><span class=\"subheading\">Brande Report</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n            \n                <hr>\n                <hr>\n\n            </div>\n        </div>\n        <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n        <script src=\"assets/js/script.min.js\"></script>\n        \n    </div>\n\n\n</body>\n\n</html>"
+        "html": "<!DOCTYPE html>\n<html>\n\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title>Domain report</title>\n    <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\">\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\">\n    <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\">\n</head>\n\n  <body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1> {{ $('Debug1').item.json.debug_name_to_test }} </h1><span class=\"subheading\">Brande Report</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n            \n                <hr>\n                <hr>\n\n            </div>\n        </div>\n        <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n        <script src=\"assets/js/script.min.js\"></script>\n        \n    </div>\n\n\n</body>\n\n</html>"
       },
-      "id": "8d18755f-aedc-477f-9a09-39da669b2931",
+      "id": "40000e4c-d908-43c9-b65b-f02274807202",
       "name": "HTML",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        660,
-        1320
+        500,
+        1260
       ]
     },
     {
       "parameters": {},
-      "id": "c0e68f82-4bcc-49d7-88c0-0b43208d94be",
+      "id": "dd0c42eb-1014-4fa1-9502-a8c778ec7edf",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1300,
+        2080,
         1320
       ]
     },
     {
       "parameters": {
         "operation": "toFile",
-        "fileFormat": "csv",
+        "fileFormat": "rtf",
+        "binaryPropertyName": "={{ $json.html }}",
         "options": {}
       },
-      "id": "791e105f-2589-400e-84d5-6978b77d6d82",
+      "id": "954514c2-b04d-43df-a642-eb7724692e18",
       "name": "Spreadsheet File",
       "type": "n8n-nodes-base.spreadsheetFile",
       "typeVersion": 2,
       "position": [
-        900,
+        1620,
         1320
       ]
     },
@@ -386,12 +387,12 @@
         "fileName": "C:\\Users\\nunot\\Documents\\_Documentos\\Projectos\\bach_domain_report\\reports\\po3.html",
         "options": {}
       },
-      "id": "e5fd7d16-703c-42ca-b74f-8f305bf3bd32",
+      "id": "cb279772-a752-4c41-af56-80fe977485d5",
       "name": "Write Binary File1",
       "type": "n8n-nodes-base.writeBinaryFile",
       "typeVersion": 1,
       "position": [
-        1120,
+        1820,
         1320
       ]
     }
@@ -625,10 +626,23 @@
   },
   "active": false,
   "settings": {},
-  "versionId": "33b62527-5e7b-4c42-bc60-da558f8b94a4",
-  "id": "16",
+  "versionId": "0693cc07-0989-4149-af64-3c566aa938ca",
+  "id": "7x5OCRI7CtDvHtCg",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "backup_flow",
+      "id": "aGfnIqfYB9oQ3vpN",
+      "createdAt": "2023-11-28T12:50:39.774Z",
+      "updatedAt": "2023-11-28T12:50:39.774Z"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:49:13.352Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "branding"
+    }
+  ]
 }

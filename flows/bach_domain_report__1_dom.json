@@ -1,0 +1,636 @@
+{
+  "name": "bach_domain_report: 1 dom copy",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## Data extraction\n",
+        "height": 520.8658476268888,
+        "width": 547.0564072378369
+      },
+      "id": "d5dce561-fb53-4887-8bc8-4f32e940841c",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        540,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "MISSING_WHOIS_DATA"
+            }
+          ]
+        }
+      },
+      "id": "2570961a-eec9-4ec6-a4d6-e7d520d0b3b7",
+      "name": "IF MISSING_WHOIS_DATA",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        300,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "269bd6fb-a556-4db1-9040-a76efa099be3",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 2.1,
+      "position": [
+        1360,
+        660
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "1b8df513-ff5d-4261-a5cd-078a5335fc03",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1580,
+        660
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "28edd0cf-1073-4938-9037-d3c7fec437af",
+      "name": "input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        100,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# Domain whois extraction and ETL (not an executable flow)\n\n## input:\n- debug_name_to_test\n\n## parameters:\n- whoisxmlapi_api_key\n\n## output:\n- whois data",
+        "height": 341.6946081485854,
+        "width": 1626.2510790844776
+      },
+      "id": "0872aeba-f481-4a6e-9f8f-51002609dfbb",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        -280
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "success"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "4bf3d2ca-8430-4f2a-86b9-164effb23f01",
+      "name": "ETL1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        640,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.dataError }}"
+            },
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "allData",
+              "stringValue": "={{ $json.WhoisRecord }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "warning"
+            },
+            {
+              "stringValue": "="
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "f0544112-d7a9-414a-a63a-51857118aca3",
+      "name": "ETL2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        920,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "danger"
+            },
+            {
+              "name": "whois_xml_response",
+              "stringValue": "={{ $('HTTP_Request').item }}"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "{{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7775cd90-c065-47d5-aeef-048a58701d49",
+      "name": "ETL3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        920,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n                        {{ $json.domainName }} is registerd\n                    </h5>\n                </button>\n                <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.createdDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.updatedDateNormalized }} </a>\n                          {{ $ }}\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.expiresDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li> \n                                      <code>\n                                        {{ $json.whois_xml_response}}\n                                      </code>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
+      },
+      "id": "0332e3d5-6622-4f70-be45-7a1afccf57ad",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        800,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n                        {{ $json.domainName }} is registerd\n                    </h5>\n                </button>\n                <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.createdDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.updatedDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.expiresDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li> \n                                      <code>\n                                        {{ $json.whois_xml_response}}\n                                      </code>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
+      },
+      "id": "c86c0e48-9074-46be-bed9-166f8ffb3731",
+      "name": "HTML1",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        820
+      ]
+    },
+    {
+      "parameters": {
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.createdDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.updatedDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.expiresDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                            <li><code>\n\n                                    asdasdasdas\n\n\n                                </code>\n                            </li>\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+      },
+      "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
+      "name": "HTML2",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "INVALID_TLD"
+            }
+          ]
+        }
+      },
+      "id": "14239352-06ad-4e9f-bb2f-30d2fa9e152e",
+      "name": "IF INVALID_TLD",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        620,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_name_to_test",
+              "stringValue": "={{ $('input').item.json.output_domain_name }} \n"
+            },
+            {
+              "name": "whoisxmlapi_api_key",
+              "stringValue": "at_VPpFAzA4TeqpelJWKByi4JnAgVrlq"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "="
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "06d69e89-1d39-41bb-9766-af9af3484b1a",
+      "name": "flow_data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        580,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c4d8a58f-bbf3-47f4-af7e-885575095f2e",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0f97832d-fb06-4c8e-992e-4ab2906d7c84",
+      "name": "convert to Json",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        100,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_name_to_test }}&da=2&ip=1",
+        "options": {}
+      },
+      "id": "67809dff-dbb4-4fdb-9d74-647c5fcf7c85",
+      "name": "HTTP_Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        940,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_name_to_test",
+              "stringValue": "=myotis.store"
+            },
+            {
+              "name": "whoisxmlapi_api_key",
+              "stringValue": "at_VPpFAzA4TeqpelJWKByi4JnAgVrlq"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3d5cd23c-2820-486e-b63f-25042efe91ec",
+      "name": "debug_data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        300,
+        140
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Manual debug start",
+        "height": 251.1678059984191,
+        "width": 440.8334277066623
+      },
+      "id": "6f558c1d-554f-4a7e-a3ea-2ed8adcb120b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## n8n Call",
+        "height": 248.64878569203384,
+        "width": 438.1908826052588
+      },
+      "id": "ae28aaa2-9157-4739-a250-1c29e82953fb",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "={{ $json.domain_name_to_test.replace('.','_') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28f2dbc9-8c21-4052-95d8-194371860458",
+      "name": "combined_flow_data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        740,
+        200
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "IF MISSING_WHOIS_DATA": {
+      "main": [
+        [
+          {
+            "node": "ETL1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF INVALID_TLD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "flow_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL1": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL2": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL3": {
+      "main": [
+        [
+          {
+            "node": "HTML2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTML1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "HTML2": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF INVALID_TLD": {
+      "main": [
+        [
+          {
+            "node": "ETL2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ETL3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "flow_data": {
+      "main": [
+        [
+          {
+            "node": "combined_flow_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "debug_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert to Json": {
+      "main": [
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Request": {
+      "main": [
+        [
+          {
+            "node": "convert to Json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "debug_data": {
+      "main": [
+        [
+          {
+            "node": "combined_flow_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "combined_flow_data": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "executionOrder": "v1"
+  },
+  "versionId": "af53983b-7f40-44a6-a556-05cdabccba8d",
+  "id": "veMKY5TqrHuS7LYj",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "createdAt": "2023-11-28T12:56:16.260Z",
+      "updatedAt": "2023-11-28T12:56:16.260Z",
+      "id": "WM0kFv1cYkbt3zJb",
+      "name": "under_construction"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:54:10.425Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "Project_branding"
+    }
+  ]
+}
