@@ -4,16 +4,16 @@
     {
       "parameters": {
         "content": "## Data extraction\n",
-        "height": 224.3730814105624,
-        "width": 1626.2510790844776
+        "height": 520.8658476268888,
+        "width": 547.0564072378369
       },
       "id": "d5dce561-fb53-4887-8bc8-4f32e940841c",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        60,
-        76.80334153315752
+        540,
+        80
       ]
     },
     {
@@ -32,8 +32,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        160,
-        580
+        300,
+        840
       ]
     },
     {
@@ -47,23 +47,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 2.1,
       "position": [
-        1220,
-        400
-      ]
-    },
-    {
-      "parameters": {
-        "content": "## ETL",
-        "height": 650.0319859546548,
-        "width": 1626.4123349762326
-      },
-      "id": "7f13149a-9b2c-44e9-b18f-eafae47c3342",
-      "name": "Sticky Note1",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        60,
-        320
+        1360,
+        660
       ]
     },
     {
@@ -73,8 +58,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1440,
-        400
+        1580,
+        660
       ]
     },
     {
@@ -84,8 +69,8 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1,
       "position": [
-        120,
-        140
+        100,
+        440
       ]
     },
     {
@@ -133,8 +118,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        480,
-        460
+        640,
+        720
       ]
     },
     {
@@ -156,6 +141,9 @@
             {
               "name": "html_button_type",
               "stringValue": "warning"
+            },
+            {
+              "stringValue": "="
             }
           ]
         },
@@ -167,8 +155,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        780,
-        580
+        920,
+        840
       ]
     },
     {
@@ -206,10 +194,13 @@
             {
               "name": "whois_xml_response",
               "stringValue": "={{ $('HTTP_Request').item }}"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "{{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
             }
           ]
         },
-        "include": "none",
         "options": {}
       },
       "id": "7775cd90-c065-47d5-aeef-048a58701d49",
@@ -217,21 +208,21 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        780,
-        760
+        920,
+        1020
       ]
     },
     {
       "parameters": {
-        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n                        {{ $json.domainName }} is registerd\n                    </h5>\n                </button>\n                <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.createdDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.updatedDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.expiresDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li> \n                                      <code>\n                                        {{ $json.whois_xml_response}}\n                                      </code>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
+        "html": "        <div class=\"row\">\n            <div class=\"col-md-10 col-lg-8\">\n                <button\n                    class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n                    data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n                    <h5 class=\"post-title\">\n                        {{ $json.domainName }} is registerd\n                    </h5>\n                </button>\n                <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n                    <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.createdDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.updatedDateNormalized }} </a>\n                          {{ $ }}\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                date: {{ $json.expiresDateNormalized }} </a>\n                        </li>\n                        <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                                country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                        </li>\n                        <li class=\"mb-1\">\n                            <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                                data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\" aria-expanded=\"false\">\n                                Full XML API response\n                            </button>\n                            <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                                <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                    <li> \n                                      <code>\n                                        {{ $json.whois_xml_response}}\n                                      </code>\n                                    </li>\n                                </ul>\n\n\n                            </div>\n                        </li>\n                    </ul>\n                </div>\n                </li>\n                <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n            </div>\n        </div>"
       },
       "id": "0332e3d5-6622-4f70-be45-7a1afccf57ad",
       "name": "HTML",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        680,
-        460
+        800,
+        720
       ]
     },
     {
@@ -243,21 +234,21 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1000,
-        560
+        1140,
+        820
       ]
     },
     {
       "parameters": {
-        "html": "<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domainName }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.createdDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.updatedDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.expiresDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                            <li><code>\n\n                                    asdasdasdas\n\n\n                                </code>\n                            </li>\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.createdDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.updatedDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.expiresDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                            <li><code>\n\n                                    asdasdasdas\n\n\n                                </code>\n                            </li>\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
       "name": "HTML2",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1000,
-        760
+        1140,
+        1020
       ]
     },
     {
@@ -276,8 +267,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        480,
-        660
+        620,
+        920
       ]
     },
     {
@@ -286,11 +277,15 @@
           "values": [
             {
               "name": "domain_name_to_test",
-              "stringValue": "={{ $('input').item.json.output_domain_name }} "
+              "stringValue": "={{ $('input').item.json.output_domain_name }} \n"
             },
             {
               "name": "whoisxmlapi_api_key",
               "stringValue": "at_VPpFAzA4TeqpelJWKByi4JnAgVrlq"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "="
             }
           ]
         },
@@ -301,8 +296,46 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        480,
+        580,
+        440
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "c4d8a58f-bbf3-47f4-af7e-885575095f2e",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        120,
         140
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0f97832d-fb06-4c8e-992e-4ab2906d7c84",
+      "name": "convert to Json",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        100,
+        840
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_name_to_test }}&da=2&ip=1",
+        "options": {}
+      },
+      "id": "67809dff-dbb4-4fdb-9d74-647c5fcf7c85",
+      "name": "HTTP_Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        940,
+        200
       ]
     },
     {
@@ -322,64 +355,63 @@
         "options": {}
       },
       "id": "3d5cd23c-2820-486e-b63f-25042efe91ec",
-      "name": "flow_data1",
+      "name": "debug_data",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        -180,
-        220
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "c4d8a58f-bbf3-47f4-af7e-885575095f2e",
-      "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -380,
-        220
+        300,
+        140
       ]
     },
     {
       "parameters": {
-        "height": 394.48328240994056,
-        "width": 426.7181693264341
+        "content": "## Manual debug start",
+        "height": 251.1678059984191,
+        "width": 440.8334277066623
       },
-      "id": "f86bf7e4-cc4e-4998-ba12-a591ffb17e4d",
+      "id": "6f558c1d-554f-4a7e-a3ea-2ed8adcb120b",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        60,
+        80
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## n8n Call",
+        "height": 248.64878569203384,
+        "width": 438.1908826052588
+      },
+      "id": "ae28aaa2-9157-4739-a250-1c29e82953fb",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -447.76511308350655,
-        60
+        60,
+        360
       ]
     },
     {
       "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "={{ $json.domain_name_to_test.replace('.','_') }}"
+            }
+          ]
+        },
         "options": {}
       },
-      "id": "0f97832d-fb06-4c8e-992e-4ab2906d7c84",
-      "name": "convert to Json",
-      "type": "n8n-nodes-base.xml",
-      "typeVersion": 1,
+      "id": "28f2dbc9-8c21-4052-95d8-194371860458",
+      "name": "combined_flow_data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
       "position": [
-        180,
-        380
-      ]
-    },
-    {
-      "parameters": {
-        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_name_to_test }}&da=2&ip=1",
-        "options": {}
-      },
-      "id": "67809dff-dbb4-4fdb-9d74-647c5fcf7c85",
-      "name": "HTTP_Request",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        900,
-        140
+        740,
+        200
       ]
     }
   ],
@@ -513,18 +545,7 @@
       "main": [
         [
           {
-            "node": "HTTP_Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "flow_data1": {
-      "main": [
-        [
-          {
-            "node": "HTTP_Request",
+            "node": "combined_flow_data",
             "type": "main",
             "index": 0
           }
@@ -535,7 +556,7 @@
       "main": [
         [
           {
-            "node": "flow_data1",
+            "node": "debug_data",
             "type": "main",
             "index": 0
           }
@@ -563,6 +584,28 @@
           }
         ]
       ]
+    },
+    "debug_data": {
+      "main": [
+        [
+          {
+            "node": "combined_flow_data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "combined_flow_data": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -571,7 +614,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "67ea8c78-8ac1-4d7f-96e8-98dfdb392acd",
+  "versionId": "af53983b-7f40-44a6-a556-05cdabccba8d",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
