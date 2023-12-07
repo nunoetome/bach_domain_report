@@ -1,0 +1,75 @@
+
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}"
+            data-bs-toggle="collapse" data-bs-target="#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                {{ $json.domainName }} is registerd
+            </h5>
+        </button>
+        <div class="collapse" id="{{ $json.domain_name_to_test_transformation_no_dot }}-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <b>  creation date: </b> {{ $json.createdDateNormalized }}
+                </li>
+                <li>
+                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} 
+                </li>
+                <li>
+                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} 
+                </li>
+                <li>
+                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} 
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container2"></pre>
+
+                                        <script>
+                                            var xmlString =  {{ $json.whois_xml_response }};
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Seu código existente do head vai aqui -->
+    <style>
+        /* Estilos para destacar as partes do XML */
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .xml-tag {
+            color: blue;
+        }
+
+        .xml-attribute {
+            color: green;
+        }
+
+        .xml-text {
+            color: black;
+        }
+
+        .xml-comment {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Seu código existente do body vai aqui -->
+
+    <div class="container">
+        <!-- Restante do seu conteúdo vai aqui -->
+        <pre id="xml-container2"></pre>
+
+        <script>
+            // Seu XML aqui
+            var xmlString = '  <?xml version="1.0" encoding="utf-8"?><WhoisRecord> \n          <domainName>myotis.store</domainName> \n          <parseCode>8</parseCode> \n          <audit> \n            <createdDate>2023-12-07 06:45:50 UTC</createdDate> \n            <updatedDate>2023-12-07 06:45:50 UTC</updatedDate> \n          </audit> \n          <registrarName>Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA</registrarName> \n          <registrarIANAID>106</registrarIANAID> \n          <registryData> \n            <createdDate>2023-08-21T14:40:12.0Z</createdDate> \n            <updatedDate>2023-09-27T12:07:49.0Z</updatedDate> \n            <expiresDate>2024-08-21T23:59:59.0Z</expiresDate> \n            <registrant> \n              <country>PORTUGAL</country> \n              <countryCode>PT</countryCode> \n              <rawText>Registrant Country: PT \n        Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText> \n            </registrant> \n            <administrativeContact> \n              <country>PORTUGAL</country> \n              <countryCode>PT</countryCode> \n              <rawText>Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText> \n            </administrativeContact> \n            <billingContact> \n              <country>PORTUGAL</country> \n              <countryCode>PT</countryCode> \n              <rawText>Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText> \n            </billingContact> \n            <technicalContact> \n              <country>PORTUGAL</country> \n              <countryCode>PT</countryCode> \n              <rawText>Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText> \n            </technicalContact> \n            <domainName>myotis.store</domainName> \n            <nameServers> \n              <rawText>NSP1.MYDNSPT.NET \n        NSP2.MYDNSPT.NET \n        NSP3.MYDNSPT.NET \n        NSP4.MYDNSPT.NET \n        </rawText> \n              <hostNames> \n                <Address>NSP1.MYDNSPT.NET</Address> \n                <Address>NSP2.MYDNSPT.NET</Address> \n                <Address>NSP3.MYDNSPT.NET</Address> \n                <Address>NSP4.MYDNSPT.NET</Address> \n              </hostNames> \n              <ips/> \n            </nameServers> \n            <status>ok</status> \n            <rawText>Domain Name: MYOTIS.STORE \n        Registry Domain ID: D389464464-CNIC \n        Registrar WHOIS Server: whois.ascio.com \n        Registrar URL: http://www.ascio.com \n        Updated Date: 2023-09-27T12:07:49.0Z \n        Creation Date: 2023-08-21T14:40:12.0Z \n        Registry Expiry Date: 2024-08-21T23:59:59.0Z \n        Registrar: Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA \n        Registrar IANA ID: 106 \n        Domain Status: ok https://icann.org/epp#ok \n        Registrant Organization: \n        Registrant State/Province: \n        Registrant Country: PT \n        Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Name Server: NSP1.MYDNSPT.NET \n        Name Server: NSP2.MYDNSPT.NET \n        Name Server: NSP3.MYDNSPT.NET \n        Name Server: NSP4.MYDNSPT.NET \n        DNSSEC: unsigned \n        Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Registrar Abuse Contact Email: abuse@ascio.com \n        Registrar Abuse Contact Phone: +1.4165350123 \n        URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/ \n        &gt;&gt;&gt; Last update of WHOIS database: 2023-12-07T06:45:49.0Z &lt;&lt;&lt; \n       \n        For more information on Whois status codes, please visit https://icann.org/epp \n       \n        &gt;&gt;&gt; IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit \n        https://www.centralnic.com/support/rdap &lt;&lt;&lt; \n       \n        The Whois and RDAP services are provided by CentralNic, and contain \n        information pertaining to Internet domain names registered by our \n        our customers. By using this service you are agreeing (1) not to use any \n        information presented here for any purpose other than determining \n        ownership of domain names, (2) not to store or reproduce this data in \n        any way, (3) not to use any high-volume, automated, electronic processes \n        to obtain data from this service. Abuse of this service is monitored and \n        actions in contravention of these terms will result in being permanently \n        blacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com) \n       \n        Access to the Whois and RDAP services is rate limited. For more \n        information, visit https://registrar-console.centralnic.com/pub/whois_guidance.</rawText> \n            <parseCode>4091</parseCode> \n            <header/> \n            <strippedText>Domain Name: MYOTIS.STORE \n        Registrar WHOIS Server: whois.ascio.com \n        Registrar URL: http://www.ascio.com \n        Updated Date: 2023-09-27T12:07:49.0Z \n        Creation Date: 2023-08-21T14:40:12.0Z \n        Registry Expiry Date: 2024-08-21T23:59:59.0Z \n        Registrar: Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA \n        Registrar IANA ID: 106 \n        Domain Status: ok https://icann.org/epp#ok \n        Registrant Country: PT \n        Registrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Name Server: NSP1.MYDNSPT.NET \n        Name Server: NSP2.MYDNSPT.NET \n        Name Server: NSP3.MYDNSPT.NET \n        Name Server: NSP4.MYDNSPT.NET \n        Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. \n        Registrar Abuse Contact Email: abuse@ascio.com \n        Registrar Abuse Contact Phone: +1.4165350123 \n        </strippedText> \n            <footer/> \n            <audit> \n              <createdDate>2023-12-07 06:45:50 UTC</createdDate> \n              <updatedDate>2023-12-07 06:45:50 UTC</updatedDate> \n            </audit> \n            <registrarName>Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA</registrarName> \n            <registrarIANAID>106</registrarIANAID> \n            <createdDateNormalized>2023-08-21 14:40:12 UTC</createdDateNormalized> \n            <updatedDateNormalized>2023-09-27 12:07:49 UTC</updatedDateNormalized> \n            <expiresDateNormalized>2024-08-21 23:59:59 UTC</expiresDateNormalized> \n            <whoisServer>whois.ascio.com</whoisServer> \n          </registryData> \n          <domainAvailability>UNAVAILABLE</domainAvailability> \n          <contactEmail>abuse@ascio.com</contactEmail> \n          <domainNameExt>.store</domainNameExt> \n          <estimatedDomainAge>107</estimatedDomainAge> \n          <ips> \n            <string>94.46.180.247</string> \n          </ips> \n        </WhoisRecord> \n \n \n        ';
+            
+            // Função para destacar as partes do XML
+            function highlightXML(xmlString) {
+                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                });
+            }
+
+            // Exibe o XML na página com destaque
+            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);
+        </script>
+    </div>
+
+    <!-- Seu código existente dos scripts vai aqui -->
+</body>
+
+</html>

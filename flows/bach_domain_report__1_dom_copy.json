@@ -37,29 +37,14 @@
       ]
     },
     {
-      "parameters": {
-        "mode": "combine",
-        "combinationMode": "mergeByPosition",
-        "options": {}
-      },
-      "id": "269bd6fb-a556-4db1-9040-a76efa099be3",
-      "name": "Merge",
-      "type": "n8n-nodes-base.merge",
-      "typeVersion": 2.1,
-      "position": [
-        1360,
-        660
-      ]
-    },
-    {
       "parameters": {},
       "id": "1b8df513-ff5d-4261-a5cd-078a5335fc03",
       "name": "No Operation, do nothing",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1580,
-        660
+        1820,
+        860
       ]
     },
     {
@@ -155,8 +140,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        920,
-        840
+        820,
+        880
       ]
     },
     {
@@ -193,7 +178,7 @@
             },
             {
               "name": "whois_xml_response",
-              "stringValue": "={{ $('HTTP_Request').item }}"
+              "stringValue": "={{ $('HTTP_Request').item.json.data.replace(/[\\r\\n]+/g,'\\\\n')  }}"
             },
             {
               "name": "domain_name_to_test_transformation_no_dot",
@@ -234,20 +219,20 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1140,
-        820
+        1040,
+        860
       ]
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.createdDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.updatedDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        date: {{ $json.expiresDateNormalized }} </a>\n                </li>\n                <li><a href=\"#\" class=\"link-body-emphasis d-inline-flex text-decoration-none rounded\">creation\n                        country: {{ $json.WhoisRecord.registryData.registrant.country}} </a>\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domainName }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domainName }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                            <li><code>\n\n                                    asdasdasdas\n\n\n                                </code>\n                            </li>\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
       "name": "HTML2",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1140,
+        1180,
         1020
       ]
     },
@@ -435,17 +420,6 @@
         ]
       ]
     },
-    "Merge": {
-      "main": [
-        [
-          {
-            "node": "No Operation, do nothing",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "input": {
       "main": [
         [
@@ -494,9 +468,9 @@
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "No Operation, do nothing",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -505,9 +479,9 @@
       "main": [
         [
           {
-            "node": "Merge",
+            "node": "No Operation, do nothing",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ]
       ]
@@ -614,7 +588,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "ee45ac1a-f4a4-4675-8e67-bc8d46657492",
+  "versionId": "237ae869-8450-4685-b0d7-86295bcf2f9c",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
