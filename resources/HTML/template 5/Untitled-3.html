@@ -150,7 +150,71 @@
         <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
     </div>
 </div>		
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-warning"
+            data-bs-toggle="collapse" data-bs-target="#undefined-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.storea an invalid domain
+            </h5>
+        </button>
+        <div class="collapse" id="undefined-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <b>  dataError: </b> INVALID_TLD
+                </li>
 
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#undefinedlvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="undefinedlvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container2"></pre>
+
+                                        <script>
+                                            var xmlString ='  undefined ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>		
 
 
     </div>
