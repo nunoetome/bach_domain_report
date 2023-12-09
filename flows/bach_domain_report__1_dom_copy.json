@@ -5,7 +5,7 @@
       "parameters": {
         "content": "## Data extraction\n",
         "height": 520.8658476268888,
-        "width": 547.0564072378369
+        "width": 784.4901982869746
       },
       "id": "d5dce561-fb53-4887-8bc8-4f32e940841c",
       "name": "Sticky Note",
@@ -32,8 +32,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        300,
-        840
+        680,
+        1740
       ]
     },
     {
@@ -43,8 +43,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1380,
-        880
+        2860,
+        1200
       ]
     },
     {
@@ -71,77 +71,6 @@
       "position": [
         60,
         -280
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "domainName",
-              "stringValue": "={{ $json.WhoisRecord.domainName }}"
-            },
-            {
-              "name": "dataError",
-              "stringValue": "={{ $json.WhoisRecord.dataError }}"
-            },
-            {
-              "name": "allData",
-              "stringValue": "={{ $json.WhoisRecord }}"
-            },
-            {
-              "name": "html_button_type",
-              "stringValue": "success"
-            }
-          ]
-        },
-        "include": "none",
-        "options": {}
-      },
-      "id": "4bf3d2ca-8430-4f2a-86b9-164effb23f01",
-      "name": "ETL1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        1440,
-        1180
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "dataError",
-              "stringValue": "={{ $json.WhoisRecord.dataError }}"
-            },
-            {
-              "name": "domainName",
-              "stringValue": "={{ $json.WhoisRecord.domainName }}"
-            },
-            {
-              "name": "allData",
-              "stringValue": "={{ $json.WhoisRecord }}"
-            },
-            {
-              "name": "html_button_type",
-              "stringValue": "warning"
-            },
-            {
-              "stringValue": "="
-            }
-          ]
-        },
-        "include": "none",
-        "options": {}
-      },
-      "id": "f0544112-d7a9-414a-a63a-51857118aca3",
-      "name": "ETL2",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        1260,
-        1200
       ]
     },
     {
@@ -193,21 +122,21 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        840,
-        1080
+        1580,
+        1200
       ]
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} missing data\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "0332e3d5-6622-4f70-be45-7a1afccf57ad",
       "name": "HTML",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        860,
-        720
+        1020,
+        1720
       ]
     },
     {
@@ -219,8 +148,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1020,
-        880
+        1420,
+        1960
       ]
     },
     {
@@ -232,8 +161,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1020,
-        1080
+        1740,
+        1200
       ]
     },
     {
@@ -252,8 +181,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        520,
-        940
+        1080,
+        1980
       ]
     },
     {
@@ -305,8 +234,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        100,
-        840
+        60,
+        1520
       ]
     },
     {
@@ -319,8 +248,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        940,
-        200
+        960,
+        340
       ]
     },
     {
@@ -329,7 +258,7 @@
           "values": [
             {
               "name": "domain_name_to_test",
-              "stringValue": "=myotis.store2"
+              "stringValue": "=myotis.com"
             },
             {
               "name": "whoisxmlapi_api_key",
@@ -429,7 +358,7 @@
             },
             {
               "name": "html_button_type",
-              "stringValue": "danger"
+              "stringValue": "warning"
             },
             {
               "name": "whois_xml_response",
@@ -448,8 +377,247 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        780,
-        900
+        1260,
+        1960
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "success"
+            },
+            {
+              "name": "whois_xml_response",
+              "stringValue": "={{ $('HTTP_Request').item.json.data.replace(/[\\r\\n]+/g,'\\\\n')  }}"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "={{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9371dbd9-0b62-4d90-8f20-d782fb91f8da",
+      "name": "ETL1_v2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        860,
+        1720
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_name_to_test }}&da=2&ip=1",
+        "options": {}
+      },
+      "id": "1709b4e8-bf71-4624-bfa8-193147d41e23",
+      "name": "HTTP_Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        940,
+        140
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "0a568590-0d28-4514-ab8f-62286c85dca9",
+      "name": "XML",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        60,
+        1700
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} missing data\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+      },
+      "id": "39f3b6d4-05f6-41b4-8c65-3e5b072552e4",
+      "name": "HTML3",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        720,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "success"
+            },
+            {
+              "name": "whois_xml_response",
+              "stringValue": "={{ $('HTTP_Request').item.json.data.replace(/[\\r\\n]+/g,'\\\\n')  }}"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "={{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "cd336935-577f-49fe-b868-59a0ba422b46",
+      "name": "ETL1_v",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        560,
+        860
+      ]
+    },
+    {
+      "parameters": {
+        "content": "the domain exists",
+        "height": 349.30531989052844,
+        "width": 1947.2113314293383
+      },
+      "id": "69f82402-a05e-44e2-939a-08d6238ea5c8",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        360,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "content": "ERROR",
+        "height": 718.5323145988943,
+        "width": 1937.5826186815611
+      },
+      "id": "d2e5995c-f94b-404e-b86e-5f9627fc1432",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        360,
+        1580
+      ]
+    },
+    {
+      "parameters": {
+        "content": "the domain does not exists",
+        "height": 349.3053198905284,
+        "width": 1946.2613461308595
+      },
+      "id": "eadc2897-b5c4-417e-a994-95c049b7356c",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        340,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.domainAvailability }}",
+              "value2": "AVAILABLE"
+            }
+          ]
+        }
+      },
+      "id": "dcf8bf4d-5b01-4984-98f9-75b857d52b22",
+      "name": "IF domainAvailability AVAILABLE",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        380,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "content": "Dominio premium ou ja registado",
+        "height": 399.8170283355138,
+        "width": 2312.984693718711
+      },
+      "id": "7e3a3af8-3434-4dc8-9efd-1e617be67d77",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        380,
+        2360
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "0026e18c-7e3f-4e48-a7c0-746fae418aee",
+      "name": "TODO: if NOT pertence a algum revendedor",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1400,
+        1220
       ]
     },
     {
@@ -496,13 +664,61 @@
         },
         "options": {}
       },
-      "id": "9371dbd9-0b62-4d90-8f20-d782fb91f8da",
-      "name": "ETL1_v2",
+      "id": "b16f71f9-f853-487d-a179-1bbcade25841",
+      "name": "ETL",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        600,
-        740
+        2040,
+        2520
+      ]
+    },
+    {
+      "parameters": {
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li>\n                  <b>  dataError: </b> {{ $json.dataError }}\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+      },
+      "id": "fed33f26-1d04-4e2f-8b81-76c838a71a71",
+      "name": "HTML4",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        2220,
+        2520
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "id": "9f716a35-563b-4fe5-a005-c7129b5257fd",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1880,
+        2520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "e9b40818-76d4-4c43-9a8b-9d45bda33072",
+      "name": "Switch",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [
+        460,
+        460
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "045868ac-9a6d-4c0a-bc87-e18ba8eeaa9f",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 2,
+      "position": [
+        780,
+        460
       ]
     }
   ],
@@ -592,7 +808,7 @@
         ],
         [
           {
-            "node": "ETL3",
+            "node": "TODO: if NOT pertence a algum revendedor",
             "type": "main",
             "index": 0
           }
@@ -625,7 +841,7 @@
       "main": [
         [
           {
-            "node": "IF MISSING_WHOIS_DATA",
+            "node": "IF domainAvailability AVAILABLE",
             "type": "main",
             "index": 0
           }
@@ -661,6 +877,11 @@
             "node": "HTTP_Request",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "HTTP_Request1",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -686,6 +907,108 @@
           }
         ]
       ]
+    },
+    "HTTP_Request1": {
+      "main": [
+        [
+          {
+            "node": "XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL1_v": {
+      "main": [
+        [
+          {
+            "node": "HTML3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML3": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF domainAvailability AVAILABLE": {
+      "main": [
+        [
+          {
+            "node": "ETL1_v",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF MISSING_WHOIS_DATA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "TODO: if NOT pertence a algum revendedor": {
+      "main": [
+        [
+          {
+            "node": "ETL3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL": {
+      "main": [
+        [
+          {
+            "node": "HTML4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML4": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "ETL",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -694,7 +1017,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "bfe8ebad-ec09-47af-8ad6-edd444d37dfb",
+  "versionId": "37c650d2-db0e-45b1-bbfc-025bc150f5b5",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"

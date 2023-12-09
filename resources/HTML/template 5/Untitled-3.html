@@ -76,72 +76,162 @@
     <div class="container">
 
 
-        
-<div class="row">
-    <div class="col-md-10 col-lg-8 w-100">
-        <button
-            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-danger"
-            data-bs-toggle="collapse" data-bs-target="#myotis_storea-collapse" aria-expanded="true">
-            <h5 class="post-title">
-                myotis.storea an invalid domain
-            </h5>
-        </button>
-        <div class="collapse" id="myotis_storea-collapse">
-            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li>
-                  <b>  dataError: </b> INVALID_TLD
-                </li>
-
-                <li class="mb-1">
-                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
-                        data-bs-toggle="collapse" data-bs-target="#myotis_storealvl2-collapse"
-                        aria-expanded="false">
-                        Full XML API response
-                    </button>
-                    <div class="collapse" id="myotis_storealvl2-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                        
-                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                                <li > 
-
-                                   <div class="text-wrap">  
-
-                                        <!-- Restante do seu conteúdo vai aqui -->
-                                        <pre id="xml-container2"></pre>
-
-                                        <script>
-                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.storea</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-07 21:37:36 UTC</createdDate>\n    <updatedDate>2023-12-07 21:37:36 UTC</updatedDate>\n  </audit>\n  <dataError>INVALID_TLD</dataError>\n  <registryData>\n    <domainName>myotis.storea</domainName>\n    <parseCode>64</parseCode>\n    <audit>\n      <createdDate>2023-12-07 21:37:36 UTC</createdDate>\n      <updatedDate>2023-12-07 21:37:36 UTC</updatedDate>\n    </audit>\n    <dataError>INVALID_TLD</dataError>\n    <whoisServer>whois.nic.storea</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.storea</domainNameExt>\n</WhoisRecord>\n ';
-
-                                            // Função para destacar as partes do XML
-                                            function highlightXML(xmlString) {
-                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
-                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
-                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
-                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
-                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
-                                                });
-                                            }
-                                            // Exibe o XML na página com destaque
-                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  
-
-                                        </script>
-                                    </div>
 
 
-                                </li>
-                            </ul>
-
-                        </ul>
 
 
-                    </div>
-                </li>
-            </ul>
+        <div class="row">
+            <div class="col-md-10 col-lg-8 w-100">
+                <button
+                    class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+                    data-bs-toggle="collapse" data-bs-target="#asdasdasdas_pt-collapse" aria-expanded="true">
+                    <h5 class="post-title">
+                        asdasdasdas.pt missing data
+                    </h5>
+                </button>
+                <div class="collapse" id="asdasdasdas_pt-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                            <b> creation date: </b> null
+                        </li>
+                        <li>
+                            <b> updated date: </b> null
+                        </li>
+                        <li>
+                            <b> expires date: </b> null
+                        </li>
+                        <li>
+                            <b> registrant country: </b> undefined
+                        </li>
+                        <li class="mb-1">
+                            <button
+                                class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                                data-bs-toggle="collapse" data-bs-target="#asdasdasdas_ptlvl2-collapse"
+                                aria-expanded="false">
+                                Full XML API response
+                            </button>
+                            <div class="collapse" id="asdasdasdas_ptlvl2-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li>
+
+                                            <div class="text-wrap">
+
+                                                <!-- Restante do seu conteúdo vai aqui -->
+                                                <pre id="xml-container2"></pre>
+
+                                                <script>
+                                                    var xmlString = '  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>asdasdasdas.pt</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 02:04:36 UTC</createdDate>\n    <updatedDate>2023-12-09 02:04:36 UTC</updatedDate>\n  </audit>\n  <dataError>INCOMPLETE_DATA</dataError>\n  <registryData>\n    <domainName>asdasdasdas.pt</domainName>\n    <parseCode>64</parseCode>\n    <audit>\n      <createdDate>2023-12-09 02:04:36 UTC</createdDate>\n      <updatedDate>2023-12-09 02:04:36 UTC</updatedDate>\n    </audit>\n    <dataError>INCOMPLETE_DATA</dataError>\n    <whoisServer>whois.dns.pt</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.pt</domainNameExt>\n</WhoisRecord>\n ';
+
+                                                    // Função para destacar as partes do XML
+                                                    function highlightXML(xmlString) {
+                                                        return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                            var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                            var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                            var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                            return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                        });
+                                                    }
+                                                    // Exibe o XML na página com destaque
+                                                    document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);
+
+                                                </script>
+                                            </div>
+
+
+                                        </li>
+                                    </ul>
+
+                                </ul>
+
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+            </div>
         </div>
 
-        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
-    </div>
-</div>		
+
+
+        <div class="row">
+            <div class="col-md-10 col-lg-8 w-100">
+                <button
+                    class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+                    data-bs-toggle="collapse" data-bs-target="#myotis_storea-collapse" aria-expanded="true">
+                    <h5 class="post-title">
+                        myotis.storea missing data
+                    </h5>
+                </button>
+                <div class="collapse" id="myotis_storea-collapse">
+                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        <li>
+                          <b>  creation date: </b> null
+                        </li>
+                        <li>
+                          <b>  updated date: </b> null 
+                        </li>
+                        <li>
+                          <b>  expires date: </b> null 
+                        </li>
+                        <li>
+                          <b> registrant country: </b> undefined 
+                        </li>
+                        <li class="mb-1">
+                            <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                                data-bs-toggle="collapse" data-bs-target="#myotis_storealvl2-collapse"
+                                aria-expanded="false">
+                                Full XML API response
+                            </button>
+                            <div class="collapse" id="myotis_storealvl2-collapse">
+                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                
+                                    <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                        <li > 
+        
+                                           <div class="text-wrap">  
+        
+                                                <!-- Restante do seu conteúdo vai aqui -->
+                                                <pre id="xml-container2"></pre>
+        
+                                                <script>
+                                                    var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.storea</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 00:25:38 UTC</createdDate>\n    <updatedDate>2023-12-09 00:25:38 UTC</updatedDate>\n  </audit>\n  <dataError>INVALID_TLD</dataError>\n  <registryData>\n    <domainName>myotis.storea</domainName>\n    <parseCode>64</parseCode>\n    <audit>\n      <createdDate>2023-12-09 00:25:38 UTC</createdDate>\n      <updatedDate>2023-12-09 00:25:38 UTC</updatedDate>\n    </audit>\n    <dataError>INVALID_TLD</dataError>\n    <whoisServer>whois.nic.storea</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.storea</domainNameExt>\n</WhoisRecord>\n ';
+        
+                                                    // Função para destacar as partes do XML
+                                                    function highlightXML(xmlString) {
+                                                        return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                            var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                            var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                            var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                            return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                        });
+                                                    }
+                                                    // Exibe o XML na página com destaque
+                                                    document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  
+        
+                                                </script>
+                                            </div>
+        
+        
+                                        </li>
+                                    </ul>
+        
+                                </ul>
+        
+        
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        
+                <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+            </div>
+        </div>		
+
+
 
     </div>
 
