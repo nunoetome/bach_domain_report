@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Brand report</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+
+    <style>
+        /* Estilos para destacar as partes do XML */
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .xml-tag {
+            color: blue;
+        }
+
+        .xml-attribute {
+            color: green;
+        }
+
+        .xml-text {
+            color: black;
+        }
+
+        .xml-comment {
+            color: gray;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="index.html">Brand</a><button data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" class="navbar-toggler" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>
+                    <li class="nav-item"></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background-image:url('assets/img/home-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-lg-8 mx-auto position-relative">
+                    <div class="site-heading">
+                        <h1>Clean name</h1><span class="subheading">Brande Report</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+     
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_pt-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.pt Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_pt-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_ptlvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_ptlvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_pt"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.pt</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:41 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:41 UTC</updatedDate>\n  </audit>\n  <dataError>INCOMPLETE_DATA</dataError>\n  <registryData>\n    <domainName>myotis.pt</domainName>\n    <parseCode>64</parseCode>\n    <audit>\n      <createdDate>2023-12-09 08:37:41 UTC</createdDate>\n      <updatedDate>2023-12-09 08:37:41 UTC</updatedDate>\n    </audit>\n    <dataError>INCOMPLETE_DATA</dataError>\n    <whoisServer>whois.dns.pt</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.pt</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_pt').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-danger"
+            data-bs-toggle="collapse" data-bs-target="#myotis_store-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.store is registerd
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_store-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <b>  creation date: </b> 2023-08-21 14:40:12 UTC
+                </li>
+                <li>
+                  <b>  updated date: </b> 2023-09-27 12:07:49 UTC 
+                </li>
+                <li>
+                  <b>  expires date: </b> 2024-08-21 23:59:59 UTC 
+                </li>
+                <li>
+                  <b> registrant country: </b> PORTUGAL 
+                </li>
+                <li>
+                  <b>  dataError: </b> null
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_storelvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_storelvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_store"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.store</domainName>\n  <parseCode>8</parseCode>\n  <audit>\n    <createdDate>2023-12-08 14:46:10 UTC</createdDate>\n    <updatedDate>2023-12-08 14:46:10 UTC</updatedDate>\n  </audit>\n  <registrarName>Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA</registrarName>\n  <registrarIANAID>106</registrarIANAID>\n  <registryData>\n    <createdDate>2023-08-21T14:40:12.0Z</createdDate>\n    <updatedDate>2023-09-27T12:07:49.0Z</updatedDate>\n    <expiresDate>2024-08-21T23:59:59.0Z</expiresDate>\n    <registrant>\n      <country>PORTUGAL</country>\n      <countryCode>PT</countryCode>\n      <rawText>Registrant Country: PT\nRegistrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText>\n    </registrant>\n    <administrativeContact>\n      <country>PORTUGAL</country>\n      <countryCode>PT</countryCode>\n      <rawText>Admin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText>\n    </administrativeContact>\n    <billingContact>\n      <country>PORTUGAL</country>\n      <countryCode>PT</countryCode>\n      <rawText>Billing Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText>\n    </billingContact>\n    <technicalContact>\n      <country>PORTUGAL</country>\n      <countryCode>PT</countryCode>\n      <rawText>Tech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.</rawText>\n    </technicalContact>\n    <domainName>myotis.store</domainName>\n    <nameServers>\n      <rawText>NSP1.MYDNSPT.NET\nNSP2.MYDNSPT.NET\nNSP3.MYDNSPT.NET\nNSP4.MYDNSPT.NET\n</rawText>\n      <hostNames>\n        <Address>NSP1.MYDNSPT.NET</Address>\n        <Address>NSP2.MYDNSPT.NET</Address>\n        <Address>NSP3.MYDNSPT.NET</Address>\n        <Address>NSP4.MYDNSPT.NET</Address>\n      </hostNames>\n      <ips/>\n    </nameServers>\n    <status>ok</status>\n    <rawText>Domain Name: MYOTIS.STORE\nRegistry Domain ID: D389464464-CNIC\nRegistrar WHOIS Server: whois.ascio.com\nRegistrar URL: http://www.ascio.com\nUpdated Date: 2023-09-27T12:07:49.0Z\nCreation Date: 2023-08-21T14:40:12.0Z\nRegistry Expiry Date: 2024-08-21T23:59:59.0Z\nRegistrar: Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA\nRegistrar IANA ID: 106\nDomain Status: ok https://icann.org/epp#ok\nRegistrant Organization:\nRegistrant State/Province:\nRegistrant Country: PT\nRegistrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nAdmin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nTech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nName Server: NSP1.MYDNSPT.NET\nName Server: NSP2.MYDNSPT.NET\nName Server: NSP3.MYDNSPT.NET\nName Server: NSP4.MYDNSPT.NET\nDNSSEC: unsigned\nBilling Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nRegistrar Abuse Contact Email: abuse@ascio.com\nRegistrar Abuse Contact Phone: +1.4165350123\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-08T14:46:10.0Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\n&gt;&gt;&gt; IMPORTANT INFORMATION ABOUT THE DEPLOYMENT OF RDAP: please visit\nhttps://www.centralnic.com/support/rdap &lt;&lt;&lt;\nThe Whois and RDAP services are provided by CentralNic, and contain\ninformation pertaining to Internet domain names registered by our\nour customers. By using this service you are agreeing (1) not to use any\ninformation presented here for any purpose other than determining\nownership of domain names, (2) not to store or reproduce this data in\nany way, (3) not to use any high-volume, automated, electronic processes\nto obtain data from this service. Abuse of this service is monitored and\nactions in contravention of these terms will result in being permanently\nblacklisted. All data is (c) CentralNic Ltd (https://www.centralnic.com)\nAccess to the Whois and RDAP services is rate limited. For more\ninformation, visit https://registrar-console.centralnic.com/pub/whois_guidance.</rawText>\n    <parseCode>4091</parseCode>\n    <header/>\n    <strippedText>Domain Name: MYOTIS.STORE\nRegistrar WHOIS Server: whois.ascio.com\nRegistrar URL: http://www.ascio.com\nUpdated Date: 2023-09-27T12:07:49.0Z\nCreation Date: 2023-08-21T14:40:12.0Z\nRegistry Expiry Date: 2024-08-21T23:59:59.0Z\nRegistrar: Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA\nRegistrar IANA ID: 106\nDomain Status: ok https://icann.org/epp#ok\nRegistrant Country: PT\nRegistrant Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nAdmin Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nTech Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nName Server: NSP1.MYDNSPT.NET\nName Server: NSP2.MYDNSPT.NET\nName Server: NSP3.MYDNSPT.NET\nName Server: NSP4.MYDNSPT.NET\nBilling Email: Please query the RDDS service of the Registrar of Record identified in this output for information on how to contact the Registrant, Admin, or Tech contact of the queried domain name.\nRegistrar Abuse Contact Email: abuse@ascio.com\nRegistrar Abuse Contact Phone: +1.4165350123\n</strippedText>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-08 14:46:10 UTC</createdDate>\n      <updatedDate>2023-12-08 14:46:10 UTC</updatedDate>\n    </audit>\n    <registrarName>Ascio Technologies Inc. Danmark - filial af Ascio Technologies Inc. USA</registrarName>\n    <registrarIANAID>106</registrarIANAID>\n    <createdDateNormalized>2023-08-21 14:40:12 UTC</createdDateNormalized>\n    <updatedDateNormalized>2023-09-27 12:07:49 UTC</updatedDateNormalized>\n    <expiresDateNormalized>2024-08-21 23:59:59 UTC</expiresDateNormalized>\n    <whoisServer>whois.ascio.com</whoisServer>\n  </registryData>\n  <domainAvailability>UNAVAILABLE</domainAvailability>\n  <contactEmail>abuse@ascio.com</contactEmail>\n  <domainNameExt>.store</domainNameExt>\n  <estimatedDomainAge>109</estimatedDomainAge>\n  <ips>\n    <string>94.46.180.247</string>\n  </ips>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_store').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_es-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.es Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_es-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_eslvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_eslvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_es"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.es</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:45 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:45 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.es</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_es').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-danger"
+            data-bs-toggle="collapse" data-bs-target="#myotis_nexiste-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.nexiste Domain error: 001
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_nexiste-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_nexistelvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_nexistelvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_nexiste"></pre>
+
+                                        <script>
+                                            var xmlString ='  undefined ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_nexiste').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_aaa-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.aaa Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_aaa-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_aaalvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_aaalvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_aaa"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.aaa</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:48 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:48 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.aaa</domainName>\n    <rawText>No Data Found\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:48Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\nThe Service is provided so that you may look up certain information in relation to domain names that we store in our database.\nUse of the Service is subject to our policies, in particular you should familiarise yourself with our Acceptable Use Policy and our Privacy Policy.\nThe information provided by this Service is 'as is' and we make no guarantee of it its accuracy.\nYou agree that by your use of the Service you will not use the information provided by us in a way which is:\n* inconsistent with any applicable laws,\n* inconsistent with any policy issued by us,\n* to generate, distribute, or facilitate unsolicited mass email, promotions, advertisings or other solicitations, or\n* to enable high volume, automated, electronic processes that apply to the Service.\nYou acknowledge that:\n* a response from the Service that a domain name is 'available', does not guarantee that is able to be registered,\n* we may restrict, suspend or terminate your access to the Service at any time, and\n* the copying, compilation, repackaging, dissemination or other use of the information provided by the Service is not permitted, without our express written consent.\nThis information has been prepared and published in order to represent administrative and technical management of the TLD.\nWe may discontinue or amend any part or the whole of these Terms of Service from time to time at our absolute discretion.</rawText>\n    <parseCode>64</parseCode>\n    <header>No Data Found\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:48Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\nThe Service is provided so that you may look up certain information in relation to domain names that we store in our database.\nUse of the Service is subject to our policies, in particular you should familiarise yourself with our Acceptable Use Policy and our Privacy Policy.\nThe information provided by this Service is 'as is' and we make no guarantee of it its accuracy.\nYou agree that by your use of the Service you will not use the information provided by us in a way which is:\n* inconsistent with any applicable laws,\n* inconsistent with any policy issued by us,\n* to generate, distribute, or facilitate unsolicited mass email, promotions, advertisings or other solicitations, or\n* to enable high volume, automated, electronic processes that apply to the Service.\nYou acknowledge that:\n* a response from the Service that a domain name is 'available', does not guarantee that is able to be registered,\n* we may restrict, suspend or terminate your access to the Service at any time, and\n* the copying, compilation, repackaging, dissemination or other use of the information provided by the Service is not permitted, without our express written consent.\nThis information has been prepared and published in order to represent administrative and technical management of the TLD.\nWe may discontinue or amend any part or the whole of these Terms of Service from time to time at our absolute discretion.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:37:48 UTC</createdDate>\n      <updatedDate>2023-12-09 08:37:48 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.aaa</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.aaa</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_aaa').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_aarp-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.aarp Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_aarp-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_aarplvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_aarplvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_aarp"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.aarp</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:50 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:50 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <registrant>\n      <name>processes capable of enabling high volumes or other possible</name>\n      <rawText>processes capable of enabling high volumes or other possible\nmeans) messages to them; (v) to violate any law, rule, regulation\nor statute; and/or (vi) in contravention of any applicable data and\nprivacy protection acts. The compilation, repackaging,\ndissemination or other use of this Data is expressly prohibited\nwithout the prior written consent of AARP. AARP reserves the\nright to restrict your access to the WHOIS database in its sole\ndiscretion to ensure operational stability. By utilizing this website\nand/or submitting a query you agree to abide by this policy and\naccept that AARP can take measures to limit the use of its\nWHOIS services in order to protect the privacy of its registrants or\nthe integrity of the database. AARP reserves the right to make\nchanges to this website, the service(s) and these Terms of Use at\nany time without prior notice to you. By executing a query, in any\nmanner whatsoever, you agree to abide by these Terms of Use.</rawText>\n    </registrant>\n    <domainName>myotis.aarp</domainName>\n    <rawText>No match for "MYOTIS.AARP".\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:27Z &lt;&lt;&lt;\nThe data provided by AARP in the WHOIS database for .AARP is \nfor informational purposes only and is designed to assist persons \nin obtaining information related to the registration records\nof existing domain names. AARP does not guarantee the \naccuracy of the information in the WHOIS database and cannot, \nunder any circumstances, be held liable in such instances where\nthe stored information would prove to be wrong, incomplete, or \nnot accurate in any sense. By submitting a WHOIS query, you \nagree that you will not use this data: (i) to allow, enable or\notherwise support in any way the transmission of unsolicited, \ncommercial advertising or other solicitations whether via direct \nmail, email, telephone or otherwise; (ii) to enable high volume,\nautomated, electronic processes that apply to the registry (or its \nsystems); (iii) for commercial or targeted advertising in any \npossible way; (iv) to cause nuisance in any possible way to the\nregistrants by sending (whether by automated, electronic \nprocesses capable of enabling high volumes or other possible \nmeans) messages to them; (v) to violate any law, rule, regulation \nor statute; and/or (vi) in contravention of any applicable data and \nprivacy protection acts. The compilation, repackaging, \ndissemination or other use of this Data is expressly prohibited \nwithout the prior written consent of AARP. AARP reserves the \nright to restrict your access to the WHOIS database in its sole \ndiscretion to ensure operational stability. By utilizing this website \nand/or submitting a query you agree to abide by this policy and \naccept that AARP can take measures to limit the use of its \nWHOIS services in order to protect the privacy of its registrants or \nthe integrity of the database. AARP reserves the right to make \nchanges to this website, the service(s) and these Terms of Use at\nany time without prior notice to you. By executing a query, in any \nmanner whatsoever, you agree to abide by these Terms of Use.</rawText>\n    <parseCode>1088</parseCode>\n    <header>No match for "MYOTIS.AARP".\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:27Z &lt;&lt;&lt;\nThe data provided by AARP in the WHOIS database for .AARP is\nfor informational purposes only and is designed to assist persons\nin obtaining information related to the registration records\nof existing domain names. AARP does not guarantee the\naccuracy of the information in the WHOIS database and cannot,\nunder any circumstances, be held liable in such instances where\nthe stored information would prove to be wrong, incomplete, or\nnot accurate in any sense. By submitting a WHOIS query, you\nagree that you will not use this data: (i) to allow, enable or\notherwise support in any way the transmission of unsolicited,\ncommercial advertising or other solicitations whether via direct\nmail, email, telephone or otherwise; (ii) to enable high volume,\nautomated, electronic processes that apply to the registry (or its\nsystems); (iii) for commercial or targeted advertising in any\npossible way; (iv) to cause nuisance in any possible way to the</header>\n    <strippedText>registrants by sending (whether by automated, electronic\nprocesses capable of enabling high volumes or other possible\nmeans) messages to them; (v) to violate any law, rule, regulation\nor statute; and/or (vi) in contravention of any applicable data and\nprivacy protection acts. The compilation, repackaging,\ndissemination or other use of this Data is expressly prohibited\nwithout the prior written consent of AARP. AARP reserves the\nright to restrict your access to the WHOIS database in its sole\ndiscretion to ensure operational stability. By utilizing this website\nand/or submitting a query you agree to abide by this policy and\naccept that AARP can take measures to limit the use of its\nWHOIS services in order to protect the privacy of its registrants or\nthe integrity of the database. AARP reserves the right to make\nchanges to this website, the service(s) and these Terms of Use at\nany time without prior notice to you. By executing a query, in any\nmanner whatsoever, you agree to abide by these Terms of Use.\n</strippedText>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:37:50 UTC</createdDate>\n      <updatedDate>2023-12-09 08:37:50 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.aarp</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.aarp</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_aarp').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_abb-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.abb Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_abb-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_abblvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_abblvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_abb"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.abb</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:53 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:53 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.abb</domainName>\n    <rawText>Domain not found.\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:53Z &lt;&lt;&lt;\nTerms of Use: Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by Identity Digital or the Registry Operator for informational purposes only, and accuracy is not guaranteed. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Identity Digital except as reasonably necessary to register domain names or modify existing registrations. When using the Whois service, please consider the following: The Whois service is not a replacement for standard EPP commands to the SRS service. Whois is not considered authoritative for registered domain objects. The Whois service may be scheduled for downtime during production or OT&amp;E maintenance periods. Queries to the Whois services are throttled. If too many queries are received from a single IP address within a specified time, the service will begin to reject further queries for a period of time to prevent disruption of Whois service access. Abuse of the Whois system through data mining is mitigated by detecting and limiting bulk query access from single sources. Where applicable, the presence of a [Non-Public Data] tag indicates that such data is not made publicly available due to applicable data privacy laws or requirements. Should you wish to contact the registrant, please refer to the Whois records available through the registrar URL listed above. Access to non-public data may be provided, upon request, where it can be reasonably confirmed that the requester holds a specific legitimate interest and a proper legal basis for accessing the withheld data. Access to this data provided by Identity Digital can be requested by submitting a request via the form found at https://www.identity.digital/about/policies/whois-layered-access/. The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. Identity Digital Inc. and Registry Operator reserve the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.</rawText>\n    <parseCode>64</parseCode>\n    <header>Domain not found.\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:53Z &lt;&lt;&lt;\nTerms of Use: Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by Identity Digital or the Registry Operator for informational purposes only, and accuracy is not guaranteed. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Identity Digital except as reasonably necessary to register domain names or modify existing registrations. When using the Whois service, please consider the following: The Whois service is not a replacement for standard EPP commands to the SRS service. Whois is not considered authoritative for registered domain objects. The Whois service may be scheduled for downtime during production or OT&amp;E maintenance periods. Queries to the Whois services are throttled. If too many queries are received from a single IP address within a specified time, the service will begin to reject further queries for a period of time to prevent disruption of Whois service access. Abuse of the Whois system through data mining is mitigated by detecting and limiting bulk query access from single sources. Where applicable, the presence of a [Non-Public Data] tag indicates that such data is not made publicly available due to applicable data privacy laws or requirements. Should you wish to contact the registrant, please refer to the Whois records available through the registrar URL listed above. Access to non-public data may be provided, upon request, where it can be reasonably confirmed that the requester holds a specific legitimate interest and a proper legal basis for accessing the withheld data. Access to this data provided by Identity Digital can be requested by submitting a request via the form found at https://www.identity.digital/about/policies/whois-layered-access/. The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. Identity Digital Inc. and Registry Operator reserve the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:37:53 UTC</createdDate>\n      <updatedDate>2023-12-09 08:37:53 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.abb</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.abb</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_abb').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_abbott-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.abbott Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_abbott-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_abbottlvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_abbottlvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_abbott"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.abbott</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:55 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:55 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.abbott</domainName>\n    <rawText>Domain not found.\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:55Z &lt;&lt;&lt;\nTerms of Use: Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by Identity Digital or the Registry Operator for informational purposes only, and accuracy is not guaranteed. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Identity Digital except as reasonably necessary to register domain names or modify existing registrations. When using the Whois service, please consider the following: The Whois service is not a replacement for standard EPP commands to the SRS service. Whois is not considered authoritative for registered domain objects. The Whois service may be scheduled for downtime during production or OT&amp;E maintenance periods. Queries to the Whois services are throttled. If too many queries are received from a single IP address within a specified time, the service will begin to reject further queries for a period of time to prevent disruption of Whois service access. Abuse of the Whois system through data mining is mitigated by detecting and limiting bulk query access from single sources. Where applicable, the presence of a [Non-Public Data] tag indicates that such data is not made publicly available due to applicable data privacy laws or requirements. Should you wish to contact the registrant, please refer to the Whois records available through the registrar URL listed above. Access to non-public data may be provided, upon request, where it can be reasonably confirmed that the requester holds a specific legitimate interest and a proper legal basis for accessing the withheld data. Access to this data provided by Identity Digital can be requested by submitting a request via the form found at https://www.identity.digital/about/policies/whois-layered-access/. The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. Identity Digital Inc. and Registry Operator reserve the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.</rawText>\n    <parseCode>64</parseCode>\n    <header>Domain not found.\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:55Z &lt;&lt;&lt;\nTerms of Use: Access to WHOIS information is provided to assist persons in determining the contents of a domain name registration record in the registry database. The data in this record is provided by Identity Digital or the Registry Operator for informational purposes only, and accuracy is not guaranteed. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to (a) allow, enable, or otherwise support the transmission by e-mail, telephone, or facsimile of mass unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (b) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or Identity Digital except as reasonably necessary to register domain names or modify existing registrations. When using the Whois service, please consider the following: The Whois service is not a replacement for standard EPP commands to the SRS service. Whois is not considered authoritative for registered domain objects. The Whois service may be scheduled for downtime during production or OT&amp;E maintenance periods. Queries to the Whois services are throttled. If too many queries are received from a single IP address within a specified time, the service will begin to reject further queries for a period of time to prevent disruption of Whois service access. Abuse of the Whois system through data mining is mitigated by detecting and limiting bulk query access from single sources. Where applicable, the presence of a [Non-Public Data] tag indicates that such data is not made publicly available due to applicable data privacy laws or requirements. Should you wish to contact the registrant, please refer to the Whois records available through the registrar URL listed above. Access to non-public data may be provided, upon request, where it can be reasonably confirmed that the requester holds a specific legitimate interest and a proper legal basis for accessing the withheld data. Access to this data provided by Identity Digital can be requested by submitting a request via the form found at https://www.identity.digital/about/policies/whois-layered-access/. The Registrar of Record identified in this output may have an RDDS service that can be queried for additional information on how to contact the Registrant, Admin, or Tech contact of the queried domain name. Identity Digital Inc. and Registry Operator reserve the right to modify these terms at any time. By submitting this query, you agree to abide by this policy.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:37:55 UTC</createdDate>\n      <updatedDate>2023-12-09 08:37:55 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.abbott</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.abbott</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_abbott').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_abbvie-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.abbvie Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_abbvie-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_abbvielvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_abbvielvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_abbvie"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.abbvie</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:37:58 UTC</createdDate>\n    <updatedDate>2023-12-09 08:37:58 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.abbvie</domainName>\n    <rawText>This domain name has not been registered.\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:57Z &lt;&lt;&lt;\nThis WHOIS information is provided for free by Nominet UK, the central registry for .abbvie domain names. This information and the .abbvie WHOIS are Copyright Nominet UK 2023. You may not access the .abbvie WHOIS or use any data from it except as permitted by the terms of use available in full at http://www.nominet.org.uk/whois, which includes restrictions on: (A) use of the data for advertising, or its repackaging, recompilation, redistribution or reuse (B) obscuring, removing or hiding any or all of this notice and (C) exceeding query rate or volume limits. The data is provided on an 'as-is' basis and may lag behind the register. No guarantee is given as to the accuracy of the data provided. Access may be withdrawn or restricted at any time.</rawText>\n    <parseCode>64</parseCode>\n    <header>This domain name has not been registered.\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:57Z &lt;&lt;&lt;\nThis WHOIS information is provided for free by Nominet UK, the central registry for .abbvie domain names. This information and the .abbvie WHOIS are Copyright Nominet UK 2023. You may not access the .abbvie WHOIS or use any data from it except as permitted by the terms of use available in full at http://www.nominet.org.uk/whois, which includes restrictions on: (A) use of the data for advertising, or its repackaging, recompilation, redistribution or reuse (B) obscuring, removing or hiding any or all of this notice and (C) exceeding query rate or volume limits. The data is provided on an 'as-is' basis and may lag behind the register. No guarantee is given as to the accuracy of the data provided. Access may be withdrawn or restricted at any time.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:37:58 UTC</createdDate>\n      <updatedDate>2023-12-09 08:37:58 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.abbvie</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.abbvie</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_abbvie').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_abc-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.abc Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_abc-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_abclvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_abclvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_abc"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.abc</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:38:00 UTC</createdDate>\n    <updatedDate>2023-12-09 08:38:00 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.abc</domainName>\n    <rawText>No match for "MYOTIS.ABC".\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:45Z &lt;&lt;&lt;\nAccess to Whois information is for informational purposes only. \nAmerican Broadcasting Companies, Inc. (we, us, our) makes this information \navailable "as is" and does not guarantee its accuracy. The data can assist \na user (you, your) in obtaining information about or related to a domain\nname registration record. By submitting a whois query, you agree that you\nwill use this data only for lawful purposes and that, under no circumstances\nwill you use this data to: (1) enable high volume, automated, electronic \nprocesses that stress or load this whois database system providing \nyou this information; or (2) allow, enable, or otherwise support the \ntransmission of mass unsolicited, commercial advertising or \nsolicitations via direct mail, electronic mail, or by telephone. The \ncompilation, repackaging, dissemination or other use of this data is \nexpressly prohibited without prior written consent from us.\nWe reserve the right to modify any part of the whole of these Terms of \nUse any time. By submitting this query, you agree to be bound by \nthese Terms of Use.</rawText>\n    <parseCode>64</parseCode>\n    <header>No match for "MYOTIS.ABC".\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:37:45Z &lt;&lt;&lt;\nAccess to Whois information is for informational purposes only.\nAmerican Broadcasting Companies, Inc. (we, us, our) makes this information\navailable "as is" and does not guarantee its accuracy. The data can assist\na user (you, your) in obtaining information about or related to a domain\nname registration record. By submitting a whois query, you agree that you\nwill use this data only for lawful purposes and that, under no circumstances\nwill you use this data to: (1) enable high volume, automated, electronic\nprocesses that stress or load this whois database system providing\nyou this information; or (2) allow, enable, or otherwise support the\ntransmission of mass unsolicited, commercial advertising or\nsolicitations via direct mail, electronic mail, or by telephone. The\ncompilation, repackaging, dissemination or other use of this data is\nexpressly prohibited without prior written consent from us.\nWe reserve the right to modify any part of the whole of these Terms of\nUse any time. By submitting this query, you agree to be bound by\nthese Terms of Use.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:38:00 UTC</createdDate>\n      <updatedDate>2023-12-09 08:38:00 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.abc</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.abc</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_abc').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_able-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.able Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_able-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_ablelvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_ablelvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_able"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.able</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:38:02 UTC</createdDate>\n    <updatedDate>2023-12-09 08:38:02 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.able</domainName>\n    <rawText>No Data Found\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:38:02Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\nThe Service is provided so that you may look up certain information in relation to domain names that we store in our database.\nUse of the Service is subject to our policies, in particular you should familiarise yourself with our Acceptable Use Policy and our Privacy Policy.\nThe information provided by this Service is 'as is' and we make no guarantee of it its accuracy.\nYou agree that by your use of the Service you will not use the information provided by us in a way which is:\n* inconsistent with any applicable laws,\n* inconsistent with any policy issued by us,\n* to generate, distribute, or facilitate unsolicited mass email, promotions, advertisings or other solicitations, or\n* to enable high volume, automated, electronic processes that apply to the Service.\nYou acknowledge that:\n* a response from the Service that a domain name is 'available', does not guarantee that is able to be registered,\n* we may restrict, suspend or terminate your access to the Service at any time, and\n* the copying, compilation, repackaging, dissemination or other use of the information provided by the Service is not permitted, without our express written consent.\nThis information has been prepared and published in order to represent administrative and technical management of the TLD.\nWe may discontinue or amend any part or the whole of these Terms of Service from time to time at our absolute discretion.</rawText>\n    <parseCode>64</parseCode>\n    <header>No Data Found\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:38:02Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\nThe Service is provided so that you may look up certain information in relation to domain names that we store in our database.\nUse of the Service is subject to our policies, in particular you should familiarise yourself with our Acceptable Use Policy and our Privacy Policy.\nThe information provided by this Service is 'as is' and we make no guarantee of it its accuracy.\nYou agree that by your use of the Service you will not use the information provided by us in a way which is:\n* inconsistent with any applicable laws,\n* inconsistent with any policy issued by us,\n* to generate, distribute, or facilitate unsolicited mass email, promotions, advertisings or other solicitations, or\n* to enable high volume, automated, electronic processes that apply to the Service.\nYou acknowledge that:\n* a response from the Service that a domain name is 'available', does not guarantee that is able to be registered,\n* we may restrict, suspend or terminate your access to the Service at any time, and\n* the copying, compilation, repackaging, dissemination or other use of the information provided by the Service is not permitted, without our express written consent.\nThis information has been prepared and published in order to represent administrative and technical management of the TLD.\nWe may discontinue or amend any part or the whole of these Terms of Service from time to time at our absolute discretion.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:38:02 UTC</createdDate>\n      <updatedDate>2023-12-09 08:38:02 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.able</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.able</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_able').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-danger"
+            data-bs-toggle="collapse" data-bs-target="#myotis_abogado-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.abogado is registerd
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_abogado-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+                  <b>  creation date: </b> null
+                </li>
+                <li>
+                  <b>  updated date: </b> null 
+                </li>
+                <li>
+                  <b>  expires date: </b> null 
+                </li>
+                <li>
+                  <b> registrant country: </b> undefined 
+                </li>
+                <li>
+                  <b>  dataError: </b> INCOMPLETE_DATA
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_abogadolvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_abogadolvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_abogado"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.abogado</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:38:04 UTC</createdDate>\n    <updatedDate>2023-12-09 08:38:04 UTC</updatedDate>\n  </audit>\n  <dataError>INCOMPLETE_DATA</dataError>\n  <registryData>\n    <domainName>myotis.abogado</domainName>\n    <rawText>Number of allowed queries exceeded.</rawText>\n    <parseCode>64</parseCode>\n    <header>Number of allowed queries exceeded.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:38:04 UTC</createdDate>\n      <updatedDate>2023-12-09 08:38:04 UTC</updatedDate>\n    </audit>\n    <dataError>INCOMPLETE_DATA</dataError>\n    <whoisServer>whois.nic.abogado</whoisServer>\n  </registryData>\n  <domainAvailability>UNAVAILABLE</domainAvailability>\n  <domainNameExt>.abogado</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_abogado').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-lg-8 w-100">
+        <button
+            class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-success"
+            data-bs-toggle="collapse" data-bs-target="#myotis_abudhabi-collapse" aria-expanded="true">
+            <h5 class="post-title">
+                myotis.abudhabi Is free to register
+            </h5>
+        </button>
+        <div class="collapse" id="myotis_abudhabi-collapse">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li>
+              sem dados
+                </li>
+                <li class="mb-1">
+                    <button class="btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark"
+                        data-bs-toggle="collapse" data-bs-target="#myotis_abudhabilvl2-collapse"
+                        aria-expanded="false">
+                        Full XML API response
+                    </button>
+                    <div class="collapse" id="myotis_abudhabilvl2-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                        
+                            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                                <li > 
+
+                                   <div class="text-wrap">  
+
+                                        <!-- Restante do seu conteúdo vai aqui -->
+                                        <pre id="xml-container_myotis_abudhabi"></pre>
+
+                                        <script>
+                                            var xmlString ='  <?xml version="1.0" encoding="utf-8"?><WhoisRecord>\n  <domainName>myotis.abudhabi</domainName>\n  <parseCode>0</parseCode>\n  <audit>\n    <createdDate>2023-12-09 08:38:06 UTC</createdDate>\n    <updatedDate>2023-12-09 08:38:06 UTC</updatedDate>\n  </audit>\n  <dataError>MISSING_WHOIS_DATA</dataError>\n  <registryData>\n    <domainName>myotis.abudhabi</domainName>\n    <rawText>No Data Found\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:38:06Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\nAbu Dhabi Systems and Information Center (we, us, or our), provides the WHOIS Service (the Service) so that a user (you, your) may look\nup certain information in relation to domain names that we hold in our database. Your use of the Service is subject to our policies.\nThe information provided by the Service, is for informational purposes only, is .as is. and we make no guarantee of its accuracy.\nYou agree that by your use of the Service you will not use the information provided by us in a way which is: (i) inconsistent with\nany applicable laws; (ii) inconsistent with any policy issued by us; (iii) to generate, distribute, or facilitate unsolicited mass\nemail, promotions, advertisings or other solicitations; or (iv) to enable high volume, automated, electronic processes.\nYou acknowledge that: (i) a response from the Service indicating no match was found, does not guarantee that it is able to be\nregistered; (ii) we may restrict, suspend or terminate your access to the Service at any time; and (iii) the copying, compilation,\nrepackaging, dissemination or other use of the information provided by the Service is not permitted, without our express written\nconsent.\nWe may discontinue or amend any part or the whole of these Terms of Service from time to time at our absolute discretion.</rawText>\n    <parseCode>64</parseCode>\n    <header>No Data Found\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\n&gt;&gt;&gt; Last update of WHOIS database: 2023-12-09T08:38:06Z &lt;&lt;&lt;\nFor more information on Whois status codes, please visit https://icann.org/epp\nAbu Dhabi Systems and Information Center (we, us, or our), provides the WHOIS Service (the Service) so that a user (you, your) may look\nup certain information in relation to domain names that we hold in our database. Your use of the Service is subject to our policies.\nThe information provided by the Service, is for informational purposes only, is .as is. and we make no guarantee of its accuracy.\nYou agree that by your use of the Service you will not use the information provided by us in a way which is: (i) inconsistent with\nany applicable laws; (ii) inconsistent with any policy issued by us; (iii) to generate, distribute, or facilitate unsolicited mass\nemail, promotions, advertisings or other solicitations; or (iv) to enable high volume, automated, electronic processes.\nYou acknowledge that: (i) a response from the Service indicating no match was found, does not guarantee that it is able to be\nregistered; (ii) we may restrict, suspend or terminate your access to the Service at any time; and (iii) the copying, compilation,\nrepackaging, dissemination or other use of the information provided by the Service is not permitted, without our express written\nconsent.\nWe may discontinue or amend any part or the whole of these Terms of Service from time to time at our absolute discretion.</header>\n    <strippedText/>\n    <footer/>\n    <audit>\n      <createdDate>2023-12-09 08:38:06 UTC</createdDate>\n      <updatedDate>2023-12-09 08:38:06 UTC</updatedDate>\n    </audit>\n    <dataError>MISSING_WHOIS_DATA</dataError>\n    <whoisServer>whois.nic.abudhabi</whoisServer>\n  </registryData>\n  <domainAvailability>AVAILABLE</domainAvailability>\n  <domainNameExt>.abudhabi</domainNameExt>\n</WhoisRecord>\n ';
+
+                                            // Função para destacar as partes do XML
+                                            function highlightXML(xmlString) {
+                                                return xmlString.replace(/<([^\s>]+)([^>]*)>([^<]*)<\/\1>/g, function (match, tag, attributes, text) {
+                                                    var highlightedTag = '<span class="xml-tag">&lt;' + tag + '</span>';
+                                                    var highlightedAttributes = attributes ? '<span class="xml-attribute">' + attributes + '</span>' : '';
+                                                    var highlightedText = text ? '<span class="xml-text">' + text + '</span>' : '';
+                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class="xml-tag">&lt;/' + tag + '&gt;</span>';
+                                                });
+                                            }
+                                            // Exibe o XML na página com destaque
+                                            document.getElementById('xml-container_myotis_abudhabi').innerHTML = highlightXML(xmlString);  
+
+                                        </script>
+                                    </div>
+
+
+                                </li>
+                            </ul>
+
+                        </ul>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <hr style="margin-top: 0.3rem; margin-bottom: 0.3rem;">
+    </div>
+</div> 
+      
+    </div>
+
+
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+</body>
+
+
+
+
+</html>		

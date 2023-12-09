@@ -24,7 +24,7 @@
       "name": "Convert To Spreadsheet",
       "type": "n8n-nodes-base.spreadsheetFile",
       "position": [
-        980,
+        1000,
         140
       ],
       "typeVersion": 1
@@ -32,7 +32,7 @@
     {
       "parameters": {
         "content": "## Settings",
-        "height": 285,
+        "height": 319.92930267217196,
         "width": 1202.9028151348693
       },
       "id": "5c687865-4230-4a60-b536-10844a8d07de",
@@ -40,7 +40,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        60,
+        40,
         60
       ]
     },
@@ -56,13 +56,13 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 2,
       "position": [
-        160,
-        500
+        140,
+        520
       ]
     },
     {
       "parameters": {
-        "filePath": "={{ $node[\"Domain Settings\"].json.domain_list_file_folder }}{{ $node[\"Domain Settings\"].json.domain_list_file_fille }}"
+        "filePath": "={{ $node[\"File Settings\"].json.domain_list_file_folder }}{{ $node[\"File Settings\"].json.domain_list_file_fille }}"
       },
       "id": "97002d21-d4d0-4361-950c-9f0890bd35cd",
       "name": "Read list of domains From File",
@@ -72,6 +72,109 @@
         140
       ],
       "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "b7a5a3ee-23e4-4944-8d32-732ed0f89be7",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "veMKY5TqrHuS7LYj"
+      },
+      "id": "c9b785b3-d113-4352-b10c-2af99a4e5b91",
+      "name": "Execute Workflow op1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        720,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "output_domain_name",
+              "stringValue": "={{ $node[\"DATA INPUT\"].json.debug_name_to_test }}{{ $json.domain }}"
+            },
+            {
+              "name": "name_to_analise",
+              "stringValue": "={{ $('File Settings').item.json.debug_name_to_test }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "35443337-0f44-4c65-b628-b6fe0041964d",
+      "name": "Complete Domain",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        420,
+        500
+      ],
+      "notesInFlow": true,
+      "notes": "dom\nDoes not existes"
+    },
+    {
+      "parameters": {
+        "content": "## Dimain Data Extraction",
+        "height": 316.15452959323943,
+        "width": 1205.6924856424023
+      },
+      "id": "fdf93a16-4575-4a5c-b7a9-a5e6ce51e3bb",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        40,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## HTML transformation",
+        "height": 320.26385931937733,
+        "width": 1209.8018153685412
+      },
+      "id": "87edd715-3e94-4533-9ab9-08eca2d7a6a4",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        40,
+        760
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "debug_name_to_test",
+              "stringValue": "myotis"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c1ce580-0a62-491d-bee7-01ac9a760cc6",
+      "name": "DATA INPUT",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        320,
+        140
+      ]
     },
     {
       "parameters": {
@@ -94,170 +197,12 @@
         "options": {}
       },
       "id": "0bb84eb5-372c-42c8-b118-cd7d2d2480b7",
-      "name": "Domain Settings",
+      "name": "File Settings",
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        520,
+        540,
         140
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "debug_name_to_test",
-              "stringValue": "myotis"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "7ee32258-42dc-470c-8360-bafa02a155bb",
-      "name": "Debug1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        340,
-        140
-      ]
-    },
-    {
-      "parameters": {},
-      "id": "b7a5a3ee-23e4-4944-8d32-732ed0f89be7",
-      "name": "No Operation, do nothing",
-      "type": "n8n-nodes-base.noOp",
-      "typeVersion": 1,
-      "position": [
-        960,
-        780
-      ]
-    },
-    {
-      "parameters": {
-        "workflowId": "veMKY5TqrHuS7LYj"
-      },
-      "id": "c9b785b3-d113-4352-b10c-2af99a4e5b91",
-      "name": "Execute Workflow op1",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        640,
-        480
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "createFromText",
-        "content": "={{ $json.html }}",
-        "name": "={{ $('Code').item.json[\"name_to_analise\"] }}_brand_report.html",
-        "driveId": {
-          "__rl": true,
-          "value": "https://drive.google.com/drive/folders/1j8hbZeaGtYtHUBjxtNOfvpR3ipciIJth",
-          "mode": "url"
-        },
-        "folderId": {
-          "__rl": true,
-          "mode": "list",
-          "value": "root",
-          "cachedResultName": "/ (Root folder)"
-        },
-        "options": {}
-      },
-      "id": "2bada6c4-2638-4191-ba14-df3ec8f6bcd2",
-      "name": "Google Drive op1",
-      "type": "n8n-nodes-base.googleDrive",
-      "typeVersion": 3,
-      "position": [
-        760,
-        780
-      ],
-      "credentials": {
-        "googleDriveOAuth2Api": {
-          "id": "a6IoqM95SdaKs4M3",
-          "name": "Google Drive account 2"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "output_domain_name",
-              "stringValue": "={{ $node.Debug1.json.debug_name_to_test }}{{ $json.domain }}"
-            },
-            {
-              "name": "name_to_analise",
-              "stringValue": "={{ $('Domain Settings').item.json.debug_name_to_test }}"
-            }
-          ]
-        },
-        "include": "none",
-        "options": {}
-      },
-      "id": "35443337-0f44-4c65-b628-b6fe0041964d",
-      "name": "Complete Domain",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        440,
-        480
-      ],
-      "notesInFlow": true,
-      "notes": "dom\nDoes not existes"
-    },
-    {
-      "parameters": {
-        "jsCode": "// Loop over input items and add a new field called 'html_part' to the JSON of each one\n\nlet domain_report_list_fragment = \"\";\n\nfor (const item of $input.all()) {\n  domain_report_list_fragment = domain_report_list_fragment.concat(item.json.html_fragment);\n}\n\n// Crie um objeto JSON com a chave 'html_fragment' e o valor resultante da concatenação\nlet json_obj = { \n  \"html_fragment\": domain_report_list_fragment,\n  \"name_to_analise\": $input.first().json.name_to_analise\n               };\n\n\n// Retorne o objeto JSON\nreturn json_obj;"
-      },
-      "id": "c7627bbe-2c49-4cdf-9fb3-d297177cfbe9",
-      "name": "Code",
-      "type": "n8n-nodes-base.code",
-      "typeVersion": 2,
-      "position": [
-        360,
-        780
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "html_fragment",
-              "stringValue": "={{ $json.html_fragment }}"
-            },
-            {
-              "name": "name_to_analise",
-              "stringValue": "={{ $json.name_to_analise }}"
-            }
-          ]
-        },
-        "include": "none",
-        "options": {}
-      },
-      "id": "58280203-f208-401c-adf6-b28645237f4d",
-      "name": "Edit Fields1",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        140,
-        780
-      ]
-    },
-    {
-      "parameters": {
-        "html": "<!DOCTYPE html>\n<html>\n\n\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title>Brand report</title>\n    <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\">\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\">\n    <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\">\n\n    <style>\n        /* Estilos para destacar as partes do XML */\n        pre {\n            white-space: pre-wrap;\n            word-wrap: break-word;\n        }\n\n        .xml-tag {\n            color: blue;\n        }\n\n        .xml-attribute {\n            color: green;\n        }\n\n        .xml-text {\n            color: black;\n        }\n\n        .xml-comment {\n            color: gray;\n        }\n    </style>\n\n</head>\n\n\n<body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1>Clean name</h1><span class=\"subheading\">Brande Report</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n\n    <div class=\"container\">\n\n     {{ $json.html_fragment }} \n      \n    </div>\n\n\n\n    <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n    <script src=\"assets/js/script.min.js\"></script>\n</body>\n\n\n\n\n</html>"
-      },
-      "id": "7aa3b5e4-eda3-40b2-b93e-1e069dcff830",
-      "name": "HTML",
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1,
-      "position": [
-        560,
-        780
       ]
     },
     {
@@ -278,12 +223,112 @@
         "options": {}
       },
       "id": "8ee7359d-ee96-41a5-b174-f990907a7616",
-      "name": "Edit Fields2",
+      "name": "ETL",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        860,
-        480
+        1020,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "html_fragment",
+              "stringValue": "={{ $json.html_fragment }}"
+            },
+            {
+              "name": "name_to_analise",
+              "stringValue": "={{ $json.name_to_analise }}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "58280203-f208-401c-adf6-b28645237f4d",
+      "name": "ETL 2 HTML",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        140,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'html_part' to the JSON of each one\n\nlet domain_report_list_fragment = \"\";\n\nfor (const item of $input.all()) {\n  domain_report_list_fragment = domain_report_list_fragment.concat(item.json.html_fragment);\n}\n\n// Crie um objeto JSON com a chave 'html_fragment' e o valor resultante da concatenação\nlet json_obj = { \n  \"html_fragment\": domain_report_list_fragment,\n  \"name_to_analise\": $input.first().json.name_to_analise\n               };\n\n\n// Retorne o objeto JSON\nreturn json_obj;"
+      },
+      "id": "c7627bbe-2c49-4cdf-9fb3-d297177cfbe9",
+      "name": "HTML concat",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        340,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "html": "<!DOCTYPE html>\n<html>\n\n\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, shrink-to-fit=no\">\n    <title>Brand report</title>\n    <link rel=\"stylesheet\" href=\"assets/bootstrap/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\"\n        href=\"https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800\">\n    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic\">\n    <link rel=\"stylesheet\" href=\"assets/fonts/font-awesome.min.css\">\n\n    <style>\n        /* Estilos para destacar as partes do XML */\n        pre {\n            white-space: pre-wrap;\n            word-wrap: break-word;\n        }\n\n        .xml-tag {\n            color: blue;\n        }\n\n        .xml-attribute {\n            color: green;\n        }\n\n        .xml-text {\n            color: black;\n        }\n\n        .xml-comment {\n            color: gray;\n        }\n    </style>\n\n</head>\n\n\n<body>\n    <nav class=\"navbar navbar-light navbar-expand-lg fixed-top\" id=\"mainNav\">\n        <div class=\"container\"><a class=\"navbar-brand\" href=\"index.html\">Brand</a><button data-bs-toggle=\"collapse\"\n                data-bs-target=\"#navbarResponsive\" class=\"navbar-toggler\" aria-controls=\"navbarResponsive\"\n                aria-expanded=\"false\" aria-label=\"Toggle navigation\"><i class=\"fa fa-bars\"></i></button>\n            <div class=\"collapse navbar-collapse\" id=\"navbarResponsive\">\n                <ul class=\"navbar-nav ms-auto\">\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li>\n                    <li class=\"nav-item\"></li>\n                    <li class=\"nav-item\"><a class=\"nav-link\" href=\"contact.html\">Contact us</a></li>\n                    <li class=\"nav-item\"></li>\n                </ul>\n            </div>\n        </div>\n    </nav>\n    <header class=\"masthead\" style=\"background-image:url('assets/img/home-bg.jpg');\">\n        <div class=\"overlay\"></div>\n        <div class=\"container\">\n            <div class=\"row\">\n                <div class=\"col-md-10 col-lg-8 mx-auto position-relative\">\n                    <div class=\"site-heading\">\n                        <h1>Clean name</h1><span class=\"subheading\">Brande Report</span>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </header>\n\n    <div class=\"container\">\n\n     {{ $json.html_fragment }} \n      \n    </div>\n\n\n\n    <script src=\"assets/bootstrap/js/bootstrap.min.js\"></script>\n    <script src=\"assets/js/script.min.js\"></script>\n</body>\n\n\n\n\n</html>"
+      },
+      "id": "7aa3b5e4-eda3-40b2-b93e-1e069dcff830",
+      "name": "Final HTML template",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        560,
+        880
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $json.html }}",
+        "name": "={{ $('HTML concat').item.json[\"name_to_analise\"] }}_brand_report.html",
+        "driveId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1j8hbZeaGtYtHUBjxtNOfvpR3ipciIJth",
+          "mode": "url"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "2bada6c4-2638-4191-ba14-df3ec8f6bcd2",
+      "name": "Google Drive UPLOAD",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        800,
+        880
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "a6IoqM95SdaKs4M3",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "# bach_domain_report\n\n\n## input: \n\n\n## settings: \nNode:DATA INPUT >> debug_name_to_test\n## output: \n1 HTML file",
+        "height": 318.86678230449877,
+        "width": 674.9571335694513
+      },
+      "id": "1effaa39-d657-40dc-95f4-c0dd91173aab",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -660,
+        60
       ]
     }
   ],
@@ -293,7 +338,7 @@
       "main": [
         [
           {
-            "node": "Debug1",
+            "node": "DATA INPUT",
             "type": "main",
             "index": 0
           }
@@ -322,7 +367,7 @@
         ],
         [
           {
-            "node": "Edit Fields1",
+            "node": "ETL 2 HTML",
             "type": "main",
             "index": 0
           }
@@ -340,33 +385,11 @@
         ]
       ]
     },
-    "Domain Settings": {
-      "main": [
-        [
-          {
-            "node": "Read list of domains From File",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Debug1": {
-      "main": [
-        [
-          {
-            "node": "Domain Settings",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Execute Workflow op1": {
       "main": [
         [
           {
-            "node": "Edit Fields2",
+            "node": "ETL",
             "type": "main",
             "index": 0
           }
@@ -384,51 +407,29 @@
         ]
       ]
     },
-    "Google Drive op1": {
+    "DATA INPUT": {
       "main": [
         [
           {
-            "node": "No Operation, do nothing",
+            "node": "File Settings",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Code": {
+    "File Settings": {
       "main": [
         [
           {
-            "node": "HTML",
+            "node": "Read list of domains From File",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields1": {
-      "main": [
-        [
-          {
-            "node": "Code",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTML": {
-      "main": [
-        [
-          {
-            "node": "Google Drive op1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Edit Fields2": {
+    "ETL": {
       "main": [
         [
           {
@@ -438,11 +439,55 @@
           }
         ]
       ]
+    },
+    "ETL 2 HTML": {
+      "main": [
+        [
+          {
+            "node": "HTML concat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML concat": {
+      "main": [
+        [
+          {
+            "node": "Final HTML template",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final HTML template": {
+      "main": [
+        [
+          {
+            "node": "Google Drive UPLOAD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive UPLOAD": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {},
-  "versionId": "ccb474b9-d223-41a4-bd74-b1084b606008",
+  "versionId": "0a5e30a9-7a45-4274-8265-ad869c60d4ce",
   "id": "NAJdXH9PbewIQUAO",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
