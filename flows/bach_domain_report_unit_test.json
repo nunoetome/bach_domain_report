@@ -1,0 +1,334 @@
+{
+  "name": "bach_domain_report unit test",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "7cb04ffc-16f6-4532-97ee-23883c42c856",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        480,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $json[\"html\"] }}",
+        "name": "escreveop1.html",
+        "driveId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1j8hbZeaGtYtHUBjxtNOfvpR3ipciIJth",
+          "mode": "url"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "60bdd6af-2f1c-45b6-a7f0-943d1c85cd7b",
+      "name": "Google Drive op1",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        -40
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "a6IoqM95SdaKs4M3",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowId": "veMKY5TqrHuS7LYj"
+      },
+      "id": "898efcc4-1e3d-4998-9b1e-b36889910402",
+      "name": "Execute Workflow op2",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        940,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "veMKY5TqrHuS7LYj"
+      },
+      "id": "a4728fa7-8e0a-469f-b1d5-fca4fec0d32c",
+      "name": "Execute Workflow op1",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        940,
+        -40
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "veMKY5TqrHuS7LYj"
+      },
+      "id": "b9324a20-162a-4696-8588-6393390227f7",
+      "name": "Execute Workflow op3",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        940,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $json[\"html\"] }}",
+        "name": "escreveop3.html",
+        "driveId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1j8hbZeaGtYtHUBjxtNOfvpR3ipciIJth",
+          "mode": "url"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "7c2a8993-6825-4d93-a187-0de0f5cc9696",
+      "name": "Google Drive op3",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        360
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "a6IoqM95SdaKs4M3",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "createFromText",
+        "content": "={{ $json[\"html\"] }}",
+        "name": "escreveop2.html",
+        "driveId": {
+          "__rl": true,
+          "value": "https://drive.google.com/drive/folders/1j8hbZeaGtYtHUBjxtNOfvpR3ipciIJth",
+          "mode": "url"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "d3e367b6-5fee-4a06-896a-843d040f0def",
+      "name": "Google Drive op2",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1200,
+        180
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "a6IoqM95SdaKs4M3",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "output_domain_name",
+              "stringValue": "asdasdasdas.pt"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "9c296169-c6ca-47e2-9eb6-3a93001e7e5a",
+      "name": "atributos op1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        680,
+        -40
+      ],
+      "notesInFlow": true,
+      "notes": "dom\nDoes not existes"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "output_domain_name",
+              "stringValue": "myotis.store"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "5f637407-a8a5-4d02-b700-120dccf212d9",
+      "name": "atributos op3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        680,
+        360
+      ],
+      "notes": "dom existes"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "output_domain_name",
+              "stringValue": "myotis.storea"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "7ea61409-1044-45f9-adae-431309359374",
+      "name": "atributos op2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        680,
+        180
+      ],
+      "notes": "error dom"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "atributos op3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "atributos op2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "atributos op1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow op2": {
+      "main": [
+        [
+          {
+            "node": "Google Drive op2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow op1": {
+      "main": [
+        [
+          {
+            "node": "Google Drive op1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow op3": {
+      "main": [
+        [
+          {
+            "node": "Google Drive op3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atributos op1": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow op1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atributos op3": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow op3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "atributos op2": {
+      "main": [
+        [
+          {
+            "node": "Execute Workflow op2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Lisbon",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "bf2d5b70-6e91-4cb4-97fe-e23e38337181",
+  "id": "7vP6V21Mw1W3w6r0",
+  "meta": {
+    "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
+  },
+  "tags": [
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-11-28T12:54:10.425Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "Project_branding"
+    }
+  ]
+}
