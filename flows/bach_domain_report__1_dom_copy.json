@@ -32,7 +32,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        680,
+        740,
         1740
       ]
     },
@@ -128,33 +128,33 @@
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} missing data\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} Is free to register\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n              sem dados\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "0332e3d5-6622-4f70-be45-7a1afccf57ad",
       "name": "HTML",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1020,
+        1080,
         1720
       ]
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} an invalid domain\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  dataError: </b> {{ $json.dataError }}\n                </li>\n\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} Is free to register\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n              sem dados\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "c86c0e48-9074-46be-bed9-166f8ffb3731",
       "name": "HTML1",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1420,
-        1960
+        1460,
+        1940
       ]
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li>\n                  <b>  dataError: </b> {{ $json.dataError }}\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li>\n                  <b>  dataError: </b> {{ $json.dataError }}\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container_{{ $json.domain_name_to_test_transformation_no_dot }}\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container_{{ $json.domain_name_to_test_transformation_no_dot }}').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
       "name": "HTML2",
@@ -182,7 +182,7 @@
       "typeVersion": 1,
       "position": [
         1080,
-        1980
+        1960
       ]
     },
     {
@@ -377,8 +377,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1260,
-        1960
+        1300,
+        1940
       ]
     },
     {
@@ -430,7 +430,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        860,
+        920,
         1720
       ]
     },
@@ -465,14 +465,14 @@
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} missing data\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} Is free to register\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n              sem dados\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "39f3b6d4-05f6-41b4-8c65-3e5b072552e4",
       "name": "HTML3",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        720,
+        1160,
         860
       ]
     },
@@ -525,7 +525,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        560,
+        1020,
         860
       ]
     },
@@ -540,7 +540,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        360,
+        340,
         1160
       ]
     },
@@ -590,7 +590,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        380,
+        420,
         880
       ]
     },
@@ -682,7 +682,7 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        2220,
+        2200,
         2520
       ]
     },
@@ -719,6 +719,26 @@
       "position": [
         780,
         460
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.WhoisRecord.dataError }}",
+              "value2": "INVALID_TLD"
+            }
+          ]
+        }
+      },
+      "id": "3fbcba5a-a333-42ca-84fa-6b67ec0c1eed",
+      "name": "IF INVALID_TLD1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        740,
+        2120
       ]
     }
   ],
@@ -945,7 +965,7 @@
       "main": [
         [
           {
-            "node": "ETL1_v",
+            "node": "IF INVALID_TLD1",
             "type": "main",
             "index": 0
           }
@@ -1009,6 +1029,24 @@
           }
         ]
       ]
+    },
+    "IF INVALID_TLD1": {
+      "main": [
+        [
+          {
+            "node": "ETL2_v2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "ETL1_v",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -1017,7 +1055,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "37c650d2-db0e-45b1-bbfc-025bc150f5b5",
+  "versionId": "073ed1b9-4352-43a2-a625-9e7cc93413d5",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
