@@ -43,8 +43,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1460,
-        820
+        1380,
+        880
       ]
     },
     {
@@ -103,8 +103,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        640,
-        720
+        1440,
+        1180
       ]
     },
     {
@@ -140,8 +140,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        820,
-        880
+        1260,
+        1200
       ]
     },
     {
@@ -193,8 +193,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        920,
-        1020
+        840,
+        1080
       ]
     },
     {
@@ -206,34 +206,34 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        800,
+        860,
         720
       ]
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} an invalid domain\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  dataError: </b> {{ $json.dataError }}\n                </li>\n\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "c86c0e48-9074-46be-bed9-166f8ffb3731",
       "name": "HTML1",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1040,
-        860
+        1020,
+        880
       ]
     },
     {
       "parameters": {
-        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
+        "html": "\n\n<div class=\"row\">\n    <div class=\"col-md-10 col-lg-8 w-100\">\n        <button\n            class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-{{ $json.html_button_type }}\"\n            data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\" aria-expanded=\"true\">\n            <h5 class=\"post-title\">\n                {{ $json.domainName }} is registerd\n            </h5>\n        </button>\n        <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}-collapse\">\n            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                <li>\n                  <b>  creation date: </b> {{ $json.createdDateNormalized }}\n                </li>\n                <li>\n                  <b>  updated date: </b> {{ $json.updatedDateNormalized }} \n                </li>\n                <li>\n                  <b>  expires date: </b> {{ $json.expiresDateNormalized }} \n                </li>\n                <li>\n                  <b> registrant country: </b> {{ $json.WhoisRecord.registryData.registrant.country}} \n                </li>\n                <li>\n                  <b>  dataError: </b> {{ $json.dataError }}\n                </li>\n                <li class=\"mb-1\">\n                    <button class=\"btn-xs btn-toggle d-inline-flex align-items-center rounded border-0 collapsed btn-outline-dark\"\n                        data-bs-toggle=\"collapse\" data-bs-target=\"#{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\"\n                        aria-expanded=\"false\">\n                        Full XML API response\n                    </button>\n                    <div class=\"collapse\" id=\"{{ $json.domain_name_to_test_transformation_no_dot }}lvl2-collapse\">\n                        <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                        \n                            <ul class=\"btn-toggle-nav list-unstyled fw-normal pb-1 small\">\n                                <li > \n\n                                   <div class=\"text-wrap\">  \n\n                                        <!-- Restante do seu conteúdo vai aqui -->\n                                        <pre id=\"xml-container2\"></pre>\n\n                                        <script>\n                                            var xmlString ='  {{ $json.whois_xml_response }} ';\n\n                                            // Função para destacar as partes do XML\n                                            function highlightXML(xmlString) {\n                                                return xmlString.replace(/<([^\\s>]+)([^>]*)>([^<]*)<\\/\\1>/g, function (match, tag, attributes, text) {\n                                                    var highlightedTag = '<span class=\"xml-tag\">&lt;' + tag + '</span>';\n                                                    var highlightedAttributes = attributes ? '<span class=\"xml-attribute\">' + attributes + '</span>' : '';\n                                                    var highlightedText = text ? '<span class=\"xml-text\">' + text + '</span>' : '';\n                                                    return highlightedTag + highlightedAttributes + highlightedText + '<span class=\"xml-tag\">&lt;/' + tag + '&gt;</span>';\n                                                });\n                                            }\n                                            // Exibe o XML na página com destaque\n                                            document.getElementById('xml-container2').innerHTML = highlightXML(xmlString);  \n\n                                        </script>\n                                    </div>\n\n\n                                </li>\n                            </ul>\n\n                        </ul>\n\n\n                    </div>\n                </li>\n            </ul>\n        </div>\n\n        <hr style=\"margin-top: 0.3rem; margin-bottom: 0.3rem;\">\n    </div>\n</div>"
       },
       "id": "600cf5bd-9137-49d2-aa46-97e450ea99e3",
       "name": "HTML2",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1180,
-        1020
+        1020,
+        1080
       ]
     },
     {
@@ -252,8 +252,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        620,
-        920
+        520,
+        940
       ]
     },
     {
@@ -329,7 +329,7 @@
           "values": [
             {
               "name": "domain_name_to_test",
-              "stringValue": "=myotis.store"
+              "stringValue": "=myotis.store2"
             },
             {
               "name": "whoisxmlapi_api_key",
@@ -398,6 +398,112 @@
         740,
         200
       ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "danger"
+            },
+            {
+              "name": "whois_xml_response",
+              "stringValue": "={{ $('HTTP_Request').item.json.data.replace(/[\\r\\n]+/g,'\\\\n')  }}"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "={{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e8e4fec1-443a-45eb-a92c-fc470327c7d1",
+      "name": "ETL2_v2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        780,
+        900
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domainName",
+              "stringValue": "={{ $json.WhoisRecord.domainName }}"
+            },
+            {
+              "name": "dataError",
+              "stringValue": "={{ $json.WhoisRecord.registryData.dataError }}"
+            },
+            {
+              "name": "registrant_country",
+              "stringValue": "={{ $json.WhoisRecord.registryData.registrant.country }}"
+            },
+            {
+              "name": "createdDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.createdDateNormalized }}"
+            },
+            {
+              "name": "updatedDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.updatedDateNormalized }}"
+            },
+            {
+              "name": "expiresDateNormalized",
+              "stringValue": "={{ $json.WhoisRecord.registryData.expiresDateNormalized }}"
+            },
+            {
+              "name": "html_button_type",
+              "stringValue": "danger"
+            },
+            {
+              "name": "whois_xml_response",
+              "stringValue": "={{ $('HTTP_Request').item.json.data.replace(/[\\r\\n]+/g,'\\\\n')  }}"
+            },
+            {
+              "name": "domain_name_to_test_transformation_no_dot",
+              "stringValue": "={{ $('combined_flow_data').item.json[\"domain_name_to_test_transformation_no_dot\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9371dbd9-0b62-4d90-8f20-d782fb91f8da",
+      "name": "ETL1_v2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        600,
+        740
+      ]
     }
   ],
   "pinData": {},
@@ -406,7 +512,7 @@
       "main": [
         [
           {
-            "node": "ETL1",
+            "node": "ETL1_v2",
             "type": "main",
             "index": 0
           }
@@ -425,28 +531,6 @@
         [
           {
             "node": "flow_data",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ETL1": {
-      "main": [
-        [
-          {
-            "node": "HTML",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "ETL2": {
-      "main": [
-        [
-          {
-            "node": "HTML1",
             "type": "main",
             "index": 0
           }
@@ -501,7 +585,7 @@
       "main": [
         [
           {
-            "node": "ETL2",
+            "node": "ETL2_v2",
             "type": "main",
             "index": 0
           }
@@ -580,6 +664,28 @@
           }
         ]
       ]
+    },
+    "ETL2_v2": {
+      "main": [
+        [
+          {
+            "node": "HTML1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETL1_v2": {
+      "main": [
+        [
+          {
+            "node": "HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -588,7 +694,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "e24449ab-5f67-46d6-b37b-abbb8dd2411a",
+  "versionId": "bfe8ebad-ec09-47af-8ad6-edd444d37dfb",
   "id": "veMKY5TqrHuS7LYj",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
