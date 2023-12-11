@@ -723,19 +723,6 @@
     },
     {
       "parameters": {
-        "workflowId": "detect_domain_warehouse"
-      },
-      "id": "a4d51c49-6f6c-46ae-8764-b00c1b0bd3f9",
-      "name": "Execute Workflow",
-      "type": "n8n-nodes-base.executeWorkflow",
-      "typeVersion": 1,
-      "position": [
-        1800,
-        1100
-      ]
-    },
-    {
-      "parameters": {
         "fields": {
           "values": [
             {
@@ -754,6 +741,19 @@
       "position": [
         1640,
         1100
+      ]
+    },
+    {
+      "parameters": {
+        "workflowId": "bach_domain_report: detect_domain_warehouse"
+      },
+      "id": "a4d51c49-6f6c-46ae-8764-b00c1b0bd3f9",
+      "name": "Execute Workflow: bach_domain_report: detect_domain_warehouse",
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1,
+      "position": [
+        1960,
+        1080
       ]
     }
   ],
@@ -1066,7 +1066,7 @@
       "main": [
         [
           {
-            "node": "Execute Workflow",
+            "node": "Execute Workflow: bach_domain_report: detect_domain_warehouse",
             "type": "main",
             "index": 0
           }
@@ -1080,7 +1080,7 @@
     "callerPolicy": "workflowsFromSameOwner",
     "executionOrder": "v1"
   },
-  "versionId": "98ef2569-41bd-4dc7-870f-46c99d070ba4",
+  "versionId": "a28e9e7b-afe9-4f79-8c80-0137c0ee429f",
   "id": "xFxSTMFvjc3O90P3",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
