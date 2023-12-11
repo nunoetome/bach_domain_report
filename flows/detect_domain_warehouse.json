@@ -407,8 +407,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1880,
-        1140
+        2280,
+        1120
       ]
     },
     {
@@ -418,7 +418,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1780,
+        2000,
         1460
       ]
     },
@@ -431,7 +431,7 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1500,
+        1720,
         1460
       ]
     },
@@ -472,7 +472,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        1780,
+        2000,
         1800
       ]
     },
@@ -485,7 +485,7 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1540,
+        1760,
         1800
       ]
     },
@@ -506,7 +506,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        900,
+        1120,
         1460
       ]
     },
@@ -526,7 +526,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1120,
+        1340,
         1460
       ]
     },
@@ -547,7 +547,7 @@
       "typeVersion": 1,
       "position": [
         860,
-        1140
+        1160
       ]
     },
     {
@@ -568,7 +568,7 @@
       "typeVersion": 3.2,
       "position": [
         700,
-        1140
+        1160
       ]
     },
     {
@@ -675,7 +675,7 @@
     },
     {
       "parameters": {
-        "url": "=https://sedo.com/search/details/?domain={{ $('Settings').item.json[\"domain_to_analise\"] }}",
+        "url": "={{ $json.new_link }}",
         "options": {}
       },
       "id": "1144f629-2c72-4fe2-a526-304ad37ae38a",
@@ -683,8 +683,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1080,
-        1080
+        1180,
+        1160
       ],
       "retryOnFail": true,
       "maxTries": 5,
@@ -692,15 +692,15 @@
     },
     {
       "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\n"
+        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\n\n"
       },
       "id": "de4a5caa-b39f-4ce3-bab6-a54906a08c9d",
       "name": "Data export",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1660,
-        1140
+        2060,
+        1120
       ]
     },
     {
@@ -738,8 +738,59 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1440,
-        1140
+        1640,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "HTML_data_domain-sellstatus",
+              "stringValue": "={{ $json[\"HTML_data_domain-sellstatus\"] }}"
+            },
+            {
+              "name": "HTML_data_location",
+              "stringValue": "={{ $json.HTML_data_location }}"
+            },
+            {
+              "name": "HTML_data_activation_inf ",
+              "stringValue": "={{ $json.HTML_data_activation_inf }}"
+            },
+            {}
+          ]
+        },
+        "options": {}
+      },
+      "id": "80463e2a-f112-46a1-b1cc-267768aed74d",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1840,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "new_link",
+              "stringValue": "=https://sedo.com/search/details/?domain={{ $('Settings').item.json[\"domain_to_analise\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "edfcc12a-b887-4aa3-9a2a-6300b0fe8de5",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1020,
+        1040
       ]
     }
   ],
@@ -928,7 +979,7 @@
       "main": [
         [
           {
-            "node": "HTTP_Request2",
+            "node": "Edit Fields3",
             "type": "main",
             "index": 0
           }
@@ -1033,7 +1084,29 @@
       "main": [
         [
           {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
             "node": "Data export",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields3": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Request2",
             "type": "main",
             "index": 0
           }
@@ -1045,7 +1118,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "6e08191e-7878-43a8-ad6b-399128508020",
+  "versionId": "e99bc158-7256-4bf3-8cfb-42e58c85fd77",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
