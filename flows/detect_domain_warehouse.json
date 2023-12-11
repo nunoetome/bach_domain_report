@@ -236,7 +236,11 @@
       "typeVersion": 1,
       "position": [
         760,
+<<<<<<< HEAD
         2160
+=======
+        1800
+>>>>>>> feature/add_domain_warehouse/sedo.com
       ]
     },
     {
@@ -437,6 +441,24 @@
     },
     {
       "parameters": {
+<<<<<<< HEAD
+=======
+        "content": "## default error message",
+        "height": 289.48470996876955,
+        "width": 707.447503793783
+      },
+      "id": "0e1235cc-ea20-4736-8ef9-9d5ad83b6c82",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        620,
+        1700
+      ]
+    },
+    {
+      "parameters": {
+>>>>>>> feature/add_domain_warehouse/sedo.com
         "content": "## extracts data from site",
         "height": 288.0702284948323,
         "width": 748.4103052504588
@@ -557,6 +579,20 @@
       ]
     },
     {
+<<<<<<< HEAD
+=======
+      "parameters": {},
+      "id": "a857866a-ff3a-4669-a038-33d04400e95d",
+      "name": "IF6",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        760,
+        2160
+      ]
+    },
+    {
+>>>>>>> feature/add_domain_warehouse/sedo.com
       "parameters": {
         "content": "## No error",
         "height": 289.48470996876955,
@@ -599,6 +635,22 @@
     },
     {
       "parameters": {
+<<<<<<< HEAD
+=======
+        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
+      },
+      "id": "e557cdfe-6625-43f6-a988-f52ffddc2af7",
+      "name": "Data Extration4",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        2160
+      ]
+    },
+    {
+      "parameters": {
+>>>>>>> feature/add_domain_warehouse/sedo.com
         "conditions": {
           "string": [
             {
@@ -755,6 +807,7 @@
       "position": [
         1020,
         1040
+<<<<<<< HEAD
       ]
     },
     {
@@ -783,6 +836,8 @@
       "position": [
         1480,
         2160
+=======
+>>>>>>> feature/add_domain_warehouse/sedo.com
       ]
     }
   ],
@@ -996,6 +1051,20 @@
         ]
       ]
     },
+<<<<<<< HEAD
+=======
+    "Data Extration4": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+>>>>>>> feature/add_domain_warehouse/sedo.com
     "if HTTP GET is on error": {
       "main": [
         [
@@ -1093,6 +1162,7 @@
           }
         ]
       ]
+<<<<<<< HEAD
     },
     "IF4": {
       "main": [
@@ -1122,13 +1192,19 @@
           }
         ]
       ]
+=======
+>>>>>>> feature/add_domain_warehouse/sedo.com
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
+<<<<<<< HEAD
   "versionId": "af441d29-6eed-44aa-8646-21702b430dae",
+=======
+  "versionId": "0be27656-b43c-4f74-95c8-74035036d03b",
+>>>>>>> feature/add_domain_warehouse/sedo.com
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
