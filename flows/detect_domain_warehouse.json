@@ -401,50 +401,13 @@
       ]
     },
     {
-      "parameters": {
-        "url": "={{ $json.domain_to_analise }}",
-        "options": {}
-      },
-      "id": "b0d7b4af-a032-4662-9010-00a5ab0a4eaa",
-      "name": "HTTP_Request1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        700,
-        480
-      ],
-      "retryOnFail": true,
-      "maxTries": 5,
-      "onError": "continueErrorOutput"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "string": [
-            {
-              "value1": "={{ $json.error }}",
-              "operation": "isNotEmpty"
-            }
-          ]
-        }
-      },
-      "id": "fb815e1d-0b30-43e1-b168-d73b01faa745",
-      "name": "if HTTP GET is on error",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        800,
-        820
-      ]
-    },
-    {
       "parameters": {},
       "id": "69939b33-53a0-4559-83e5-fdfe1be74a8e",
       "name": "No Operation, do nothing1",
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2260,
+        2320,
         1080
       ]
     },
@@ -583,8 +546,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1020,
-        1120
+        860,
+        1140
       ]
     },
     {
@@ -604,8 +567,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        860,
-        1120
+        700,
+        1140
       ]
     },
     {
@@ -675,29 +638,44 @@
     },
     {
       "parameters": {
-        "fields": {
-          "values": [
+        "conditions": {
+          "string": [
             {
-              "name": "error",
-              "stringValue": "={{ \n\n$json.error.message.substring(7 , $json.error.message.length)  .replaceSpecialChars()\n\n\n}}"
+              "value1": "={{ $json.error }}",
+              "operation": "isNotEmpty"
             }
           ]
-        },
-        "include": "none",
-        "options": {}
+        }
       },
-      "id": "bdb91da2-31ac-41a5-bfeb-606d8bcd47d7",
-      "name": "Edit Fields2",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
+      "id": "fb815e1d-0b30-43e1-b168-d73b01faa745",
+      "name": "if HTTP GET is on error",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
       "position": [
-        1660,
-        1160
+        800,
+        820
       ]
     },
     {
       "parameters": {
-        "url": "=https://sedo.com/search/details/?domain=classificados.online",
+        "url": "={{ $json.domain_to_analise }}",
+        "options": {}
+      },
+      "id": "b0d7b4af-a032-4662-9010-00a5ab0a4eaa",
+      "name": "HTTP_Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        700,
+        480
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "url": "=https://sedo.com/search/details/?domain={{ $('Settings').item.json[\"domain_to_analise\"] }}",
         "options": {}
       },
       "id": "1144f629-2c72-4fe2-a526-304ad37ae38a",
@@ -705,8 +683,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        1440,
-        1100
+        1080,
+        1080
       ],
       "retryOnFail": true,
       "maxTries": 5,
@@ -728,21 +706,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1760,
-        1040
-      ]
-    },
-    {
-      "parameters": {
-        "html": "{{ $json.error }}"
-      },
-      "id": "d06ae74f-5db9-4fb3-bb44-0b722b0b353d",
-      "name": "HTML",
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1,
-      "position": [
-        1860,
-        1160
+        1500,
+        1080
       ]
     },
     {
@@ -750,12 +715,26 @@
         "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\n"
       },
       "id": "de4a5caa-b39f-4ce3-bab6-a54906a08c9d",
-      "name": "Data Extration1",
+      "name": "Data export",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1980,
-        1040
+        2100,
+        1080
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "extractHtmlContent",
+        "options": {}
+      },
+      "id": "ab500b76-829b-4824-ad97-7bfc19be49b6",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1720,
+        1080
       ]
     }
   ],
@@ -878,47 +857,11 @@
         ]
       ]
     },
-    "HTTP_Request1": {
-      "main": [
-        [
-          {
-            "node": "HTML extractor",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "if HTTP GET is on error",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "n8n call Settings1": {
       "main": [
         [
           {
             "node": "Settings",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "if HTTP GET is on error": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields1",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "IF4",
             "type": "main",
             "index": 0
           }
@@ -1016,11 +959,36 @@
         ]
       ]
     },
-    "Edit Fields2": {
+    "if HTTP GET is on error": {
       "main": [
         [
           {
-            "node": "HTML",
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Request1": {
+      "main": [
+        [
+          {
+            "node": "HTML extractor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "if HTTP GET is on error",
             "type": "main",
             "index": 0
           }
@@ -1038,7 +1006,18 @@
         ],
         [
           {
-            "node": "Edit Fields2",
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data export": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
             "type": "main",
             "index": 0
           }
@@ -1049,7 +1028,7 @@
       "main": [
         [
           {
-            "node": "Data Extration1",
+            "node": "HTML",
             "type": "main",
             "index": 0
           }
@@ -1060,18 +1039,7 @@
       "main": [
         [
           {
-            "node": "No Operation, do nothing1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Data Extration1": {
-      "main": [
-        [
-          {
-            "node": "No Operation, do nothing1",
+            "node": "Data export",
             "type": "main",
             "index": 0
           }
@@ -1083,7 +1051,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "5f10f12c-8d94-434f-a19e-f921943ff5f0",
+  "versionId": "1499314f-490e-4ab2-92ce-94862093082d",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
