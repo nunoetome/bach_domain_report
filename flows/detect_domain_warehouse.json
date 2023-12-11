@@ -8,22 +8,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -540,
-        300
-      ]
-    },
-    {
-      "parameters": {
-        "url": "=http://{{ $json.domain_to_analise }}",
-        "options": {}
-      },
-      "id": "b0d7b4af-a032-4662-9010-00a5ab0a4eaa",
-      "name": "HTTP_Request1",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        760,
-        460
+        -840,
+        320
       ]
     },
     {
@@ -62,28 +48,17 @@
       ]
     },
     {
-      "parameters": {},
-      "id": "fb815e1d-0b30-43e1-b168-d73b01faa745",
-      "name": "IF2",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        1160,
-        800
-      ]
-    },
-    {
       "parameters": {
-        "content": "## Testes if is a mydomaincontact.com domain",
+        "content": "## Testes if is a mydomaincontact.com domain\n### Ex:\n- kubidu.com",
         "height": 289.48470996876955,
-        "width": 607.3137690950808
+        "width": 716.1731717338445
       },
       "id": "04f20cab-8380-4d30-a928-cdc0a59d01f2",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        720,
+        611.1405973612364,
         360
       ]
     },
@@ -104,16 +79,16 @@
     },
     {
       "parameters": {
-        "content": "## Testes if is a adasdsdasd domain",
+        "content": "## Testes if HTTP GET is on error",
         "height": 289.48470996876955,
-        "width": 607.3137690950808
+        "width": 712.8744019569125
       },
       "id": "3d793e9f-cabd-4997-b00d-829be016fedb",
       "name": "Sticky Note3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        720,
+        614,
         700
       ]
     },
@@ -123,7 +98,7 @@
           "values": [
             {
               "name": "domain_to_analise",
-              "stringValue": "kubidu.com"
+              "stringValue": "classificados.online"
             },
             {
               "name": "whoisxmlapi_api_key",
@@ -142,37 +117,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        -380,
-        300
-      ]
-    },
-    {
-      "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "domain_to_analise",
-              "stringValue": "={{ $json.domain_to_analise }}"
-            },
-            {
-              "name": "whoisxmlapi_api_key",
-              "stringValue": "={{ $json.whoisxmlapi_api_key }}"
-            },
-            {
-              "name": "whois_data",
-              "stringValue": "={{ $json.whois_data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "98bc8f76-554b-42ab-b558-13eeab362ac6",
-      "name": "Settings",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        460,
-        460
+        -680,
+        320
       ]
     },
     {
@@ -200,8 +146,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        -300,
-        660
+        -600,
+        680
       ]
     },
     {
@@ -215,8 +161,8 @@
       "type": "n8n-nodes-base.n8nTrigger",
       "typeVersion": 1,
       "position": [
-        -540,
-        660
+        -840,
+        680
       ]
     },
     {
@@ -248,8 +194,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        940,
-        460
+        960,
+        440
       ]
     },
     {
@@ -280,16 +226,16 @@
     },
     {
       "parameters": {
-        "content": "## Testes if is a adasdsdasd domain",
+        "content": "## Testes if is a sedo.com domain\n### ex: \n- classificados.online",
         "height": 289.48470996876955,
-        "width": 607.3137690950808
+        "width": 711.2250170684463
       },
       "id": "9a04fb4d-8c05-4862-9ef5-846fb8706760",
       "name": "Sticky Note5",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        720,
+        616.0887520266346,
         1020
       ]
     },
@@ -323,14 +269,14 @@
       "parameters": {
         "content": "## Testes if is a adasdsdasd domain",
         "height": 289.48470996876955,
-        "width": 607.3137690950808
+        "width": 707.447503793783
       },
       "id": "31dfc6ae-e798-4846-82a1-06304c774766",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        720,
+        619.8662653012979,
         1360
       ]
     },
@@ -372,8 +318,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        -220,
-        300
+        -520,
+        320
       ]
     },
     {
@@ -385,8 +331,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        -60,
-        300
+        -360,
+        320
       ]
     },
     {
@@ -400,8 +346,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -620,
-        220
+        -920,
+        240
       ]
     },
     {
@@ -415,8 +361,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -620,
-        560
+        -920,
+        580
       ]
     },
     {
@@ -440,8 +386,81 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        120,
-        300
+        -180,
+        320
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2d3ea831-f651-49c6-a2f8-1fb25b41d333",
+      "name": "No Operation, do nothing",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1660,
+        440
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_to_analise",
+              "stringValue": "={{ $json.domain_to_analise }}"
+            },
+            {
+              "name": "whois_data",
+              "stringValue": "={{ $json.whois_data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "98bc8f76-554b-42ab-b558-13eeab362ac6",
+      "name": "Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        160,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json.domain_to_analise }}",
+        "options": {}
+      },
+      "id": "b0d7b4af-a032-4662-9010-00a5ab0a4eaa",
+      "name": "HTTP_Request1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        760,
+        460
+      ],
+      "retryOnFail": true,
+      "maxTries": 5,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.error }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "fb815e1d-0b30-43e1-b168-d73b01faa745",
+      "name": "if HTTP GET is on error",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        800,
+        820
       ]
     }
   ],
@@ -452,17 +471,6 @@
         [
           {
             "node": "Debug Settings",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP_Request1": {
-      "main": [
-        [
-          {
-            "node": "HTML extractor",
             "type": "main",
             "index": 0
           }
@@ -480,7 +488,7 @@
         ],
         [
           {
-            "node": "IF2",
+            "node": "if HTTP GET is on error",
             "type": "main",
             "index": 0
           }
@@ -492,28 +500,6 @@
         [
           {
             "node": "HTTP_Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Settings": {
-      "main": [
-        [
-          {
-            "node": "HTTP_Request1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "n8n call Settings1": {
-      "main": [
-        [
-          {
-            "node": "Settings",
             "type": "main",
             "index": 0
           }
@@ -536,30 +522,6 @@
         [
           {
             "node": "IF",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF2": {
-      "main": [
-        [],
-        [
-          {
-            "node": "IF3",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "IF3": {
-      "main": [
-        [],
-        [
-          {
-            "node": "IF4",
             "type": "main",
             "index": 0
           }
@@ -598,13 +560,82 @@
           }
         ]
       ]
+    },
+    "Data Extration": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Settings": {
+      "main": [
+        [
+          {
+            "node": "HTTP_Request1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP_Request1": {
+      "main": [
+        [
+          {
+            "node": "HTML extractor",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "if HTTP GET is on error",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "n8n call Settings1": {
+      "main": [
+        [
+          {
+            "node": "Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "if HTTP GET is on error": {
+      "main": [
+        [
+          {
+            "node": "IF3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "IF4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1b58d45b-dcaf-40b2-9c96-04f02ac1d1ff",
+  "versionId": "6d94b4e7-06a9-4260-af60-03b62d165fc8",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
