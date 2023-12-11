@@ -391,31 +391,6 @@
     },
     {
       "parameters": {
-        "fields": {
-          "values": [
-            {
-              "name": "domain_to_analise",
-              "stringValue": "={{ $('Debug Settings').item.json.domain_to_analise }}"
-            },
-            {
-              "name": "=whois_data",
-              "stringValue": "={{ $('Debug Settings').item.json.whois_data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "bf7e7ac3-0f04-4378-8590-62b4c2367b22",
-      "name": "Edit Fields",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        120,
-        300
-      ]
-    },
-    {
-      "parameters": {
         "content": "## Manual debug trigger",
         "height": 291.5052879326417,
         "width": 926.1306712684018
@@ -442,6 +417,31 @@
       "position": [
         -620,
         560
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_to_analise",
+              "stringValue": "={{ $('Debug Settings').item.json.domain_to_analise }}"
+            },
+            {
+              "name": "=whois_data",
+              "stringValue": "={{ $('Debug Settings').item.json.whois_data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bf7e7ac3-0f04-4378-8590-62b4c2367b22",
+      "name": "Final Debug Settings",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        120,
+        300
       ]
     }
   ],
@@ -581,14 +581,14 @@
       "main": [
         [
           {
-            "node": "Edit Fields",
+            "node": "Final Debug Settings",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields": {
+    "Final Debug Settings": {
       "main": [
         [
           {
@@ -604,7 +604,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e0ec710f-d140-44a6-95a7-63bb8a45ab05",
+  "versionId": "1b58d45b-dcaf-40b2-9c96-04f02ac1d1ff",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
