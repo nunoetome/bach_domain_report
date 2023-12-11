@@ -407,8 +407,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2320,
-        1080
+        1880,
+        1140
       ]
     },
     {
@@ -692,26 +692,6 @@
     },
     {
       "parameters": {
-        "fields": {
-          "values": [
-            {
-              "stringValue": "={{ $json.data }}"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "e29efff4-f7fa-468d-a735-0769a00a5ee8",
-      "name": "Edit Fields3",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.2,
-      "position": [
-        1500,
-        1080
-      ]
-    },
-    {
-      "parameters": {
         "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\n"
       },
       "id": "de4a5caa-b39f-4ce3-bab6-a54906a08c9d",
@@ -719,13 +699,38 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        2100,
-        1080
+        1660,
+        1140
       ]
     },
     {
       "parameters": {
         "operation": "extractHtmlContent",
+        "extractionValues": {
+          "values": [
+            {
+              "key": "HTML_data_domain-sellstatus",
+              "cssSelector": "#keyvisual-domain-sellstatus"
+            },
+            {
+              "key": "HTML_data_visit_counter",
+              "cssSelector": "=#domaininfo-facts > div > p.bubble-counter__value.value"
+            },
+            {
+              "key": "HTML_data_location",
+              "cssSelector": "#domaininfo-seller > ul > li.domaininfo-seller__list-item.location > span"
+            },
+            {
+              "key": "HTML_data_activation_inf",
+              "cssSelector": "#domaininfo-seller > ul > li.domaininfo-seller__list-item.active > span"
+            },
+            {
+              "key": "e",
+              "cssSelector": "#minimumbid > span.amount",
+              "returnValue": "value"
+            }
+          ]
+        },
         "options": {}
       },
       "id": "ab500b76-829b-4824-ad97-7bfc19be49b6",
@@ -733,8 +738,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1720,
-        1080
+        1440,
+        1140
       ]
     }
   ],
@@ -999,7 +1004,7 @@
       "main": [
         [
           {
-            "node": "Edit Fields3",
+            "node": "HTML",
             "type": "main",
             "index": 0
           }
@@ -1024,17 +1029,6 @@
         ]
       ]
     },
-    "Edit Fields3": {
-      "main": [
-        [
-          {
-            "node": "HTML",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "HTML": {
       "main": [
         [
@@ -1051,7 +1045,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "1499314f-490e-4ab2-92ce-94862093082d",
+  "versionId": "6e08191e-7878-43a8-ad6b-399128508020",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
