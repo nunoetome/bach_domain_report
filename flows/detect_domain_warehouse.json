@@ -251,7 +251,7 @@
       "typeVersion": 1,
       "position": [
         620,
-        1360
+        1340
       ]
     },
     {
@@ -266,7 +266,7 @@
       "typeVersion": 1,
       "position": [
         1360,
-        1360
+        1340
       ]
     },
     {
@@ -407,7 +407,7 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2280,
+        2160,
         1120
       ]
     },
@@ -418,21 +418,21 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2000,
-        1460
+        1800,
+        1440
       ]
     },
     {
       "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
+        "html": "unknown error"
       },
       "id": "d64867f2-686c-42db-ad06-9763ef85c64b",
       "name": "Data Extration2",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1720,
-        1460
+        1460,
+        1440
       ]
     },
     {
@@ -472,20 +472,20 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2000,
+        1820,
         1800
       ]
     },
     {
       "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
+        "html": "unknown error\n"
       },
       "id": "8b6e9e11-6d6f-463d-8cc9-0305f32d54f1",
       "name": "Data Extration3",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1760,
+        1500,
         1800
       ]
     },
@@ -506,7 +506,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1120,
+        840,
         1460
       ]
     },
@@ -526,7 +526,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1340,
+        1040,
         1460
       ]
     },
@@ -692,14 +692,14 @@
     },
     {
       "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\n\n"
+        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\nVisitar:\n{{ $json.link }}\n\n"
       },
       "id": "de4a5caa-b39f-4ce3-bab6-a54906a08c9d",
       "name": "Data export",
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        2060,
+        1940,
         1120
       ]
     },
@@ -738,7 +738,7 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        1640,
+        1560,
         1120
       ]
     },
@@ -758,7 +758,10 @@
               "name": "HTML_data_activation_inf ",
               "stringValue": "={{ $json.HTML_data_activation_inf }}"
             },
-            {}
+            {
+              "name": "link",
+              "stringValue": "={{ $('Edit Fields3').item.json.new_link }}"
+            }
           ]
         },
         "options": {}
@@ -768,7 +771,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1840,
+        1760,
         1120
       ]
     },
@@ -1118,7 +1121,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "e99bc158-7256-4bf3-8cfb-42e58c85fd77",
+  "versionId": "0be27656-b43c-4f74-95c8-74035036d03b",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
