@@ -127,15 +127,11 @@
           "values": [
             {
               "name": "domain_to_analise",
-              "stringValue": "backoffice.pt"
-            },
-            {
-              "name": "whoisxmlapi_api_key",
-              "stringValue": "at_U2WK0ctU10OJSG6ZVAlbQCeceU7KE"
+              "stringValue": "={{ $json.domain_to_test }}"
             },
             {
               "name": "whois_data",
-              "stringValue": "[\n  {\n    \"WhoisRecord\": {\n      \"createdDate\": \"2019-12-29T18:19:25Z\",\n      \"updatedDate\": \"2022-12-12T12:16:37Z\",\n      \"expiresDate\": \"2023-12-29T18:19:25Z\",\n      \"registrant\": {\n        \"name\": \"Registration Private\",\n        \"organization\": \"Domains By Proxy, LLC\",\n        \"street1\": \"DomainsByProxy.com\\n2155 E Warner Rd\",\n        \"city\": \"Tempe\",\n        \"state\": \"Arizona\",\n        \"postalCode\": \"85284\",\n        \"country\": \"UNITED STATES\",\n        \"countryCode\": \"US\",\n        \"telephone\": \"14806242599\",\n        \"rawText\": \"Registrant Name: Registration Private\\nRegistrant Organization: Domains By Proxy, LLC\\nRegistrant Street: DomainsByProxy.com\\nRegistrant Street: 2155 E Warner Rd\\nRegistrant City: Tempe\\nRegistrant State/Province: Arizona\\nRegistrant Postal Code: 85284\\nRegistrant Country: US\\nRegistrant Phone: +1.4806242599\\nRegistrant Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\"\n      },\n      \"administrativeContact\": {\n        \"name\": \"Registration Private\",\n        \"organization\": \"Domains By Proxy, LLC\",\n        \"street1\": \"DomainsByProxy.com\\n2155 E Warner Rd\",\n        \"city\": \"Tempe\",\n        \"state\": \"Arizona\",\n        \"postalCode\": \"85284\",\n        \"country\": \"UNITED STATES\",\n        \"countryCode\": \"US\",\n        \"telephone\": \"14806242599\",\n        \"rawText\": \"Admin Name: Registration Private\\nAdmin Organization: Domains By Proxy, LLC\\nAdmin Street: DomainsByProxy.com\\nAdmin Street: 2155 E Warner Rd\\nAdmin City: Tempe\\nAdmin State/Province: Arizona\\nAdmin Postal Code: 85284\\nAdmin Country: US\\nAdmin Phone: +1.4806242599\\nAdmin Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\"\n      },\n      \"technicalContact\": {\n        \"name\": \"Registration Private\",\n        \"organization\": \"Domains By Proxy, LLC\",\n        \"street1\": \"DomainsByProxy.com\\n2155 E Warner Rd\",\n        \"city\": \"Tempe\",\n        \"state\": \"Arizona\",\n        \"postalCode\": \"85284\",\n        \"country\": \"UNITED STATES\",\n        \"countryCode\": \"US\",\n        \"telephone\": \"14806242599\",\n        \"rawText\": \"Tech Name: Registration Private\\nTech Organization: Domains By Proxy, LLC\\nTech Street: DomainsByProxy.com\\nTech Street: 2155 E Warner Rd\\nTech City: Tempe\\nTech State/Province: Arizona\\nTech Postal Code: 85284\\nTech Country: US\\nTech Phone: +1.4806242599\\nTech Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\"\n      },\n      \"domainName\": \"kubidu.com\",\n      \"nameServers\": {\n        \"rawText\": \"NS1.PARKINGCREW.NET\\nNS2.PARKINGCREW.NET\\n\",\n        \"hostNames\": {\n          \"Address\": [\n            \"NS1.PARKINGCREW.NET\",\n            \"NS2.PARKINGCREW.NET\"\n          ]\n        },\n        \"ips\": \"\"\n      },\n      \"status\": \"clientTransferProhibited clientUpdateProhibited clientRenewProhibited clientDeleteProhibited\",\n      \"rawText\": \"Domain Name: kubidu.com\\nRegistry Domain ID: 2473712689_DOMAIN_COM-VRSN\\nRegistrar WHOIS Server: whois.godaddy.com\\nRegistrar URL: https://www.godaddy.com\\nUpdated Date: 2022-12-12T12:16:37Z\\nCreation Date: 2019-12-29T18:19:25Z\\nRegistrar Registration Expiration Date: 2023-12-29T18:19:25Z\\nRegistrar: GoDaddy.com, LLC\\nRegistrar IANA ID: 146\\nRegistrar Abuse Contact Email: abuse@godaddy.com\\nRegistrar Abuse Contact Phone: +1.4806242505\\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\\nDomain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited\\nDomain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited\\nDomain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\\nRegistry Registrant ID: Not Available From Registry\\nRegistrant Name: Registration Private\\nRegistrant Organization: Domains By Proxy, LLC\\nRegistrant Street: DomainsByProxy.com\\nRegistrant Street: 2155 E Warner Rd\\nRegistrant City: Tempe\\nRegistrant State/Province: Arizona\\nRegistrant Postal Code: 85284\\nRegistrant Country: US\\nRegistrant Phone: +1.4806242599\\nRegistrant Phone Ext:\\nRegistrant Fax: \\nRegistrant Fax Ext:\\nRegistrant Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\\nRegistry Admin ID: Not Available From Registry\\nAdmin Name: Registration Private\\nAdmin Organization: Domains By Proxy, LLC\\nAdmin Street: DomainsByProxy.com\\nAdmin Street: 2155 E Warner Rd\\nAdmin City: Tempe\\nAdmin State/Province: Arizona\\nAdmin Postal Code: 85284\\nAdmin Country: US\\nAdmin Phone: +1.4806242599\\nAdmin Phone Ext:\\nAdmin Fax: \\nAdmin Fax Ext:\\nAdmin Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\\nRegistry Tech ID: Not Available From Registry\\nTech Name: Registration Private\\nTech Organization: Domains By Proxy, LLC\\nTech Street: DomainsByProxy.com\\nTech Street: 2155 E Warner Rd\\nTech City: Tempe\\nTech State/Province: Arizona\\nTech Postal Code: 85284\\nTech Country: US\\nTech Phone: +1.4806242599\\nTech Phone Ext:\\nTech Fax: \\nTech Fax Ext:\\nTech Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\\nName Server: NS1.PARKINGCREW.NET\\nName Server: NS2.PARKINGCREW.NET\\nDNSSEC: unsigned\\nURL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/\\n>>> Last update of WHOIS database: 2023-12-11T00:21:15Z <<<\\nFor more information on Whois status codes, please visit https://icann.org/epp\\n\\nTERMS OF USE: The data contained in this registrar's Whois database, while believed by the\\nregistrar to be reliable, is provided \\\"as is\\\" with no guarantee or warranties regarding its\\naccuracy. This information is provided for the sole purpose of assisting you in obtaining\\ninformation about domain name registration records. Any use of this data for any other purpose\\nis expressly forbidden without the prior written permission of this registrar. By submitting\\nan inquiry, you agree to these terms and limitations of warranty. In particular, you agree not\\nto use this data to allow, enable, or otherwise support the dissemination or collection of this\\ndata, in part or in its entirety, for any purpose, such as transmission by e-mail, telephone,\\npostal mail, facsimile or other means of mass unsolicited, commercial advertising or solicitations\\nof any kind, including spam. You further agree not to use this data to enable high volume, automated\\nor robotic electronic processes designed to collect or compile this data for any purpose, including\\nmining this data for your own personal or commercial purposes. Failure to comply with these terms\\nmay result in termination of access to the Whois database. These terms may be subject to modification\\nat any time without notice.\",\n      \"parseCode\": \"3515\",\n      \"header\": \"\",\n      \"strippedText\": \"Domain Name: kubidu.com\\nRegistrar WHOIS Server: whois.godaddy.com\\nRegistrar URL: https://www.godaddy.com\\nUpdated Date: 2022-12-12T12:16:37Z\\nCreation Date: 2019-12-29T18:19:25Z\\nRegistrar Registration Expiration Date: 2023-12-29T18:19:25Z\\nRegistrar: GoDaddy.com, LLC\\nRegistrar IANA ID: 146\\nRegistrar Abuse Contact Email: abuse@godaddy.com\\nRegistrar Abuse Contact Phone: +1.4806242505\\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\\nDomain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited\\nDomain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited\\nDomain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\\nRegistrant Name: Registration Private\\nRegistrant Organization: Domains By Proxy, LLC\\nRegistrant Street: DomainsByProxy.com\\nRegistrant Street: 2155 E Warner Rd\\nRegistrant City: Tempe\\nRegistrant State/Province: Arizona\\nRegistrant Postal Code: 85284\\nRegistrant Country: US\\nRegistrant Phone: +1.4806242599\\nRegistrant Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\\nAdmin Name: Registration Private\\nAdmin Organization: Domains By Proxy, LLC\\nAdmin Street: DomainsByProxy.com\\nAdmin Street: 2155 E Warner Rd\\nAdmin City: Tempe\\nAdmin State/Province: Arizona\\nAdmin Postal Code: 85284\\nAdmin Country: US\\nAdmin Phone: +1.4806242599\\nAdmin Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\\nTech Name: Registration Private\\nTech Organization: Domains By Proxy, LLC\\nTech Street: DomainsByProxy.com\\nTech Street: 2155 E Warner Rd\\nTech City: Tempe\\nTech State/Province: Arizona\\nTech Postal Code: 85284\\nTech Country: US\\nTech Phone: +1.4806242599\\nTech Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=kubidu.com\\nName Server: NS1.PARKINGCREW.NET\\nName Server: NS2.PARKINGCREW.NET\\n\",\n      \"footer\": \"\",\n      \"audit\": {\n        \"createdDate\": \"2023-12-11 00:21:15 UTC\",\n        \"updatedDate\": \"2023-12-11 00:21:15 UTC\"\n      },\n      \"registrarName\": \"GoDaddy.com, LLC\",\n      \"registrarIANAID\": \"146\",\n      \"createdDateNormalized\": \"2019-12-29 18:19:25 UTC\",\n      \"updatedDateNormalized\": \"2022-12-12 12:16:37 UTC\",\n      \"expiresDateNormalized\": \"2023-12-29 18:19:25 UTC\",\n      \"registryData\": {\n        \"createdDate\": \"2019-12-29T23:19:25Z\",\n        \"updatedDate\": \"2022-12-12T17:16:39Z\",\n        \"expiresDate\": \"2023-12-29T23:19:25Z\",\n        \"domainName\": \"kubidu.com\",\n        \"nameServers\": {\n          \"rawText\": \"NS1.PARKINGCREW.NET\\nNS2.PARKINGCREW.NET\\n\",\n          \"hostNames\": {\n            \"Address\": [\n              \"NS1.PARKINGCREW.NET\",\n              \"NS2.PARKINGCREW.NET\"\n            ]\n          },\n          \"ips\": \"\"\n        },\n        \"status\": \"clientDeleteProhibited clientRenewProhibited clientTransferProhibited clientUpdateProhibited\",\n        \"rawText\": \"Domain Name: KUBIDU.COM\\n   Registry Domain ID: 2473712689_DOMAIN_COM-VRSN\\n   Registrar WHOIS Server: whois.godaddy.com\\n   Registrar URL: http://www.godaddy.com\\n   Updated Date: 2022-12-12T17:16:39Z\\n   Creation Date: 2019-12-29T23:19:25Z\\n   Registry Expiry Date: 2023-12-29T23:19:25Z\\n   Registrar: GoDaddy.com, LLC\\n   Registrar IANA ID: 146\\n   Registrar Abuse Contact Email: abuse@godaddy.com\\n   Registrar Abuse Contact Phone: 480-624-2505\\n   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\\n   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited\\n   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\\n   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited\\n   Name Server: NS1.PARKINGCREW.NET\\n   Name Server: NS2.PARKINGCREW.NET\\n   DNSSEC: unsigned\\n   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\\n>>> Last update of whois database: 2023-12-11T00:20:50Z <<<\\n\\nFor more information on Whois status codes, please visit https://icann.org/epp\\n\\nNOTICE: The expiration date displayed in this record is the date the\\nregistrar's sponsorship of the domain name registration in the registry is\\ncurrently set to expire. This date does not necessarily reflect the expiration\\ndate of the domain name registrant's agreement with the sponsoring\\nregistrar.  Users may consult the sponsoring registrar's Whois database to\\nview the registrar's reported date of expiration for this registration.\\n\\nTERMS OF USE: You are not authorized to access or query our Whois\\ndatabase through the use of electronic processes that are high-volume and\\nautomated except as reasonably necessary to register domain names or\\nmodify existing registrations; the Data in VeriSign Global Registry\\nServices' (\\\"VeriSign\\\") Whois database is provided by VeriSign for\\ninformation purposes only, and to assist persons in obtaining information\\nabout or related to a domain name registration record. VeriSign does not\\nguarantee its accuracy. By submitting a Whois query, you agree to abide\\nby the following terms of use: You agree that you may use this Data only\\nfor lawful purposes and that under no circumstances will you use this Data\\nto: (1) allow, enable, or otherwise support the transmission of mass\\nunsolicited, commercial advertising or solicitations via e-mail, telephone,\\nor facsimile; or (2) enable high volume, automated, electronic processes\\nthat apply to VeriSign (or its computer systems). The compilation,\\nrepackaging, dissemination or other use of this Data is expressly\\nprohibited without the prior written consent of VeriSign. You agree not to\\nuse electronic processes that are automated and high-volume to access or\\nquery the Whois database except as reasonably necessary to register\\ndomain names or modify existing registrations. VeriSign reserves the right\\nto restrict your access to the Whois database in its sole discretion to ensure\\noperational stability.  VeriSign may restrict or terminate your access to the\\nWhois database for failure to abide by these terms of use. VeriSign\\nreserves the right to modify these terms at any time.\\n\\nThe Registry database contains ONLY .COM, .NET, .EDU domains and\\nRegistrars.\",\n        \"parseCode\": \"251\",\n        \"header\": \"\",\n        \"strippedText\": \"Domain Name: KUBIDU.COM\\nRegistry Domain ID: 2473712689_DOMAIN_COM-VRSN\\nRegistrar WHOIS Server: whois.godaddy.com\\nRegistrar URL: http://www.godaddy.com\\nUpdated Date: 2022-12-12T17:16:39Z\\nCreation Date: 2019-12-29T23:19:25Z\\nRegistry Expiry Date: 2023-12-29T23:19:25Z\\nRegistrar: GoDaddy.com, LLC\\nRegistrar IANA ID: 146\\nRegistrar Abuse Contact Email: abuse@godaddy.com\\nRegistrar Abuse Contact Phone: 480-624-2505\\nDomain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\\nDomain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited\\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\\nDomain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited\\nName Server: NS1.PARKINGCREW.NET\\nName Server: NS2.PARKINGCREW.NET\\nDNSSEC: unsigned\\nURL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/\\n>>> Last update of whois database: 2023-12-11T00:20:50Z <<<\\nFor more information on Whois status codes, please visit https://icann.org/epp\\nNOTICE: The expiration date displayed in this record is the date the\\nregistrar's sponsorship of the domain name registration in the registry is\\ncurrently set to expire. This date does not necessarily reflect the expiration\\ndate of the domain name registrant's agreement with the sponsoring\\nregistrar.  Users may consult the sponsoring registrar's Whois database to\\nview the registrar's reported date of expiration for this registration.\\nTERMS OF USE: You are not authorized to access or query our Whois\\ndatabase through the use of electronic processes that are high-volume and\\nautomated except as reasonably necessary to register domain names or\\nmodify existing registrations; the Data in VeriSign Global Registry\\nServices' (\\\"VeriSign\\\") Whois database is provided by VeriSign for\\ninformation purposes only, and to assist persons in obtaining information\\nabout or related to a domain name registration record. VeriSign does not\\nguarantee its accuracy. By submitting a Whois query, you agree to abide\\nby the following terms of use: You agree that you may use this Data only\\nfor lawful purposes and that under no circumstances will you use this Data\\nto: (1) allow, enable, or otherwise support the transmission of mass\\nunsolicited, commercial advertising or solicitations via e-mail, telephone,\\nor facsimile; or (2) enable high volume, automated, electronic processes\\nthat apply to VeriSign (or its computer systems). The compilation,\\nrepackaging, dissemination or other use of this Data is expressly\\nprohibited without the prior written consent of VeriSign. You agree not to\\nuse electronic processes that are automated and high-volume to access or\\nquery the Whois database except as reasonably necessary to register\\ndomain names or modify existing registrations. VeriSign reserves the right\\nto restrict your access to the Whois database in its sole discretion to ensure\\noperational stability.  VeriSign may restrict or terminate your access to the\\nWhois database for failure to abide by these terms of use. VeriSign\\nreserves the right to modify these terms at any time.\\nThe Registry database contains ONLY .COM, .NET, .EDU domains and\\nRegistrars.\\n\",\n        \"footer\": \"\",\n        \"audit\": {\n          \"createdDate\": \"2023-12-11 00:21:07 UTC\",\n          \"updatedDate\": \"2023-12-11 00:21:07 UTC\"\n        },\n        \"registrarName\": \"GoDaddy.com, LLC\",\n        \"registrarIANAID\": \"146\",\n        \"createdDateNormalized\": \"2019-12-29 23:19:25 UTC\",\n        \"updatedDateNormalized\": \"2022-12-12 17:16:39 UTC\",\n        \"expiresDateNormalized\": \"2023-12-29 23:19:25 UTC\",\n        \"whoisServer\": \"whois.godaddy.com\"\n      },\n      \"domainAvailability\": \"UNAVAILABLE\",\n      \"contactEmail\": \"abuse@godaddy.com\",\n      \"domainNameExt\": \".com\",\n      \"estimatedDomainAge\": \"1442\",\n      \"ips\": {\n        \"string\": \"104.247.81.51\"\n      }\n    }\n  }\n]"
+              "stringValue": "={{ $json.whois_data }}"
             }
           ]
         },
@@ -236,11 +232,7 @@
       "typeVersion": 1,
       "position": [
         760,
-<<<<<<< HEAD
         2160
-=======
-        1800
->>>>>>> feature/add_domain_warehouse/sedo.com
       ]
     },
     {
@@ -269,7 +261,7 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1360,
+        1380,
         1340
       ]
     },
@@ -441,24 +433,6 @@
     },
     {
       "parameters": {
-<<<<<<< HEAD
-=======
-        "content": "## default error message",
-        "height": 289.48470996876955,
-        "width": 707.447503793783
-      },
-      "id": "0e1235cc-ea20-4736-8ef9-9d5ad83b6c82",
-      "name": "Sticky Note11",
-      "type": "n8n-nodes-base.stickyNote",
-      "typeVersion": 1,
-      "position": [
-        620,
-        1700
-      ]
-    },
-    {
-      "parameters": {
->>>>>>> feature/add_domain_warehouse/sedo.com
         "content": "## extracts data from site",
         "height": 288.0702284948323,
         "width": 748.4103052504588
@@ -579,20 +553,6 @@
       ]
     },
     {
-<<<<<<< HEAD
-=======
-      "parameters": {},
-      "id": "a857866a-ff3a-4669-a038-33d04400e95d",
-      "name": "IF6",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 1,
-      "position": [
-        760,
-        2160
-      ]
-    },
-    {
->>>>>>> feature/add_domain_warehouse/sedo.com
       "parameters": {
         "content": "## No error",
         "height": 289.48470996876955,
@@ -635,22 +595,6 @@
     },
     {
       "parameters": {
-<<<<<<< HEAD
-=======
-        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
-      },
-      "id": "e557cdfe-6625-43f6-a988-f52ffddc2af7",
-      "name": "Data Extration4",
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1,
-      "position": [
-        1540,
-        2160
-      ]
-    },
-    {
-      "parameters": {
->>>>>>> feature/add_domain_warehouse/sedo.com
         "conditions": {
           "string": [
             {
@@ -807,7 +751,6 @@
       "position": [
         1020,
         1040
-<<<<<<< HEAD
       ]
     },
     {
@@ -836,8 +779,6 @@
       "position": [
         1480,
         2160
-=======
->>>>>>> feature/add_domain_warehouse/sedo.com
       ]
     }
   ],
@@ -1051,20 +992,6 @@
         ]
       ]
     },
-<<<<<<< HEAD
-=======
-    "Data Extration4": {
-      "main": [
-        [
-          {
-            "node": "No Operation, do nothing4",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
->>>>>>> feature/add_domain_warehouse/sedo.com
     "if HTTP GET is on error": {
       "main": [
         [
@@ -1162,7 +1089,6 @@
           }
         ]
       ]
-<<<<<<< HEAD
     },
     "IF4": {
       "main": [
@@ -1192,19 +1118,13 @@
           }
         ]
       ]
-=======
->>>>>>> feature/add_domain_warehouse/sedo.com
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-<<<<<<< HEAD
-  "versionId": "af441d29-6eed-44aa-8646-21702b430dae",
-=======
-  "versionId": "0be27656-b43c-4f74-95c8-74035036d03b",
->>>>>>> feature/add_domain_warehouse/sedo.com
+  "versionId": "1024b8d4-06d1-4522-97b4-c14bffd9cf9c",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
