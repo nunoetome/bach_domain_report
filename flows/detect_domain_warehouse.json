@@ -200,8 +200,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        160,
-        560
+        -300,
+        660
       ]
     },
     {
@@ -215,8 +215,8 @@
       "type": "n8n-nodes-base.n8nTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        560
+        -540,
+        660
       ]
     },
     {
@@ -413,6 +413,36 @@
         120,
         300
       ]
+    },
+    {
+      "parameters": {
+        "content": "## Manual debug trigger",
+        "height": 291.5052879326417,
+        "width": 926.1306712684018
+      },
+      "id": "4d90f60d-ad7f-45ca-aeeb-e146f863367b",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## n8n call trigger",
+        "height": 291.5052879326417,
+        "width": 926.1306712684018
+      },
+      "id": "9d4102d5-15bd-4ff4-9dbc-919977e9516e",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -620,
+        560
+      ]
     }
   ],
   "pinData": {},
@@ -574,7 +604,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "5b244a53-533b-45cc-b875-2b699bda4f1f",
+  "versionId": "e0ec710f-d140-44a6-95a7-63bb8a45ab05",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
