@@ -43,39 +43,6 @@
     },
     {
       "parameters": {
-        "url": "=http://www.{{ $json.domain_to_analise }}",
-        "options": {}
-      },
-      "id": "43ae4c49-68ee-4017-8e72-218699b1c781",
-      "name": "HTTP_Request2",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 3,
-      "position": [
-        1260,
-        1260
-      ]
-    },
-    {
-      "parameters": {
-        "operation": "extractHtmlContent",
-        "extractionValues": {
-          "values": [
-            {}
-          ]
-        },
-        "options": {}
-      },
-      "id": "d32525a2-fa03-4f3d-b3c3-dc7c0c981301",
-      "name": "HTML1",
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1,
-      "position": [
-        1460,
-        1260
-      ]
-    },
-    {
-      "parameters": {
         "conditions": {
           "string": [
             {
@@ -101,8 +68,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        780,
-        820
+        1160,
+        800
       ]
     },
     {
@@ -254,19 +221,6 @@
     },
     {
       "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: mydomaincontact.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n\n{{ $json.sale_diagonal_top_link }}\n"
-      },
-      "id": "50de4648-feb9-4a44-b68e-01b819ae5df9",
-      "name": "HTML2",
-      "type": "n8n-nodes-base.html",
-      "typeVersion": 1,
-      "position": [
-        1440,
-        440
-      ]
-    },
-    {
-      "parameters": {
         "operation": "extractHtmlContent",
         "extractionValues": {
           "values": [
@@ -297,6 +251,116 @@
         940,
         460
       ]
+    },
+    {
+      "parameters": {
+        "content": "## extracts data from site",
+        "height": 288.0702284948323,
+        "width": 624.2106854844966
+      },
+      "id": "9a6b13b4-b09c-4dc9-8501-0fd3cd9db818",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        700
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "57afdb2f-4031-4813-81d9-a1fe694bbec1",
+      "name": "IF3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        1120
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Testes if is a adasdsdasd domain",
+        "height": 289.48470996876955,
+        "width": 607.3137690950808
+      },
+      "id": "9a04fb4d-8c05-4862-9ef5-846fb8706760",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1020
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## extracts data from site",
+        "height": 288.0702284948323,
+        "width": 624.2106854844966
+      },
+      "id": "7f45dd20-6534-4759-bb01-a30d7845643c",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        1020
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "a89012a7-0523-4a1b-bd41-b2221ab6c0dc",
+      "name": "IF4",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1100,
+        1460
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Testes if is a adasdsdasd domain",
+        "height": 289.48470996876955,
+        "width": 607.3137690950808
+      },
+      "id": "31dfc6ae-e798-4846-82a1-06304c774766",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        720,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## extracts data from site",
+        "height": 288.0702284948323,
+        "width": 624.2106854844966
+      },
+      "id": "c0a30fe6-2662-49aa-a1f5-7e1062cb3eae",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        1360
+      ]
+    },
+    {
+      "parameters": {
+        "html": "O Dominio pertece a uma warehouse conhecida: mydomaincontact.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n"
+      },
+      "id": "50de4648-feb9-4a44-b68e-01b819ae5df9",
+      "name": "Data Extration",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        440
+      ]
     }
   ],
   "pinData": {},
@@ -323,22 +387,11 @@
         ]
       ]
     },
-    "HTTP_Request2": {
-      "main": [
-        [
-          {
-            "node": "HTML1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "IF": {
       "main": [
         [
           {
-            "node": "HTML2",
+            "node": "Data Extration",
             "type": "main",
             "index": 0
           }
@@ -406,13 +459,42 @@
           }
         ]
       ]
+    },
+    "IF2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "IF3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF3": {
+      "main": [
+        [],
+        [
+          {
+            "node": "IF4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Extration": {
+      "main": [
+        []
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d57d7fe0-f4f1-4a9c-b793-ae53cb5bcb9b",
+  "versionId": "a81831f0-b845-4df8-aeaa-eb39d7426379",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
