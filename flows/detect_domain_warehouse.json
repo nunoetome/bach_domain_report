@@ -8,8 +8,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        320
+        -540,
+        300
       ]
     },
     {
@@ -142,8 +142,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        160,
-        320
+        -380,
+        300
       ]
     },
     {
@@ -181,7 +181,7 @@
           "values": [
             {
               "name": "domain_to_analise",
-              "stringValue": "kubidu.com"
+              "stringValue": "backoffice.pt"
             },
             {
               "name": "whoisxmlapi_api_key",
@@ -351,7 +351,7 @@
     },
     {
       "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: mydomaincontact.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n"
+        "html": "O Dominio pertece a uma warehouse conhecida: mydomaincontact.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
       },
       "id": "50de4648-feb9-4a44-b68e-01b819ae5df9",
       "name": "Data Extration",
@@ -360,6 +360,58 @@
       "position": [
         1440,
         440
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey={{ $json.whoisxmlapi_api_key }}&domainName={{ $json.domain_to_analise }}",
+        "options": {}
+      },
+      "id": "3ca1ce2f-63f3-495a-891b-0943f7c5104a",
+      "name": "HTTP_Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 3,
+      "position": [
+        -220,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "755981d9-9a2d-4009-ad12-2b85beac69f6",
+      "name": "convert to Json",
+      "type": "n8n-nodes-base.xml",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "domain_to_analise",
+              "stringValue": "={{ $('Debug Settings').item.json.domain_to_analise }}"
+            },
+            {
+              "name": "=whois_data",
+              "stringValue": "={{ $('Debug Settings').item.json.whois_data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "bf7e7ac3-0f04-4378-8590-62b4c2367b22",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        120,
+        300
       ]
     }
   ],
@@ -409,7 +461,7 @@
       "main": [
         [
           {
-            "node": "Settings",
+            "node": "HTTP_Request",
             "type": "main",
             "index": 0
           }
@@ -484,9 +536,37 @@
         ]
       ]
     },
-    "Data Extration": {
+    "HTTP_Request": {
       "main": [
-        []
+        [
+          {
+            "node": "convert to Json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "convert to Json": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
       ]
     }
   },
@@ -494,18 +574,12 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "a81831f0-b845-4df8-aeaa-eb39d7426379",
+  "versionId": "5b244a53-533b-45cc-b875-2b699bda4f1f",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
   },
   "tags": [
-    {
-      "createdAt": "2023-11-28T12:49:13.352Z",
-      "updatedAt": "2023-12-09T17:24:25.329Z",
-      "id": "siPs4JzBSSUVpks6",
-      "name": "project>>branding"
-    },
     {
       "createdAt": "2023-11-28T12:56:16.260Z",
       "updatedAt": "2023-12-09T17:22:02.937Z",
@@ -517,6 +591,12 @@
       "updatedAt": "2023-12-09T17:24:48.747Z",
       "id": "ldsr1KArTCmavG80",
       "name": "type>>resource"
+    },
+    {
+      "createdAt": "2023-11-28T12:49:13.352Z",
+      "updatedAt": "2023-12-09T17:24:25.329Z",
+      "id": "siPs4JzBSSUVpks6",
+      "name": "project>>branding"
     }
   ]
 }
