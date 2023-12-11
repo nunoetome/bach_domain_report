@@ -43,7 +43,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1120,
+        1100,
         460
       ]
     },
@@ -194,8 +194,8 @@
       "type": "n8n-nodes-base.html",
       "typeVersion": 1,
       "position": [
-        960,
-        440
+        940,
+        460
       ]
     },
     {
@@ -217,7 +217,7 @@
       "parameters": {
         "content": "## extracts data from site",
         "height": 288.0702284948323,
-        "width": 891.1468271174994
+        "width": 1129.4115309282347
       },
       "id": "7f45dd20-6534-4759-bb01-a30d7845643c",
       "name": "Sticky Note6",
@@ -243,14 +243,14 @@
       "parameters": {
         "content": "## Testes other errors",
         "height": 289.48470996876955,
-        "width": 707.447503793783
+        "width": 703.4836861416779
       },
       "id": "31dfc6ae-e798-4846-82a1-06304c774766",
       "name": "Sticky Note7",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        619.8662653012979,
+        620,
         1360
       ]
     },
@@ -410,8 +410,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        760,
-        460
+        700,
+        480
       ],
       "retryOnFail": true,
       "maxTries": 5,
@@ -444,8 +444,8 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        2040,
-        1100
+        2260,
+        1080
       ]
     },
     {
@@ -609,21 +609,95 @@
       ]
     },
     {
-      "parameters": {
-        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
-      },
-      "id": "de4a5caa-b39f-4ce3-bab6-a54906a08c9d",
-      "name": "Data Extration1",
-      "type": "n8n-nodes-base.html",
+      "parameters": {},
+      "id": "a857866a-ff3a-4669-a038-33d04400e95d",
+      "name": "IF6",
+      "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        1820,
-        1060
+        760,
+        2160
       ]
     },
     {
       "parameters": {
-        "url": "=https://sedo.com/search/details/?domain=classificados.online&campaignId=329145&origin=sales_lander_15",
+        "content": "## No error",
+        "height": 289.48470996876955,
+        "width": 707.447503793783
+      },
+      "id": "7730c0ae-b33d-4d3a-baa3-1d21b75b3104",
+      "name": "Sticky Note13",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        620,
+        2060
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## extracts data from site",
+        "height": 288.0702284948323,
+        "width": 748.4103052504588
+      },
+      "id": "3bfe353b-7888-4431-a445-640b8595e361",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        2060
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d9ee6ae5-5b39-49ae-a0a3-ad69ac8e29ed",
+      "name": "No Operation, do nothing4",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1780,
+        2160
+      ]
+    },
+    {
+      "parameters": {
+        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nEsta não tem o valor de revenda pré definido mas pode ser contadada por form neste link:\n\n{{ $json.sale_diagonal_top_link }}\n\nMais informação em:\nhttps://www.mydomain.com/support/contact.html\n"
+      },
+      "id": "e557cdfe-6625-43f6-a988-f52ffddc2af7",
+      "name": "Data Extration4",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        2160
+      ]
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "error",
+              "stringValue": "={{ \n\n$json.error.message.substring(7 , $json.error.message.length)  .replaceSpecialChars()\n\n\n}}"
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "bdb91da2-31ac-41a5-bfeb-606d8bcd47d7",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [
+        1660,
+        1160
+      ]
+    },
+    {
+      "parameters": {
+        "url": "=https://sedo.com/search/details/?domain=classificados.online",
         "options": {}
       },
       "id": "1144f629-2c72-4fe2-a526-304ad37ae38a",
@@ -643,20 +717,45 @@
         "fields": {
           "values": [
             {
-              "name": "error",
-              "stringValue": "={{ $json.error }}"
+              "stringValue": "={{ $json.data }}"
             }
           ]
         },
         "options": {}
       },
-      "id": "bdb91da2-31ac-41a5-bfeb-606d8bcd47d7",
-      "name": "Edit Fields2",
+      "id": "e29efff4-f7fa-468d-a735-0769a00a5ee8",
+      "name": "Edit Fields3",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        1660,
+        1760,
+        1040
+      ]
+    },
+    {
+      "parameters": {
+        "html": "{{ $json.error }}"
+      },
+      "id": "d06ae74f-5db9-4fb3-bb44-0b722b0b353d",
+      "name": "HTML",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1860,
         1160
+      ]
+    },
+    {
+      "parameters": {
+        "html": "O Dominio pertece a uma warehouse conhecida: sedo.com\nA sondo geralmente publica os preços exigidos por cada dominio que detem.\n\n"
+      },
+      "id": "de4a5caa-b39f-4ce3-bab6-a54906a08c9d",
+      "name": "Data Extration1",
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        1040
       ]
     }
   ],
@@ -906,11 +1005,22 @@
         ]
       ]
     },
-    "Data Extration1": {
+    "Data Extration4": {
       "main": [
         [
           {
-            "node": "No Operation, do nothing1",
+            "node": "No Operation, do nothing4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "HTML",
             "type": "main",
             "index": 0
           }
@@ -921,7 +1031,7 @@
       "main": [
         [
           {
-            "node": "Data Extration1",
+            "node": "Edit Fields3",
             "type": "main",
             "index": 0
           }
@@ -935,11 +1045,33 @@
         ]
       ]
     },
-    "Edit Fields2": {
+    "Edit Fields3": {
       "main": [
         [
           {
             "node": "Data Extration1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTML": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Data Extration1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
             "type": "main",
             "index": 0
           }
@@ -951,7 +1083,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "9ee06a11-954f-46d5-abba-336fb8f3de5d",
+  "versionId": "5f10f12c-8d94-434f-a19e-f921943ff5f0",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
