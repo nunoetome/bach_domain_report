@@ -2,17 +2,6 @@
   "name": "bach_domain_report: detect_domain_warehouse",
   "nodes": [
     {
-      "parameters": {},
-      "id": "0ebe24ec-8ba0-43a3-84cf-3289a2868420",
-      "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -840,
-        320
-      ]
-    },
-    {
       "parameters": {
         "content": "# if it is a mydomaincontact.com domain\n## Ex:\n-kubidu.com\n\n",
         "height": 145.23893698912738,
@@ -117,8 +106,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        -680,
-        320
+        -560,
+        1320
       ]
     },
     {
@@ -142,23 +131,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        -600,
-        680
-      ]
-    },
-    {
-      "parameters": {
-        "events": [
-          "init"
-        ]
-      },
-      "id": "70c851ba-283a-4949-900c-9699fc15b911",
-      "name": "n8n Trigger",
-      "type": "n8n-nodes-base.n8nTrigger",
-      "typeVersion": 1,
-      "position": [
-        -840,
-        680
+        -480,
+        980
       ]
     },
     {
@@ -288,8 +262,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 3,
       "position": [
-        -520,
-        320
+        -400,
+        1320
       ]
     },
     {
@@ -301,8 +275,8 @@
       "type": "n8n-nodes-base.xml",
       "typeVersion": 1,
       "position": [
-        -360,
-        320
+        -240,
+        1320
       ]
     },
     {
@@ -316,8 +290,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -920,
-        240
+        -800,
+        1240
       ]
     },
     {
@@ -331,8 +305,8 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -920,
-        580
+        -800,
+        880
       ]
     },
     {
@@ -356,8 +330,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        -180,
-        320
+        -60,
+        1320
       ]
     },
     {
@@ -392,8 +366,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.2,
       "position": [
-        160,
-        480
+        300,
+        1100
       ]
     },
     {
@@ -420,7 +394,7 @@
     },
     {
       "parameters": {
-        "html": "unknown error"
+        "html": "No domain Warehouse detected"
       },
       "id": "d64867f2-686c-42db-ad06-9763ef85c64b",
       "name": "Data Extration2",
@@ -459,7 +433,7 @@
     },
     {
       "parameters": {
-        "html": "unknown error\n"
+        "html": "No domain Warehouse detected"
       },
       "id": "8b6e9e11-6d6f-463d-8cc9-0305f32d54f1",
       "name": "Data Extration3",
@@ -770,7 +744,7 @@
     },
     {
       "parameters": {
-        "html": "no known data warehouse"
+        "html": "No domain Warehouse detected"
       },
       "id": "78c26d28-2814-4ef4-a9b1-11f1bf8e3fd3",
       "name": "Data Extration4",
@@ -780,21 +754,21 @@
         1480,
         2160
       ]
+    },
+    {
+      "parameters": {},
+      "id": "78cd1639-97bd-4fe0-b6a4-d2aab30d2603",
+      "name": "input",
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1,
+      "position": [
+        -720,
+        980
+      ]
     }
   ],
   "pinData": {},
   "connections": {
-    "When clicking \"Execute Workflow\"": {
-      "main": [
-        [
-          {
-            "node": "Debug Settings",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "IF": {
       "main": [
         [
@@ -818,17 +792,6 @@
         [
           {
             "node": "HTTP_Request",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "n8n Trigger": {
-      "main": [
-        [
-          {
-            "node": "n8n call Settings1",
             "type": "main",
             "index": 0
           }
@@ -1118,13 +1081,24 @@
           }
         ]
       ]
+    },
+    "input": {
+      "main": [
+        [
+          {
+            "node": "n8n call Settings1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "6c17aac4-da1a-44a2-abbd-25006842125f",
+  "versionId": "d77b6655-522e-45ac-8c83-c1d6ffd3c23c",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
