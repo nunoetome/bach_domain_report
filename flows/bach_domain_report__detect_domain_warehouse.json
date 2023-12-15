@@ -765,6 +765,17 @@
         -720,
         980
       ]
+    },
+    {
+      "parameters": {},
+      "id": "604f59b5-2285-4b6f-882b-5f2c271ecb59",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -760,
+        1320
+      ]
     }
   ],
   "pinData": {},
@@ -1092,13 +1103,24 @@
           }
         ]
       ]
+    },
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Debug Settings",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "d77b6655-522e-45ac-8c83-c1d6ffd3c23c",
+  "versionId": "197c195e-e9cf-43f5-9cbc-b13ed0f16dd5",
   "id": "6qnzVGyEnHAZRQZo",
   "meta": {
     "instanceId": "9367b2af08e9ff6a8e91f8997d59b421f3a6d2d63dad9ad9e3e79d764c423975"
